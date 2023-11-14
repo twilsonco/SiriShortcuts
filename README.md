@@ -27,17 +27,17 @@
 * Uses OpenAI TTS to read back response in a more natural voice (needs "Speak text with OpenAI" (2A) shortcut installed)
 * Can modify shortcut to use ElevenLabs TTS for reading back response if desired, or to use iOS built-in TTS
 
-### C. [Weather summary](https://www.icloud.com/shortcuts/5c29fe42940a4275a7a4e92fac90dde8) 🔗
+### C. [Weather summary](https://www.icloud.com/shortcuts/d55f0b6034174a25bdedd0201bcf3638) 🔗
 
 * Fetches weather data for your current location and have ChatGPT read back a natural language summary of the upcoming weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/4f4f10b2306844ac8526f86aef32cbf6) 🔗
+### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/d7f5af6e14994f61931ea944c32c0dc0) 🔗
 
 * Define a list of iOS calendars which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### E. [ChatGPT via API](https://www.icloud.com/shortcuts/9aed05675a574bd385f73e4d5b77a9da) 🔗
+### E. [ChatGPT via API](https://www.icloud.com/shortcuts/19ab91b2feb24603b775b27255f28a2d) 🔗
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
 * Provide text as input and use the OpenAI API to submit the text to ChatGPT as a prompt
@@ -51,17 +51,19 @@
 
 ## 2. AI Text-to-speech (TTS)
 
-### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/1c4e5e9f26bc4a89a2bd6c6db24d0f3b) 🔗
+### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/145543df7c444a6d9117024365955cce) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using OpenAI's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
+* This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
-### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/2c24d1c527e347b1b8b4a3fed73f41fa) 🔗
+### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/e7c02a6799184bbfb7e4877556b7bc73) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using ElevenLabs's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
 * Requires your own [ElevenLabs API key](https://elevenlabs.io/docs/api-reference/authentication#) 🔗
+* This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
 ## 3. OpenPilot navigation shortcuts
 
