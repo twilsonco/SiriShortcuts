@@ -37,7 +37,7 @@
 * Define a list of iOS calendars which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### E. [ChatGPT via API](https://www.icloud.com/shortcuts/19ab91b2feb24603b775b27255f28a2d) 🔗
+### E. [ChatGPT via API](https://www.icloud.com/shortcuts/8110df928bfd4c438b2958b957502964) 🔗
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
 * Provide text as input and use the OpenAI API to submit the text to ChatGPT as a prompt
