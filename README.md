@@ -49,7 +49,7 @@
   * This method of "memory" will quickly increase the cost of using this shortcut, as the number of tokens in each API call will grow with each subsequent call
   * For this reason it is preferable, in my opinion, to use the ChatGPT app as in the above shortcuts so that OpenAI's own internal method of "memory" is used, which has none of these drawbacks
 
-### F. [Create calendar events](https://www.icloud.com/shortcuts/297dbe1a36f34c5fba24e32eca89a212) 🔗
+### F. [Create calendar events](https://www.icloud.com/shortcuts/c68ab6722be147cfb83e17c91d0e7d89) 🔗
 
 * Takes text (or an image/screenshot containing text), e.g. from an email client or Messages and uses ChatGPT to suggest one or more calendar events from the text content
 * You can choose which identified events will be added, and edit details beforehand if necessary
@@ -58,6 +58,7 @@
   * an appropriate event title
   * start/end time and all day status
   * location
+  * url
   * an appropriate calendar
   * attendee list
   * notes with references to relevant part(s) of the text used for creating the event
