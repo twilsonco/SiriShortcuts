@@ -49,6 +49,26 @@
   * This method of "memory" will quickly increase the cost of using this shortcut, as the number of tokens in each API call will grow with each subsequent call
   * For this reason it is preferable, in my opinion, to use the ChatGPT app as in the above shortcuts so that OpenAI's own internal method of "memory" is used, which has none of these drawbacks
 
+### F. [Create calendar events](https://www.icloud.com/shortcuts/297dbe1a36f34c5fba24e32eca89a212) 🔗
+
+* Takes text (or an image/screenshot containing text), e.g. from an email client or Messages and uses ChatGPT to suggest one or more calendar events from the text content
+* Messages and email clients suck at suggesting events; they're always incomplete and unhelpful and require additional user input. This lets ChatGPT improve the process by parsing out the necessary information automatically
+* Automatically populates
+  * an appropriate event title
+  * start/end time and all day status
+  * location
+  * an appropriate calendar
+  * attendee list
+  * notes with references to relevant part(s) of the text used for creating the event
+
+### G. [Add work shifts to calendar](https://www.icloud.com/shortcuts/543ac4dc519e4bf0979cc2e93138f8ba) 🔗
+
+* Does your work send you your upcoming schedule in a text or email? (Those jerks...)
+* This shortcut will take that message and create calendar events with them automatically
+* Can be setup to run as an automation to be triggered by a text message/email, assuming the sending phone number or email address is consistent
+* If the message/email is an amended schedule, this will check for conflicts with previously created shifts and delete the old ones
+* Uses the "ChatGPT via API" shortcut (see E above) to make it more reliable, since it's meant to be run automatically. You can modify it easily to use the ChatGPT app instead. 
+
 ## 2. AI Text-to-speech (TTS)
 
 ### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/145543df7c444a6d9117024365955cce) 🔗
