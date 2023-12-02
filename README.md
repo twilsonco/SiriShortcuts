@@ -52,6 +52,7 @@
 ### F. [Create calendar events](https://www.icloud.com/shortcuts/297dbe1a36f34c5fba24e32eca89a212) 🔗
 
 * Takes text (or an image/screenshot containing text), e.g. from an email client or Messages and uses ChatGPT to suggest one or more calendar events from the text content
+* You can choose which identified events will be added, and edit details beforehand if necessary
 * Messages and email clients suck at suggesting events; they're always incomplete and unhelpful and require additional user input. This lets ChatGPT improve the process by parsing out the necessary information automatically
 * Automatically populates
   * an appropriate event title
