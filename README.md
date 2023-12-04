@@ -40,7 +40,8 @@
 ### E. [ChatGPT via API](https://www.icloud.com/shortcuts/f1c96beb5c0049aea59987e84bf82c32) 🔗
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
-* Provide text as input and use the OpenAI API to submit the text to ChatGPT as a prompt
+* Provide text or a valid dictionary as input and use the OpenAI API to submit the text to ChatGPT as a prompt
+  * Valid input dictionary contains optional keys “prompt”, “model”, “temperature”, and “apikey”
 * If run with no input, the Shortcut will ask for text input
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
 * This does not provide any back-and-forth conversation capability, and only provides a basic example of how to use the OpenAI API for interacting with ChatGPT
