@@ -80,7 +80,7 @@
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
 * This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
-### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/e7c02a6799184bbfb7e4877556b7bc73) 🔗
+### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/7e22bd9393ca4cd2bc84e0a1770a3bcc) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using ElevenLabs's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
