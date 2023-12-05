@@ -37,7 +37,7 @@
 * Define a list of iOS calendars which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### E. [ChatGPT via API](https://www.icloud.com/shortcuts/f1c96beb5c0049aea59987e84bf82c32) 🔗
+### E. [ChatGPT via API](https://www.icloud.com/shortcuts/b25f4e45e68d4f02ae01a54cad2f59ea) 🔗
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
 * Provide text or a valid dictionary as input and use the OpenAI API to submit the text to ChatGPT as a prompt
@@ -74,14 +74,14 @@
 
 ## 2. AI Text-to-speech (TTS)
 
-### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/145543df7c444a6d9117024365955cce) 🔗
+### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/c36c82b460af49faa84c7d35f361d7cc) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using OpenAI's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
 * This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
-### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/7e22bd9393ca4cd2bc84e0a1770a3bcc) 🔗
+### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/8b88d3bae22647fe8566a612bbbd06cc) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using ElevenLabs's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
