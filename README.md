@@ -27,14 +27,14 @@
 * Uses OpenAI TTS to read back response in a more natural voice (needs "Speak text with OpenAI" (2A) shortcut installed)
 * Can modify shortcut to use ElevenLabs TTS for reading back response if desired, or to use iOS built-in TTS
 
-### C. [Weather summary](https://www.icloud.com/shortcuts/c96a65a800e647b49dbb7efc0374e018) 🔗
+### C. [Weather summary](https://www.icloud.com/shortcuts/d844ac557277490cb8cf3d17abda5c8d) 🔗
 
 * Fetches weather data for your current location and have ChatGPT read back a natural language summary of the upcoming weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/0946571ff6364c8fb9669ce068e657b6) 🔗
+### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/03b880cdd1064c7fb652bd212f49fd66) 🔗
 
-* [Same but for weekly agenda](https://www.icloud.com/shortcuts/0da5353c70cd43509e8e66e6c556ce04) 🔗
+* [Same but for weekly agenda](https://www.icloud.com/shortcuts/58fcfa8a59dc46eb99ce676184fcc216) 🔗
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda along with the weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
