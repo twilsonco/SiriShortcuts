@@ -32,9 +32,9 @@
 * Fetches weather data for your current location and have ChatGPT read back a natural language summary of the upcoming weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/03b880cdd1064c7fb652bd212f49fd66) 🔗
+### D. [Today's agenda and weather](https://www.icloud.com/shortcuts/37e039275d6f48cfa13d3acac46640b4) 🔗
 
-* [Same but for weekly agenda](https://www.icloud.com/shortcuts/58fcfa8a59dc46eb99ce676184fcc216) 🔗
+* [Same but for weekly agenda](https://www.icloud.com/shortcuts/76e8d60616164b779ae70ebafbcfea2e) 🔗
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda along with the weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
