@@ -120,3 +120,14 @@
 * Install links:
   * [Restart Mac](https://www.icloud.com/shortcuts/92d8a4d8a11c4f21869e8a37180e8132) 🔗
   * [Shutdown Mac](https://www.icloud.com/shortcuts/714cbb1e3ff642be86a356315955adcc) 🔗
+
+## 6. Other
+
+### A. [Reminders to PDF](https://www.icloud.com/shortcuts/44be4fffcc46440686ac77c8036a371f) 🔗
+
+* You specify one or more Reminders lists along with number of past/future days to include, and when run, the shortcut produces a nicely formatted PDF that contains all reminders *with set due dates* in the specified lists
+* Shows most pertinent reminder data *if present*: title, name (if different from title), notes, completed, priority, flagged, tags, location (macOS only due to a bug in iOS), URL, images, and subtasks
+* Subtasks will work without due dates
+* Here's what the resulting PDF looks like
+
+![](img/ReminderPDF.png)
