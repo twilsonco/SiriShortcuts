@@ -123,10 +123,11 @@
 
 ## 6. Other
 
-### A. [Reminders to PDF](https://www.icloud.com/shortcuts/5dea0dc181944071971af9fca2cb63ef) 🔗
+### A. [Reminders to PDF](https://www.icloud.com/shortcuts/b79435871c4b44bdbdcdd57ef5272100) 🔗
 
-* You specify one or more Reminders lists along with number of past/future days to include, and when run, the shortcut produces a nicely formatted PDF that contains all reminders *with set due dates* in the specified lists
+* You specify one or more Reminders lists along with number of past/future days to include, and when run, the shortcut produces a nicely formatted PDF that contains all reminders in the specified lists, one PDF per list
 * Shows most pertinent reminder data *if present*: title, name (if different from title), notes, completed, priority, flagged, tags, location (macOS only due to a bug in iOS), URL, images, and subtasks
+* Works with repeat reminders, showing next due instance of the repeat reminder and the count of completed instances
 * Subtasks will work without due dates
 * Here's what the resulting PDF looks like
 
