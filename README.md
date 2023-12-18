@@ -51,7 +51,7 @@
   * This method of "memory" will quickly increase the cost of using this shortcut, as the number of tokens in each API call will grow with each subsequent call
   * For this reason it is preferable, in my opinion, to use the ChatGPT app as in the above shortcuts so that OpenAI's own internal method of "memory" is used, which has none of these drawbacks
 
-### F. [Create calendar events](https://www.icloud.com/shortcuts/c68ab6722be147cfb83e17c91d0e7d89) 🔗
+### F. [Create calendar events](https://routinehub.co/shortcut/17514/) 🔗
 
 * Takes text (or an image/screenshot containing text), e.g. from an email client or Messages and uses ChatGPT to suggest one or more calendar events from the text content
 * You can choose which identified events will be added, and edit details beforehand if necessary
@@ -71,7 +71,7 @@
 * This shortcut will take that message and create calendar events with them automatically
 * Can be setup to run as an automation to be triggered by a text message/email, assuming the sending phone number or email address is consistent
 * If the message/email is an amended schedule, this will check for conflicts with previously created shifts and delete the old ones
-* Uses the "ChatGPT via API" shortcut (see E above) to make it more reliable, since it's meant to be run automatically. You can modify it easily to use the ChatGPT app instead. 
+* Uses the "ChatGPT via API" shortcut (see E above) to make it more reliable, since it's meant to be run automatically. You can modify it easily to use the ChatGPT app instead.
 
 ## 2. AI Text-to-speech (TTS)
 
@@ -123,7 +123,7 @@
 
 ## 6. Other
 
-### A. [Reminders to PDF](https://www.icloud.com/shortcuts/b79435871c4b44bdbdcdd57ef5272100) 🔗
+### A. [Reminders to PDF](https://routinehub.co/shortcut/17512/) 🔗
 
 * You specify one or more Reminders lists along with number of past/future days to include, and when run, the shortcut produces a nicely formatted PDF that contains all reminders in the specified lists, one PDF per list
 * Shows most pertinent reminder data *if present*: title, name (if different from title), notes, completed, priority, flagged, tags, location (macOS only due to a bug in iOS), URL, images, and subtasks
