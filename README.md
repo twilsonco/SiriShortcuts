@@ -79,6 +79,7 @@
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
+* Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
 ```
 This shortcut is design to be run standalone or from other Shortcuts. It passes the input prompt to Google via their API and returns the response if successful.
