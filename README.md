@@ -73,7 +73,54 @@
 * If the message/email is an amended schedule, this will check for conflicts with previously created shifts and delete the old ones
 * Uses the "ChatGPT via API" shortcut (see E above) to make it more reliable, since it's meant to be run automatically. You can modify it easily to use the ChatGPT app instead.
 
-## 2. AI Text-to-speech (TTS)
+## 2. Google Gemini Pro
+
+### A. [Gemini via API](https://www.icloud.com/shortcuts/941d1293adc9495d94feab93ee624dd6) 🔗
+
+* Drop-in replacement for the "Ask ChatGPT" shortcut action, or
+* Runs standalone for text/image-based Gemini requests
+
+```
+This shortcut is design to be run standalone or from other Shortcuts. It passes the input prompt to Google via their API and returns the response if successful.
+
+Input: Text (a prompt, possibly via Share Sheet), 
+OR 
+a valid Dictionary with optional keys, 
+“prompt”, “messages”, “image”, “model”, “temperature”, “apikey”, “repeat”, and “speak”
+OR 
+nothing. If no prompt is provided, user will be asked to provide one before continuing. 
+
+Output: A text string containing the bot response, OR an output dictionary containing “messages” and “output”. 
+
+Setup:  Can set default model, API key and temperature.
+```
+```
+Dictionary input arguments:
+“model” a valid model name to use.
+“temperature” a number between 0 and 
+“messages” a JSON array passed as the “contents” to the API. You don’t have to build it manually, since it’spart of the output. Just maintain it between calls to the shortcut. (see https://ai.google.dev/tutorials/rest_quickstart#multi-turn_conversations_chat). 
+“image” is a text string that is a base64-encoded image. 
+“repeat” is 0 or 1 to control if this shortcut repeats automatically (ongoing conversation). 1 to repeat. 
+“speak” is 0 or 1 to control if output is read aloud. 1 to speak. 
+
+https://ai.google.dev/docs/concepts#model_parameters
+https://ai.google.dev/tutorials/rest_quickstart#configuration
+
+Dictionary output content:
+When a dictionary is used as input, this shortcut will output a dictionary with “output” string and “messages” JSON array that can be passed back into the shortcut.
+```
+
+### B. [What is this?](https://www.icloud.com/shortcuts/937cc91010134a61992964fbb5c2b0cd) 🔗
+
+* A simple example of a shortcut utilizing the “Gemini via API” shortcut.
+* This takes a picture and has gemini describe it. This is intended to be used via Siri or through a widget.
+
+### C. [I have a question, Gemini](https://www.icloud.com/shortcuts/4775cb1a18b544b795be204bcf9e0376) 🔗
+
+* This shortcut allows you to have a voice-only, back-and-forth conversation with Google Gemini Pro, using the “Gemini via API” shortcut.
+* You can also pass this shortcut an image/photo via the share sheet and the image will be included with every request so you can query the same image repeatedly. (No previous messages are retained when an image is used, due to Google API constraints)
+
+## 3. AI Text-to-speech (TTS)
 
 ### A. [Speak text with OpenAI](https://www.icloud.com/shortcuts/c36c82b460af49faa84c7d35f361d7cc) 🔗
 
@@ -89,20 +136,20 @@
 * Requires your own [ElevenLabs API key](https://elevenlabs.io/docs/api-reference/authentication#) 🔗
 * This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
-## 3. OpenPilot navigation shortcuts
+## 4. OpenPilot navigation shortcuts
 
 * OpenPilot is an after-market level-II autonomous driving product by [Comma.ai](https://comma.ai) 🔗
 * It can now perform nearly full navigation from origin to destination, stopping for lights/signs, and performing turns completely unassisted
 * These Shortcuts simplify the process of setting a navigation destination
 * See the [separate repository for the Shortcuts here](https://github.com/twilsonco/OpenPilotSiriShortcuts) 🔗
 
-## 4. Mobile Safari
+## 5. Mobile Safari
 
 ### A. Open in Chrome 🔗
 
 * Use the [share sheet](https://www.idownloadblog.com/2020/04/21/customize-share-sheet-iphone-ipad/) 🔗 in Safari on iOS/iPadOS to open the current website in the Google Chrome app
 
-## 5. macOS Shortcuts
+## 6. macOS Shortcuts
 
 ### A. Activate/deactivate head pointer
 
@@ -121,7 +168,7 @@
   * [Restart Mac](https://www.icloud.com/shortcuts/92d8a4d8a11c4f21869e8a37180e8132) 🔗
   * [Shutdown Mac](https://www.icloud.com/shortcuts/714cbb1e3ff642be86a356315955adcc) 🔗
 
-## 6. Other
+## 7. Other
 
 ### A. [Reminders to PDF](https://routinehub.co/shortcut/17512/) 🔗
 
