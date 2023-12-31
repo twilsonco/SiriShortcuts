@@ -88,7 +88,7 @@ This shortcut is design to be run standalone or from other Shortcuts. It passes 
 Input: Text (a prompt, possibly via Share Sheet), 
 OR 
 a valid Dictionary with optional keys, 
-“prompt”, “messages”, “image”, “model”, “temperature”, “apikey”, “repeat”, and “speak”
+“prompt”, “messages”, “image”, “model”, “temperature”, “apikey”, “repeat”, “speak”, "datetime", and "disablelogging"
 OR 
 nothing. If no prompt is provided, user will be asked to provide one before continuing. 
 
