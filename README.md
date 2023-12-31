@@ -75,7 +75,7 @@
 
 ## 2. Google Gemini Pro
 
-### A. [Gemini via API](https://www.icloud.com/shortcuts/196aa8c86fbb4365abb64ddb87724bb7) 🔗
+### A. [Gemini via API](https://www.icloud.com/shortcuts/7542c0ed09514035a772100045e5dadb) 🔗
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
@@ -116,7 +116,7 @@ When a dictionary is used as input, this shortcut will output a dictionary with 
 * A simple example of a shortcut utilizing the “Gemini via API” shortcut.
 * This takes a picture and has gemini describe it. This is intended to be used via Siri or through a widget.
 
-### C. [I have a question, Gemini](https://www.icloud.com/shortcuts/4775cb1a18b544b795be204bcf9e0376) 🔗
+### C. [I have a question](https://www.icloud.com/shortcuts/c75e55ead46c4192987a2f8312f30f30) 🔗
 
 * This shortcut allows you to have a voice-only, back-and-forth conversation with Google Gemini Pro, using the “Gemini via API” shortcut.
 * You can also pass this shortcut an image/photo via the share sheet and the image will be included with every request so you can query the same image repeatedly. (No previous messages are retained when an image is used, due to Google API constraints)
