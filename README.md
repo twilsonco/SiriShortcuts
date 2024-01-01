@@ -75,11 +75,12 @@
 
 ## 2. Google Gemini Pro
 
-### A. [Gemini via API](https://www.icloud.com/shortcuts/7542c0ed09514035a772100045e5dadb) 🔗
+### A. [Gemini via API](https://www.icloud.com/shortcuts/b580601d57654a75b996f440d0a3bb42) 🔗
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
+* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/1572ecc86a0f4f7c82fca8fd3a88013d)
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
 ```
