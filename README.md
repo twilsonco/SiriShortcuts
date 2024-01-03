@@ -123,14 +123,14 @@ When a dictionary is used as input, this shortcut will output a dictionary with 
 * This shortcut allows you to have a voice-only, back-and-forth conversation with Google Gemini Pro, using the “Gemini via API” shortcut.
 * You can also pass this shortcut an image/photo via the share sheet and the image will be included with every request so you can query the same image repeatedly. (No previous messages are retained when an image is used, due to Google API constraints)
 
-### D. [Weather summary](https://www.icloud.com/shortcuts/350a6452204c4fb1b3ee672b1ddbc5b1) 🔗
+### D. [Weather summary](https://www.icloud.com/shortcuts/d08dbf17f1eb4252bff66480af711872) 🔗
 
 * Fetches weather data for your current location and have Gemini read back a natural language summary of the upcoming weather
 * Uses "Gemini via API"
 
-### E. [Today's agenda and weather](https://www.icloud.com/shortcuts/9f8a9fe7ae234a0fad507a19a14e6460) 🔗
+### E. [Today's agenda and weather](https://www.icloud.com/shortcuts/037d1f46da9b4edc8c987d6e7b6d95b7) 🔗
 
-* [Same but for weekly agenda](https://www.icloud.com/shortcuts/53a3b8aa952e4d74a8f66c2f53fee396) 🔗
+* [Same but for weekly agenda](https://www.icloud.com/shortcuts/4ac303452b254cd49472fc5ecda3df3b) 🔗
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have Gemini read back a summary of your agenda along with the weather
 * Uses "Gemini via API"
 
