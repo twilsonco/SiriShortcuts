@@ -80,7 +80,7 @@
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
-* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/15c1fcf0e9bf4fbbb862122ab56b8c1d) 🔗
+* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/96b10492450a4f97a68b740af3e2e044) 🔗
   * Companion shortcut uses actions from [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
