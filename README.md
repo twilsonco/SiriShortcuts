@@ -81,7 +81,7 @@
 * Runs standalone for text/image-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
 * [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/16edafadcee248a0b0fa082037a8d199) 🔗
-  * Companion shortcut uses actions from [ToolBox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
+  * Companion shortcut uses actions from [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
 ```
