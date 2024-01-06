@@ -75,12 +75,12 @@
 
 ## 2. Google Gemini Pro
 
-### A. [Gemini via API](https://www.icloud.com/shortcuts/b580601d57654a75b996f440d0a3bb42) 🔗
+### A. [Gemini via API](https://www.icloud.com/shortcuts/61be06430fa4496a8d8f70b337d07840) 🔗
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
-* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/f6a827949c3d43d5ac40c775c91caa4a) 🔗
+* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/16edafadcee248a0b0fa082037a8d199) 🔗
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
 ```
@@ -123,14 +123,14 @@ When a dictionary is used as input, this shortcut will output a dictionary with 
 * This shortcut allows you to have a voice-only, back-and-forth conversation with Google Gemini Pro, using the “Gemini via API” shortcut.
 * You can also pass this shortcut an image/photo via the share sheet and the image will be included with every request so you can query the same image repeatedly. (No previous messages are retained when an image is used, due to Google API constraints)
 
-### D. [Weather summary](https://www.icloud.com/shortcuts/d08dbf17f1eb4252bff66480af711872) 🔗
+### D. [Weather summary](https://www.icloud.com/shortcuts/16fad00ff02b43f3b4e067aa62928939) 🔗
 
 * Fetches weather data for your current location and have Gemini read back a natural language summary of the upcoming weather
 * Uses "Gemini via API"
 
-### E. [Today's agenda and weather](https://www.icloud.com/shortcuts/037d1f46da9b4edc8c987d6e7b6d95b7) 🔗
+### E. [Today's agenda and weather](https://www.icloud.com/shortcuts/2d1706f1b55a489487d00d443e8e16b5) 🔗
 
-* [Same but for weekly agenda](https://www.icloud.com/shortcuts/4ac303452b254cd49472fc5ecda3df3b) 🔗
+* [Same but for weekly agenda](https://www.icloud.com/shortcuts/032fdb0bab6f40f1895fb0db773dbb47) 🔗
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have Gemini read back a summary of your agenda along with the weather
 * Uses "Gemini via API"
 
