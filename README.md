@@ -84,6 +84,8 @@
   * Companion shortcut uses actions from [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
+![Screenshots of the View/continue Gemini conversation companion shortcut](img/view-continue-gemini-convo.png)
+
 ```
 This shortcut is design to be run standalone or from other Shortcuts. It passes the input prompt to Google via their API and returns the response if successful.
 
