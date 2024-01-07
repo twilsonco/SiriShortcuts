@@ -75,12 +75,12 @@
 
 ## 2. Google Gemini Pro
 
-### A. [Gemini via API](https://www.icloud.com/shortcuts/61be06430fa4496a8d8f70b337d07840) 🔗
+### A. [Gemini via API](https://routinehub.co/shortcut/17624/) 🔗
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
 * Runs standalone for text/image-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
-* [View/continue Gemini conversation with this companion shortcut](https://www.icloud.com/shortcuts/96b10492450a4f97a68b740af3e2e044) 🔗
+* [View/continue Gemini conversation with this companion shortcut](https://routinehub.co/shortcut/17671/) 🔗
   * Companion shortcut uses actions from [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
 * Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
 
@@ -116,24 +116,24 @@ Dictionary output content:
 When a dictionary is used as input, this shortcut will output a dictionary with “output” string and “messages” JSON array that can be passed back into the shortcut.
 ```
 
-### B. [What is this?](https://www.icloud.com/shortcuts/937cc91010134a61992964fbb5c2b0cd) 🔗
+### B. [What is this?](https://routinehub.co/shortcut/17670/) 🔗
 
 * A simple example of a shortcut utilizing the “Gemini via API” shortcut.
 * This takes a picture and has gemini describe it. This is intended to be used via Siri or through a widget.
 
-### C. [I have a question](https://www.icloud.com/shortcuts/c75e55ead46c4192987a2f8312f30f30) 🔗
+### C. [I have a question](https://routinehub.co/shortcut/17672/) 🔗
 
 * This shortcut allows you to have a voice-only, back-and-forth conversation with Google Gemini Pro, using the “Gemini via API” shortcut.
 * You can also pass this shortcut an image/photo via the share sheet and the image will be included with every request so you can query the same image repeatedly. (No previous messages are retained when an image is used, due to Google API constraints)
 
-### D. [Weather summary](https://www.icloud.com/shortcuts/16fad00ff02b43f3b4e067aa62928939) 🔗
+### D. [Weather summary](https://routinehub.co/shortcut/17674/) 🔗
 
 * Fetches weather data for your current location and have Gemini read back a natural language summary of the upcoming weather
 * Uses "Gemini via API"
 
-### E. [Today's agenda and weather](https://www.icloud.com/shortcuts/2d1706f1b55a489487d00d443e8e16b5) 🔗
+### E. [Today's agenda and weather](https://routinehub.co/shortcut/17673/) 🔗
 
-* [Same but for weekly agenda](https://www.icloud.com/shortcuts/032fdb0bab6f40f1895fb0db773dbb47) 🔗
+* [Same but for weekly agenda](https://routinehub.co/shortcut/17675/) 🔗
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have Gemini read back a summary of your agenda along with the weather
 * Uses "Gemini via API"
 
