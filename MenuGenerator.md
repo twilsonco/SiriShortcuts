@@ -16,24 +16,26 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Supported Icons:**
 
-- Base64 icons
+- Base64 icons (e.g. created from photos, or bring your own)
 - Font Awesome icons
 - Emoji icons
-- Photo icons
 
 **Icon caching:** Icons are cached to a file in your iCloud to increase performance.
 
-**Quick menus:** Create simple menus with a text field similar to Toolbox Pro.
+**Quick menus:** Create simple menus with a text field similar to Toolbox Pro. 
 
-**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. 
+**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (structure of menu item dictionary inspired by )
 
-**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed. 
+**Unlimited Custom Fields:** Include "hidden" fields to store data with menu items that is not shown in the created menu, and that can be accessed after a menu option is tapped. You can define as many custom fields as needed.
+
 ## Limited Permission Prompts
 
 ![Menu Generator Permissions Screenshots](https://i.imgur.com/y1YWxll_d.webp?maxwidth=1520&fidelity=grand)
 
- Limits permission prompts to just running another Shortcut, loading web content, and Photos.
- (Only needs to load web content to pull Font Awesome icons)
+Limits permission prompts to just:
+
+- running another Shortcut (unless embedded within shortcut), and 
+- loading web content (for Font Awesome icons).
 
 ## How To Use Menu Generator
 
@@ -47,9 +49,10 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 ## Credits
 
-- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220)
-- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899)
-- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750)
+- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist)
+- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image
+- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching
+- [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input)
 
 ## Attribution 
 
