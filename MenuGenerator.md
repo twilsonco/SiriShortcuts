@@ -1,4 +1,4 @@
-![Menu Generator Banner](https://i.imgur.com/jUscvcj_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator Banner](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-banner.png)
 
 Easily create menus for your Shortcuts without any external apps.
 
@@ -8,7 +8,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 ***
 
-![Menu Generator Screenshots](https://i.imgur.com/7dJCwVz_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero.png?raw=true)
 
 ## Menu Generator Features
 
@@ -30,14 +30,14 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 **Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed. 
 ## Limited Permission Prompts
 
-![Menu Generator Permissions Screenshots](https://i.imgur.com/y1YWxll_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.PNG)
 
  Limits permission prompts to just running another Shortcut, loading web content, and Photos.
  (Only needs to load web content to pull Font Awesome icons)
 
 ## How To Use Menu Generator
 
-![Menu Generator Menu Examples Screenshots](https://i.imgur.com/9p9Xuat_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator Menu Examples Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
 ## Creating Advanced Menus Using Dictionaries
 
@@ -51,15 +51,15 @@ To make an advanced menu you need to create a dictionary with the following text
 2. `sub` - This will be the smaller text below that.
 3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icons you want to use. 
 
-![Menu Generator - Menu Command Image](https://i.imgur.com/MS1pGa1_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator - Menu Command Image](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
 
 ### Using the `menu` Command To Generate The Menu
 
-1. Below the first dictionary that you created with the data for your menu, make another one with a text key named `command` with the value `menu`. 
+1. Below the first dictionary you created with the data for your menu, make another one with a text key named `command` with the value `menu`. 
 2. Next, add a `Set Dictionary` action and set the name of `Menu item list`   `menu`.
 3. Below that, use the `Run Shortcut` action to run Menu Generator.
 
-
+### Tell Shortcuts That Output Is A vCard File
 
 1. Then, use a `Set Name` action to set the name of `Shortcut Result` to `Menu.vcf`.
 2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type is set to `contact`.
@@ -70,6 +70,8 @@ To make an advanced menu you need to create a dictionary with the following text
 	- `command` - with the value `get menu item details`.
 	- `title` - with the value `Name` pulled from a magic variable of the `Renamed Item`.
 	- `sub` - with the value `Company` also pulled from a magic variable of the `Renamed Item`.
+
+## Using the Quick Menu Tool
 
 `To Do: Finish this section`
 
@@ -89,7 +91,7 @@ If you use Menu Generator in any of your Shortcuts please place a comment with t
 
 If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platform please use this badge:
 
-![Menu Generator Badge](https://i.imgur.com/PFJzmKV_d.webp?maxwidth=1520&fidelity=grand)
+![Menu Generator Badge](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true))
 
 ### You Can Copy This Markdown To Make It Easier
 
