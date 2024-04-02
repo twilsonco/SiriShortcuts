@@ -2,7 +2,7 @@
 
 Easily create menus for your Shortcuts without any external apps.
 
-Menu Generator can be embedded or ran from the `Run Shortcut` action to create stunning feature-rich menus. 
+Menu Generator can be embedded or run from the `Run Shortcut` action to create stunning feature-rich menus. 
 
 Feed it the command and menu data in a dictionary or text field, the it does the rest!
 
@@ -27,7 +27,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. 
 
-**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed.
+**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data for use when a menu option is tapped. You can also define as many custom fields as needed.
 
 ## Limited Permission Prompts
 
@@ -103,7 +103,7 @@ After that, you can then use `If` actions to perform tasks based on the option s
 - [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) *Requires Toolbox Pro*
     - Uses Toolbox Pro to create an advanced menu.
 - [Menu Generator Example - Menu Items](https://www.icloud.com/shortcuts/effd803e7aae4421b79c3026838c8f3c)
-    - Creates an advanced menu with Menu Generator, then uses the cache to present another menu without the need to regenerating anything.
+    - Creates an advanced menu with Menu Generator, then uses the cache to present another menu without the need to regenerate anything.
 - [Menu Generator - Quick Menu](https://www.icloud.com/shortcuts/6d01003ff5bd4e91b784bef436385b6b)
     - Creates a quick menu utilizing a `text` action.
 - [Toolbox Pro Quick Menu](https://www.icloud.com/shortcuts/3bdb5b49dfb44884afc5472b6386919f)
