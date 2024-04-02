@@ -16,7 +16,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Supported Icons:**
 
-- Base64 icons
+- Base64 icons (e.g. created from photos, or bring your own)
 - Font Awesome icons
 - Emoji icons
 - Photo icons
@@ -25,9 +25,9 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Quick menus:** Create simple menus with a text field similar to Toolbox Pro.
 
-**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. 
+**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (structure of menu item dictionary inspired by )
 
-**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data for use when a menu option is tapped. You can also define as many custom fields as needed.
+**Unlimited Custom Fields:** Include "hidden" fields to store data with menu items that is not shown in the created menu, and that can be accessed after a menu option is tapped. You can define as many custom fields as needed.
 
 ## Limited Permission Prompts
 
