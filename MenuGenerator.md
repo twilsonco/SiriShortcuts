@@ -8,7 +8,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 ***
 
-![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero.png?raw=true)
+![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
 
 ## Menu Generator Features
 
