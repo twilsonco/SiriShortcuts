@@ -39,7 +39,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 ![Menu Generator Menu Examples Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
-## Creating Advanced Menus Using Dictionaries
+### Creating Advanced Menus Using Dictionaries
 
 Using a dictionary to make menus allows for the most functionality and is a bit quicker than using the text-based quick menu.
 
@@ -59,7 +59,7 @@ To make an advanced menu you need to create a dictionary with the following text
 2. Next, add a `Set Dictionary` action and set the name of `Menu item list`   `menu`.
 3. Below that, use the `Run Shortcut` action to run Menu Generator.
 
-### Tell Shortcuts That Output Is A vCard File
+### Tell Shortcuts That The Output Is A vCard File
 
 1. Then, use a `Set Name` action to set the name of `Shortcut Result` to `Menu.vcf`.
 2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type is set to `contact`.
