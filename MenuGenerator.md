@@ -25,7 +25,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Quick menus:** Create simple menus with a text field similar to Toolbox Pro.
 
-**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (structure of menu item dictionary inspired by [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977)).
+**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (Structure of menu item dictionary inspired by [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977)).
 
 **Unlimited Custom Fields:** Include "hidden" fields to store data with menu items that is not shown in the created menu, and that can be accessed after a menu option is tapped. You can define as many custom fields as needed.
 
@@ -102,7 +102,7 @@ After that, you can then use `If` actions to perform tasks based on the option s
 
 - [Menu Generator Example - Menu](https://www.icloud.com/shortcuts/faf299dcdb0845a6aaf3957e7ad54e3b)
     - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, Emoji, and Photos).
-- [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) *Requires Toolbox Pro*
+- [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) - (*Requires Toolbox Pro*)
     - Uses Toolbox Pro to create an advanced menu.
 - [Menu Generator Example - Menu Items](https://www.icloud.com/shortcuts/effd803e7aae4421b79c3026838c8f3c)
     - Creates an advanced menu with Menu Generator, then uses the cache to present another menu without the need to regenerate anything.
@@ -115,10 +115,10 @@ After that, you can then use `If` actions to perform tasks based on the option s
 
 ## Credits
 
-- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist)
-- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image
-- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching
-- [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input)
+- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist).
+- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image.
+- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching.
+- [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input).
 
 ## Attribution 
 
