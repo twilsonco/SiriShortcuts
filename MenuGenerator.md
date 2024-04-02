@@ -54,7 +54,7 @@ To make an advanced menu you need to use a `Dictionary` action with the followin
 
 ![Menu Generator - Menu Command Image](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
 
-### Using the `menu` Command To Generate The Menu
+### Using The `menu` Command To Generate The Menu
 
 1. Below the first dictionary you created with the data for your menu, make another one with a text key named `command` with the value `menu`. 
 2. Next, add a `Set Dictionary` action and set the name of `Menu item list`   `menu`.
