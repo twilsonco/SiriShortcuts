@@ -114,7 +114,7 @@ If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platfo
 
 `![Menu Generator by @twilsonco](https://i.imgur.com/PFJzmKV_d.webp?maxwidth=1520&fidelity=grand)`
 
-> RoutineHub page created by [jpasholk](https://routinehub.co/user/jpasholk).
+> Markdown for GitHub & RoutineHub created with &#x2665; by [jpasholk](https://routinehub.co/user/jpasholk).
 
 ***
 
