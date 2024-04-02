@@ -108,7 +108,7 @@ If you use Menu Generator in any of your Shortcuts please place a comment with t
 
 If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platform please use this badge:
 
-![Menu Generator Badge](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true))
+![Menu Generator Badge](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)
 
 ### You Can Copy This Markdown To Make It Easier
 
