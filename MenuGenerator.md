@@ -57,7 +57,7 @@ To make an advanced menu you need to use a `Dictionary` action with the followin
 ### Using The `menu` Command To Generate The Menu
 
 1. Below the first dictionary you created with the data for your menu, make another one with a text key named `command` with the value `menu`. 
-2. Next, add a `Set Dictionary` action and set the name of `Menu item list`   `menu`.
+2. Next, add a `Set Dictionary` action and set the name of `Menu item list` to `menu`.
 3. Below that, use the `Run Shortcut` action to run Menu Generator.
 
 ### Tell Shortcuts That Output Is A vCard File
