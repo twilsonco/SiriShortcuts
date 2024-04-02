@@ -30,7 +30,7 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 **Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed. 
 ## Limited Permission Prompts
 
-![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.PNG)
+![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.png)
 
  Limits permission prompts to just running another Shortcut, loading web content, and Photos.
  (Only needs to load web content to pull Font Awesome icons)
@@ -45,7 +45,7 @@ Using a dictionary to make menus allows for the most functionality and is a bit 
 
 ### Creating The Dictionary
 
-To make an advanced menu you need to create a dictionary with the following text keys:
+To make an advanced menu you need to use a `Dictionary` action with the following text keys:
 
 1. `title` - This will be the larger bold text title for each menu option.
 2. `sub` - This will be the smaller text below that.
@@ -59,7 +59,7 @@ To make an advanced menu you need to create a dictionary with the following text
 2. Next, add a `Set Dictionary` action and set the name of `Menu item list`   `menu`.
 3. Below that, use the `Run Shortcut` action to run Menu Generator.
 
-### Tell Shortcuts That The Output Is A vCard File
+### Tell Shortcuts That Output Is A vCard File
 
 1. Then, use a `Set Name` action to set the name of `Shortcut Result` to `Menu.vcf`.
 2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type is set to `contact`.
@@ -71,9 +71,25 @@ To make an advanced menu you need to create a dictionary with the following text
 	- `title` - with the value `Name` pulled from a magic variable of the `Renamed Item`.
 	- `sub` - with the value `Company` also pulled from a magic variable of the `Renamed Item`.
 
-## Using the Quick Menu Tool
+Create A Menu With The Quick Menu Tool
 
-`To Do: Finish this section`
+![Menu Generator Quick Menu](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
+
+If you need a quick and simple method of making menus then you can just throw everything into a `Text` action and call it good.
+
+### Using A Text Field To Make A Menu
+
+1. Define your icon with base64, Font Awesome, or an emoji.
+2. Enter the text for each menu item.
+	* Use `title`, `sub`, and `icon`, followed by a colon like so `title: Hellow World!`
+	* Make sure there is a line separating each menu option like the screenshot above
+3. Add a `Dictionary` action under the `text` action.
+4. In that `Dictionary`, add two `Text` keys with the following values:
+	- `command` with the value `quick menu`
+	- `menu` with the value `Quick menu text` pulled from the magic variable of the `Text` action.
+5. Now, place a `Run Shortcut` actions below that and run Menu Generator.
+6. Then, use a `Set Name` action to set the name of the Shortcut Result to `menu.vcf`.
+7. Next, add a `Choose From List` action to choose from the `Renamed Item`,  and make sure the type is set to `contact`.
 
 ***
 
