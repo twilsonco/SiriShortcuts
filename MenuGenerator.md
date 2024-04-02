@@ -19,7 +19,7 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 - Base64 icons (e.g., created from photos, or bring your own)
 - Font Awesome icons
 - Emoji icons
-- Photo icons
+- Photo icons (resized to 123x123 pixels and converted to base64)
 
 **Icon caching:** Icons are cached to a file in your iCloud to increase performance.
 
@@ -42,37 +42,47 @@ Limits permission prompts to just:
 
 ![Menu Generator Menu Examples Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
-### Creating Advanced Menus Using Dictionaries
+### Creating Advanced Menus
 
-Using a dictionary to make menus allows for the most functionality and is a bit quicker than using the text-based quick menu.
+You can use a list of menu item dictionaries to make menus, providing the most functionality and better performance than the text-based quick menus.
 
-### Creating The Dictionary
+#### Creating The List of Menu Item Dictionaries
 
-To make an advanced menu, you need to use a `Dictionary` action with the following text keys:
+To make an advanced menu, you need to construct a list of dictionaries. Each dictionary can be created using the `Dictionary` action with the following text keys (see also the above images):
 
 1. `title` - This will be the larger, bold text title for each menu option.
-2. `sub` - This will be the smaller text below that.
-3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icons you want to use.
+2. `sub` - This will be the smaller text below the title.
+3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icon you want to use.
+4. *[optional] You can add additional fields that contain whatever information you want. These will not be printed in the created menu, and can be fetched later in order to drive more advanced behavior based on user selection. Here we use `field1` and `field2` as examples.*
 
 ![Menu Generator - Menu Command Image](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
 
-### Using The `menu` Command To Generate The Menu
+#### Using The `menu` Command To Generate The Menu
 
-1. Below the first dictionary you created with the data for your menu, make another one with a text key named `command` with the value `menu`.
-2. Next, add a `Set Dictionary` action and set the name of `Menu item list` to `menu`.
-3. Below that, use the `Run Shortcut` action to run Menu Generator.
+Once you've prepared your list of menu item dictionaries, we prepare an input dictionary for Menu Generator:
 
-### Tell Shortcuts That The Output Is A vCard File
+1. Make a new dictionary with a text key named `command` with the value `menu`.
+2. Next, add a `Set Dictionary` action and set the value of the `menu` key to your list of menu item dictionaries (here we've named the list variable `Menu item list`).
+3. Below that, use the `Run Shortcut` action to run Menu Generator, and pass the dictionary from (1) as input.
 
-1. Then, use a `Set Name` action to set the name of the `Shortcut Result` to `Menu.vcf`.
-2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type is set to `contact`.
+#### Tell Shortcuts That The Output Is A vCard File
 
-### Retrieving Data From The Chosen Menu Option
+The output of the `Run Shortcut` action will be a single text object that contains the created menu.
+
+1. Use a `Set Name` action to set the name of the `Shortcut Result` to `menu.vcf`.
+2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type of `Renamed Item` is set to `contact`.
+
+#### Retrieving Data From The Chosen Menu Option
+
+If you added any non-printed "extra" fields to your menu (we added `field1` and `field2` in our example), you can use the `get menu item details` command to fetch that data from the user-selected item.
 
 1. Create another dictionary with the following text keys:
     - `command` - With the value `get menu item details`.
     - `title` - With the value `Name` pulled from a magic variable of the `Renamed Item`.
     - `sub` - With the value `Company` also pulled from a magic variable of the `Renamed Item`.
+2. Pass this dictionary as input to a `Run Shortcut` action pointing to Menu Generator
+3. The `Shortcut Result` will be the menu item dictionary corresponding to the user-selected menu item
+4. Using the returned dictionary, you can then access any of the extra fields you defined earlier
 
 ### Create A Menu With The Quick Menu Tool
 
@@ -80,7 +90,7 @@ To make an advanced menu, you need to use a `Dictionary` action with the followi
 
 If you need a quick and simple method of making menus, then you can just throw everything into a `Text` action.
 
-### Using A Text Field To Make A Menu
+#### Using A Text Field To Make A Menu
 
 1. Define your icon with base64, Font Awesome, or an emoji.
 2. Enter the text for each menu item.
@@ -96,6 +106,9 @@ If you need a quick and simple method of making menus, then you can just throw e
 
 After that, you can then use `If` actions to perform tasks based on the option selected.
 
+- When using quick menus, you cannot define extra, non-printed fields.
+- The `title` and `sub` values of the selected menu item are accessed using the `Name` and `Company` values of the selected menu item (a Contact object)
+
 ***
 
 ## Example Shortcuts
@@ -104,12 +117,14 @@ After that, you can then use `If` actions to perform tasks based on the option s
     - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, Emoji, and Photos).
 - [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) - (*Requires Toolbox Pro*)
     - Uses Toolbox Pro to create an advanced menu.
+    - *Provided for comparison*
 - [Menu Generator Example - Menu Items](https://www.icloud.com/shortcuts/effd803e7aae4421b79c3026838c8f3c)
     - Creates an advanced menu with Menu Generator, then uses the cache to present another menu without the need to regenerate anything.
 - [Menu Generator - Quick Menu](https://www.icloud.com/shortcuts/6d01003ff5bd4e91b784bef436385b6b)
     - Creates a quick menu utilizing a `text` action.
 - [Toolbox Pro Quick Menu](https://www.icloud.com/shortcuts/3bdb5b49dfb44884afc5472b6386919f)
     - Uses Toolbox Pro's `Quick menu` action.
+    - *Provided for comparison*
 - [Menu Generator - Photo Menu](https://www.icloud.com/shortcuts/3862685e4e5348c7be3fae3326a41960)
     - Pulls the last 10 photos from your Photo Library to create a menu with photos for icons.
 
@@ -119,6 +134,7 @@ After that, you can then use `If` actions to perform tasks based on the option s
 - [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image.
 - [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching.
 - [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input).
+- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
 
 ## Attribution
 
