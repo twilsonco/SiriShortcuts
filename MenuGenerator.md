@@ -27,7 +27,8 @@ Feed it the command and menu data in a dictionary or text field, the it does the
 
 **Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. 
 
-**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed. 
+**Unlimited Custom Fields:** There are two hidden fields out of the box that can be used to store data to use when a menu option is tapped. You can also define as many custom fields as needed.
+
 ## Limited Permission Prompts
 
 ![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.png)
@@ -71,7 +72,7 @@ To make an advanced menu you need to use a `Dictionary` action with the followin
 	- `title` - with the value `Name` pulled from a magic variable of the `Renamed Item`.
 	- `sub` - with the value `Company` also pulled from a magic variable of the `Renamed Item`.
 
-Create A Menu With The Quick Menu Tool
+### Create A Menu With The Quick Menu Tool
 
 ![Menu Generator Quick Menu](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
 
@@ -81,8 +82,8 @@ If you need a quick and simple method of making menus then you can just throw ev
 
 1. Define your icon with base64, Font Awesome, or an emoji.
 2. Enter the text for each menu item.
-	* Use `title`, `sub`, and `icon`, followed by a colon like so `title: Hellow World!`
-	* Make sure there is a line separating each menu option like the screenshot above
+	- Use `title`, `sub`, and `icon`, followed by a colon like so `title: Hellow World!`
+	- Make sure there is a line separating each menu option like the screenshot above
 3. Add a `Dictionary` action under the `text` action.
 4. In that `Dictionary`, add two `Text` keys with the following values:
 	- `command` with the value `quick menu`
