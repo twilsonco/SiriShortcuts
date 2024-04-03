@@ -128,6 +128,7 @@ After that, you can then use `If` actions to perform tasks based on the option s
 - [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image.
 - [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching.
 - [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for the structure of Quick Menu feature and of menu items when a dictionary is used as input).
+- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
 
 ## Attribution
 
