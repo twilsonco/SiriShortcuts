@@ -27,7 +27,7 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 **Quick menus:** Create simple menus with a text field similar to Toolbox Pro.
 
-**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (Structure of menu item dictionary inspired by [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977)).
+**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (structure of menu item dictionary inspired by [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977)).
 
 **Unlimited Custom Fields:** Include "hidden" fields to store data with menu items that is not shown in the created menu, and that can be accessed after a menu option is tapped. You can define as many custom fields as needed.
 
