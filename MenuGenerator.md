@@ -6,6 +6,9 @@ Menu Generator can be embedded or run from the `Run Shortcut` action to create s
 
 Feed it the command and menu data in a dictionary or text field, then it does the rest!
 
+![RoutineHub Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=RoutineHub%20Version&labelColor=%23ee3535&color=%23320932)
+<a href="https://routinehub.co/shortcut/18397/"><img alt="Download on RoutineHub" src="https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535"></a>
+
 ***
 
 ![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
@@ -130,7 +133,7 @@ After that, you can then use `If` actions to perform tasks based on the option s
 - [Menu Generator - Photo Menu](https://www.icloud.com/shortcuts/3862685e4e5348c7be3fae3326a41960)
     - Pulls the last 10 photos from your Photo Library to create a menu with photos for icons
 
-## Embed Menu Generator inside your shortcut
+## Embed Menu Generator Inside Your Shortcut
 
 Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [gluebyte](https://routinehub.co/user/gluebyte) to embed Menu Generator inside your own shortcut.
 
@@ -140,17 +143,17 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - As an alternative, you could start your own shortcut from a duplicate of the Menu Generator shortcut
   - Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development
 
-**As an example, my [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
+**As An example, My [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
 
-1. Install Menu Generator (this shortcut) and the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut
-   - Join Shortcuts works by allowing you to insert one shortcut inside another
-   - Each Comment action in the destination shortcut serves as a placeholder for inserting a source shortcut
-2. Create a Comment action near the top of your shortcut. Inside, put something like "menu generator"
-3. Run the Join Shortcuts shortcut
-4. Select your shortcut at the destination shortcut
-5. Select the comment made in step 2 as the place to insert the source shortcut
-6. Select the Menu Generator shortcut as the source shortcut
-7. Select "Finish Joining" and save the resulting shortcut as a copy or by replacing your shortcut with the joined version
+1. Install Menu Generator (this shortcut) and the [Join Shortcuts](https://routinehub.co/shortcut/10038/). shortcut
+   - Join Shortcuts works by allowing you to insert one shortcut inside another.
+   - Each Comment action in the destination shortcut serves as a placeholder for inserting a source shortcut.
+2. Create a Comment action near the top of your shortcut. Inside, put something like "menu generator".
+3. Run the Join Shortcuts shortcut.
+4. Select your shortcut at the destination shortcut.
+5. Select the comment made in step 2 as the place to insert the source shortcut.
+6. Select the Menu Generator shortcut as the source shortcut.
+7. Select "Finish Joining" and save the resulting shortcut as a copy or by replacing your shortcut with the joined version.
 8. Change any "Run Shortcut" actions to point to your shortcut (so that it runs itself) instead of Menu Generator, and now your shortcut has built-in pretty menus!
 
 ## Credits
@@ -159,7 +162,7 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image
 - [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching
 - [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input).
-- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
+- jpasholk wrote this description, and was pivotal in the preliminary design of the Shortcut.
 
 ## Attribution
 
@@ -173,7 +176,7 @@ If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platfo
 
 ### You Can Copy This Markdown To Make It Easier
 
-`![Menu Generator by @twilsonco](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)`
+```![Menu Generator by @twilsonco](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)```
 
 > Markdown for GitHub & RoutineHub created with &#x2665; by [jpasholk](https://routinehub.co/user/jpasholk).
 
