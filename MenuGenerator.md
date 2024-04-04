@@ -165,8 +165,10 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist)
 - [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image
 - [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching
+- [gluebyte's Join Shortcuts]((https://routinehub.co/shortcut/10038/)) shortcut was used in the development of this shortcut
+- Though unrelated, see also [gluebyte's SF Emoji Menu Builder](https://routinehub.co/shortcut/8841/) shortcut if you're looking for making pretty menus using SF icons
 - [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input).
-- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
+- jpasholk wrote this description, and was pivotal in the preliminary design of this shortcut.
 
 ## Attribution
 
