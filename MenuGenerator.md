@@ -144,9 +144,9 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - Simplify running of your shortcut by removing the permissions prompt to "run another shortcut"
 - *Join Shortcuts works best on macOS, where it can sign the resulting merged shortcut*
 - As alternatives, you could
-  - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
-  - Use the recently released [Copy Shortcut Actions +++](https://routinehub.co/shortcut/18369/) by [robric18](https://routinehub.co/user/robric18)
-  - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
+    - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
+    - Use the recently released [Copy Shortcut Actions +++](https://routinehub.co/shortcut/18369/) by [robric18](https://routinehub.co/user/robric18)
+    - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
 
 **As an example, my [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
 
