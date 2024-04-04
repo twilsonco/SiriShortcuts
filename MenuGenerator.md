@@ -1,6 +1,6 @@
-![Menu Generator Banner](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-banner.png)
+![Menu Generator Banner](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-banner.png)
 
-Easily create menus for your Shortcuts without any external apps.
+Easily create menus for your Shortcuts **without any external apps**.
 
 Menu Generator can be embedded or run from the `Run Shortcut` action to create stunning, feature-rich menus.
 
@@ -8,7 +8,7 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ***
 
-![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
+![Menu Generator Screenshots](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
 
 ## Menu Generator Features
 
@@ -33,16 +33,16 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ## Limited Permission Prompts
 
-![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.png)
+![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-permissions.png)
 
-Limits permission prompts to just:
+Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prompts are limited to just:
 
 - Running another Shortcut (unless embedded within a shortcut), and
 - Loading web content (for Font Awesome icons)
 
 ## How To Use Menu Generator
 
-![Menu Generator Menu Examples Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
+![Menu Generator Menu Examples Screenshots](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
 ### Creating Advanced Menus
 
@@ -57,7 +57,11 @@ To make an advanced menu, you need to construct a list of dictionaries. Each dic
 3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icon you want to use
 4. *[optional] You can add additional fields that contain whatever information you want. These will not be printed in the created menu, and can be fetched later in order to drive more advanced behavior based on user selection. Here we use `field1` and `field2` as examples*
 
-![Menu Generator - Menu Command Image](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
+![Menu Generator - Menu Command Image](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
+
+##### The class name of a Font Awesome icon can be found on their website as in the image below.
+
+![Menu Generator - Font Awesome icon class name](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-font-awesome-site.png?raw=true)
 
 #### Using The `menu` Command To Generate The Menu
 
@@ -88,7 +92,7 @@ If you added any non-printed "extra" fields to your menu (we added `field1` and 
 
 ### Create A Menu With The Quick Menu Tool
 
-![Menu Generator Quick Menu](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
+![Menu Generator Quick Menu](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
 
 If you need a quick and simple method of making menus, then you can just throw everything into a `Text` action.
 
@@ -115,6 +119,8 @@ After that, you can then use `If` actions to perform tasks based on the option s
 
 ## Example Shortcuts
 
+The below example shortcuts demonstrate all of Menu Generator's features. Some analogous shortcuts doing the same things but using Toolbox Pro's menu capabilities are also provided, in order to make clear how similar the functionality and use are.
+
 - [Menu Generator Example - Menu](https://www.icloud.com/shortcuts/faf299dcdb0845a6aaf3957e7ad54e3b)
     - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, Emoji, and Photos)
 - [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) - (*Requires Toolbox Pro*)
@@ -137,8 +143,9 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - Simplify installation and distribution of your shortcut by removing the need for the user to install Menu Generator as a separate shortcut
 - Simplify running of your shortcut by removing the permissions prompt to "run another shortcut"
 - *Join Shortcuts works best on macOS, where it can sign the resulting merged shortcut*
-- As an alternative, you could start your own shortcut from a duplicate of the Menu Generator shortcut
-  - Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development
+- As alternatives, you could
+  - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
+  - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
 
 **As an example, my [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
 
@@ -169,7 +176,7 @@ If you use Menu Generator in any of your Shortcuts please place a comment with t
 
 If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platform please use this badge:
 
-![Menu Generator Badge](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)
+![Menu Generator Badge](https://github.com/twilsonco/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)
 
 ### You Can Copy This Markdown To Make It Easier
 
