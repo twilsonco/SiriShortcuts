@@ -1,9 +1,9 @@
-![Menu Generator Banner](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-banner.png)
+![Menu Generator Banner](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-banner.png)
 
 ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=Version&labelColor=green&color=%23320932)
 <a href="https://routinehub.co/shortcut/18397/"><img alt="Download on RoutineHub" src="https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535"></a>
 
-Easily create menus for your Shortcuts without any external apps.
+Easily create menus for your Shortcuts **without any external apps**.
 
 Menu Generator can be embedded or run from the `Run Shortcut` action to create stunning, feature-rich menus.
 
@@ -11,7 +11,7 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ***
 
-![Menu Generator Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
+![Menu Generator Screenshots](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-hero-image.png?raw=true)
 
 ## Menu Generator Features
 
@@ -35,15 +35,15 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ## Limited Permission Prompts
 
-![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-permissions.png)
+![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-permissions.png)
 
-Limits permission prompts to just:
+Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prompts are limited to just:
 - Running another Shortcut (unless embedded within a shortcut).
 - Loading web content (for Font Awesome icons).
 
 ## How To Use Menu Generator
 
-![Menu Generator Menu Examples Screenshots](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
+![Menu Generator Menu Examples Screenshots](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
 ### Creating Advanced Menus
 
@@ -57,7 +57,11 @@ To make an advanced menu, you need to construct a list of dictionaries. Each dic
 3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icon you want to use.
 4. *[optional]* You can add additional fields that contain whatever information you want. These will not be printed in the created menu, and can be fetched later in order to drive more advanced behavior based on user selection. Here we use `field1` and `field2` as examples.
 
-![Menu Generator - Menu Command Image](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
+![Menu Generator - Menu Command Image](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-advanced-menu.png?raw=true)
+
+##### The class name of a Font Awesome icon can be found on their website as in the image below.
+
+![Menu Generator - Font Awesome icon class name](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-font-awesome-site.png?raw=true)
 
 #### Using The `menu` Command To Generate The Menu
 
@@ -85,7 +89,7 @@ If you added any non-printed "extra" fields to your menu (we added `field1` and 
 
 ### Create A Menu With The Quick Menu Tool
 
-![Menu Generator Quick Menu](https://github.com/jpasholk/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
+![Menu Generator Quick Menu](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-quick-menu-example.png?raw=true)
 
 If you need a quick and simple method of making menus, then you can just throw everything into a `Text` action.
 
@@ -109,6 +113,8 @@ After that, you can then use `If` actions to perform tasks based on the option s
 
 ## Example Shortcuts
 
+The below example shortcuts demonstrate all of Menu Generator's features. Some analogous shortcuts doing the same things but using Toolbox Pro's menu capabilities are also provided, in order to make clear how similar the functionality and use are.
+
 - [Menu Generator Example - Menu](https://www.icloud.com/shortcuts/faf299dcdb0845a6aaf3957e7ad54e3b)
     - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, Emoji, and Photos).
 - [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) - (*Requires Toolbox Pro*)
@@ -122,13 +128,27 @@ After that, you can then use `If` actions to perform tasks based on the option s
 - [Menu Generator - Photo Menu](https://www.icloud.com/shortcuts/3862685e4e5348c7be3fae3326a41960)
     - Pulls the last 10 photos from your Photo Library to create a menu with photos for icons.
 
+## Embed Menu Generator inside your shortcut
+Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [gluebyte](https://routinehub.co/user/gluebyte) to embed Menu Generator inside your own shortcut.
+- Simplify installation and distribution of your shortcut by removing the need for the user to install Menu Generator as a separate shortcut
+- Simplify running of your shortcut by removing the permissions prompt to "run another shortcut"
+- *Join Shortcuts works best on macOS, where it can sign the resulting merged shortcut*
+- As an alternative, you could start your own shortcut from a duplicate of the Menu Generator shortcut
+  - Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development
+- As alternatives, you could
+    - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
+    - Use the recently released [Copy Shortcut Actions +++](https://routinehub.co/shortcut/18369/) by [robric18](https://routinehub.co/user/robric18).
+    - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
+
 ## Credits
 
 - [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist).
 - [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image.
 - [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching.
+- [gluebyte's Join Shortcuts]((https://routinehub.co/shortcut/10038/)) shortcut was used in the development of this shortcut.
+- Though unrelated, see also [gluebyte's SF Emoji Menu Builder](https://routinehub.co/shortcut/8841/) shortcut if you're looking for making pretty menus using SF icons.
 - [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for the structure of Quick Menu feature and of menu items when a dictionary is used as input).
-- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
+- jpasholk wrote this description, and was pivotal in the preliminary design of this shortcut.
 
 ## Attribution
 
@@ -138,11 +158,11 @@ If you use Menu Generator in any of your Shortcuts, please place a comment with 
 
 If you publish your Shortcut to RoutineHub or any other Shortcuts sharing platform, please use this badge:
 
-![Menu Generator Badge](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)
+![Menu Generator Badge](https://github.com/twilsonco/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)
 
 ### You Can Copy This Markdown To Make It Easier
 
-```![Menu Generator by @twilsonco](https://github.com/jpasholk/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)```
+```![Menu Generator by @twilsonco](https://github.com/twilsonco/SiriShortcuts/blob/main/img/made-with-menu-generator-badge.png?raw=true)```
 
 > Markdown for GitHub & RoutineHub created with ♥ by [jpasholk](https://routinehub.co/user/jpasholk).
 
