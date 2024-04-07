@@ -109,6 +109,9 @@ If you need a quick and simple method of making menus, then you can just throw e
 
 After that, you can then use `If` actions to perform tasks based on the option selected.
 
+- When using quick menus, you cannot define extra, non-printed fields.
+- The `title` and `sub` values of the selected menu item are accessed using the `Name` and `Company` values of the selected menu item (a Contact object).
+
 ***
 
 ## Example Shortcuts
@@ -129,6 +132,7 @@ The below example shortcuts demonstrate all of Menu Generator's features. Some a
     - Pulls the last 10 photos from your Photo Library to create a menu with photos for icons.
 
 ## Embed Menu Generator inside your shortcut
+
 Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [gluebyte](https://routinehub.co/user/gluebyte) to embed Menu Generator inside your own shortcut.
 - Simplify installation and distribution of your shortcut by removing the need for the user to install Menu Generator as a separate shortcut
 - Simplify running of your shortcut by removing the permissions prompt to "run another shortcut"
@@ -139,6 +143,19 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
     - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
     - Use the recently released [Copy Shortcut Actions +++](https://routinehub.co/shortcut/18369/) by [robric18](https://routinehub.co/user/robric18).
     - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
+
+**As an example, my [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
+
+1. Install Menu Generator (this Shortcut) and the [Join Shortcuts](https://routinehub.co/shortcut/10038/) Shortcut:
+   - Join Shortcuts works by allowing you to insert one Shortcut inside another.
+   - Each Comment action in the destination Shortcut serves as a placeholder for inserting a source Shortcut.
+2. Create a Comment action near the top of your Shortcut. Inside, put something like "menu generator".
+3. Run the Join Shortcuts Shortcut.
+4. Select your Shortcut at the destination Shortcut.
+5. Select the comment made in step 2 as the place to insert the source Shortcut.
+6. Select the Menu Generator Shortcut as the source Shortcut.
+7. Select "Finish Joining" and save the resulting Shortcut as a copy or by replacing your Shortcut with the joined version.
+8. Change any "Run Shortcut" actions to point to your Shortcut (so that it runs itself) instead of Menu Generator, and now your Shortcut has built-in pretty menus!
 
 ## Credits
 
