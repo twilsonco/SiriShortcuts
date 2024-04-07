@@ -1,4 +1,7 @@
-![Menu Generator Banner](https://raw.githubusercontent.com/jpasholk/SiriShortcuts/main/img/menu-generator-banner.png)
+![Menu Generator Banner](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-banner.png)
+
+![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=Version&labelColor=green&color=%23320932)
+<a href="https://routinehub.co/shortcut/18397/"><img alt="Download on RoutineHub" src="https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535"></a>
 
 Easily create menus for your Shortcuts **without any external apps**.
 
@@ -34,10 +37,9 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-permissions.png)
 
-Limits permission prompts to just:
-
-- Running another Shortcut (unless embedded within a shortcut), and
-- Loading web content (for Font Awesome icons)
+Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prompts are limited to just:
+- Running another Shortcut (unless embedded within a shortcut).
+- Loading web content (for Font Awesome icons).
 
 ## How To Use Menu Generator
 
@@ -133,27 +135,20 @@ Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [glu
 - *Join Shortcuts works best on macOS, where it can sign the resulting merged shortcut*
 - As an alternative, you could start your own shortcut from a duplicate of the Menu Generator shortcut
   - Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development
-
-**As an example, my [Gemini Chat Manager](https://routinehub.co/shortcut/17671/) shortcut has Menu Generator embedded inside it.**
-
-1. Install Menu Generator (this shortcut) and the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut
-   - Join Shortcuts works by allowing you to insert one shortcut inside another
-   - Each Comment action in the destination shortcut serves as a placeholder for inserting a source shortcut
-2. Create a Comment action near the top of your shortcut. Inside, put something like "menu generator"
-3. Run the Join Shortcuts shortcut
-4. Select your shortcut at the destination shortcut
-5. Select the comment made in step 2 as the place to insert the source shortcut
-6. Select the Menu Generator shortcut as the source shortcut
-7. Select "Finish Joining" and save the resulting shortcut as a copy or by replacing your shortcut with the joined version
-8. Change any "Run Shortcut" actions to point to your shortcut (so that it runs itself) instead of Menu Generator, and now your shortcut has built-in pretty menus!
+- As alternatives, you could
+    - Use the recently released [Action Editor](https://routinehub.co/shortcut/18280/), also by gluebyte, or,
+    - Use the recently released [Copy Shortcut Actions +++](https://routinehub.co/shortcut/18369/) by [robric18](https://routinehub.co/user/robric18).
+    - Start your own shortcut from a duplicate of the Menu Generator shortcut. Make sure to collapse the If action in order to hide all the Menu Generator actions and simplify subsequent shortcut development.
 
 ## Credits
 
-- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist)
-- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image
-- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching
-- [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for structure of Quick Menu feature and of menu items when a dictionary is used as input).
-- jpasholk wrote this description, and was pivotal in the preliminary design of the shortcut.
+- [jpasholk’s “vCard Menu Helper”](https://routinehub.co/shortcut/18220) (Inspiration for this shortcut, though other great vCard menu shortcuts also exist).
+- [DylanShortcuts’ “Emoji to Image”](https://routinehub.co/shortcut/14899) adapted to turn an emoji into an image.
+- [SACUL_6’s “Create Menu Using Font Awesome”](https://routinehub.co/shortcut/17750) adapted for Font Awesome icon fetching.
+- [gluebyte's Join Shortcuts]((https://routinehub.co/shortcut/10038/)) shortcut was used in the development of this shortcut.
+- Though unrelated, see also [gluebyte's SF Emoji Menu Builder](https://routinehub.co/shortcut/8841/) shortcut if you're looking for making pretty menus using SF icons.
+- [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (Inspiration for the structure of Quick Menu feature and of menu items when a dictionary is used as input).
+- jpasholk wrote this description, and was pivotal in the preliminary design of this shortcut.
 
 ## Attribution
 
