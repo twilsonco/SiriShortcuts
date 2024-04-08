@@ -38,6 +38,7 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 ![Menu Generator Permissions Screenshots](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-permissions.png)
 
 Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prompts are limited to just:
+
 - Running another Shortcut (unless embedded within a shortcut).
 - Loading web content (for Font Awesome icons).
 
@@ -106,6 +107,7 @@ You can use a list of menu item dictionaries to make menus, providing the most f
 #### Creating The List of Menu Item Dictionaries
 
 To make an advanced menu, you need to construct a list of dictionaries. Each dictionary can be created using the `Dictionary` action with the following text keys (see also the above images):
+
 1. `title` - This will be the larger, bold text title for each menu option.
 2. `sub` - This will be the smaller text below the title.
 3. `icon` - Here is where you will specify either the base64 icon, emoji, or Font Awesome class name for the icon you want to use.
@@ -120,6 +122,7 @@ To make an advanced menu, you need to construct a list of dictionaries. Each dic
 #### Using The `menu` Command To Generate The Menu
 
 Once you've prepared your list of menu item dictionaries, we prepare an input dictionary for Menu Generator:
+
 1. Make a new dictionary with a text key named `command` with the value `menu`.
 2. Next, add a `Set Dictionary` action and set the value of the `menu` key to your list of menu item dictionaries (here we've named the list variable `Menu item list`).
 3. Below that, use the `Run Shortcut` action to run Menu Generator, and pass the dictionary from step 1 as input.
@@ -127,12 +130,14 @@ Once you've prepared your list of menu item dictionaries, we prepare an input di
 #### Tell Shortcuts That The Output Is A vCard File
 
 The output of the `Run Shortcut` action will be a single text object that contains the created menu.
+
 1. Use a `Set Name` action to set the name of the `Shortcut Result` to `menu.vcf`.
 2. Finally, add a `Choose From List` action to choose from `Renamed Item`, and make sure the type of `Renamed Item` is set to `contact`.
 
 #### Retrieving Data From The Chosen Menu Option
 
 If you added any non-printed "extra" fields to your menu (we added `field1` and `field2` in our example), you can use the `get menu item details` command to fetch that data from the user-selected item.
+
 1. Create another dictionary with the following text keys:
     - `command` - With the value `get menu item details`.
     - `title` - With the value `Name` pulled from a magic variable of the `Renamed Item`.
@@ -188,6 +193,7 @@ The below example shortcuts demonstrate all of Menu Generator's features. Some a
 ## Embed Menu Generator inside your shortcut
 
 Use the [Join Shortcuts](https://routinehub.co/shortcut/10038/) shortcut by [gluebyte](https://routinehub.co/user/gluebyte) to embed Menu Generator inside your own shortcut.
+
 - Simplify installation and distribution of your shortcut by removing the need for the user to install Menu Generator as a separate shortcut
 - Simplify running of your shortcut by removing the permissions prompt to "run another shortcut"
 - *Join Shortcuts works best on macOS, where it can sign the resulting merged shortcut*
