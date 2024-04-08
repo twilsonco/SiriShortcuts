@@ -45,7 +45,7 @@ Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prom
 
 ## How To Use Menu Generator
 
-Every use of Menu Generator uses an input dictionary that contains the command to run along with any necessary/optional information that goes along with the command. The commands and their inputs are listed below:
+Every time you run Menu Generator, you'll use an input dictionary that contains the command to run along with any necessary/optional information that goes along with the command. The commands and their inputs are listed below:
 
 -----
 
