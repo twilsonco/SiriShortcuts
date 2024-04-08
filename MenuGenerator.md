@@ -1,6 +1,7 @@
 ![Menu Generator Banner](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-banner.png)
 
 ![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=Version&labelColor=green&color=%23320932)
+
 <a href="https://routinehub.co/shortcut/18397/"><img alt="Download on RoutineHub" src="https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535"></a>
 
 Easily create menus for your Shortcuts **without any external apps**.
@@ -15,23 +16,24 @@ Feed it the command and menu data in a dictionary or text field, then it does th
 
 ## Menu Generator Features
 
-**Embeddable:** Put this shortcut inside any shortcut to add picture/icon menus without complicating installation/distribution.
+**Flexible Icons:** With four different types of icon choices, it should be easy to find an icon for any menu option. Supported Icons:
 
-**Flexible Icons:** With four different types of icon choices, it should be easy to find an icon for any menu option.
-
-**Supported Icons:**
 - Base64 icons (e.g., created from photos, or bring your own).
 - Font Awesome icons.
 - Emoji icons.
 - Photo icons (resized to 123x123 pixels and converted to base64).
 
-**Icon caching:** Icons are cached to a file in your iCloud to increase performance.
+**Quick menus:** Create simple menus using a single text field similar to [Toolbox Pro's](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) Quick Menu feature.
 
-**Quick menus:** Create simple menus with a text field similar to Toolbox Pro.
-
-**Advanced menus:** Use data stored in a dictionary for optimized menus that cut down on clutter in your Shortcuts. (Structure of menu item dictionary inspired by [Toolbox Pro for Shortcuts](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977)).
+**Advanced menus:** Define menu items individually using dictionaries for optimized menus with maximal customization, again like [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977).
 
 **Unlimited Custom Fields:** Include "hidden" fields to store data with menu items that is not shown in the created menu, and that can be accessed after a menu option is tapped. You can define as many custom fields as needed.
+
+**Create menus or base64 for later:** Use to create full menus or convert images to base64 for other uses.
+
+**Embeddable:** Put this shortcut inside any shortcut to add picture/icon menus without complicating installation/distribution.
+
+**Icon caching:** Icons are cached to a file in your iCloud to increase performance.
 
 ## Limited Permission Prompts
 
@@ -42,6 +44,60 @@ Because no external apps (e.g. Toolbox Pro or Actions) are used, permission prom
 - Loading web content (for Font Awesome icons).
 
 ## How To Use Menu Generator
+
+Every use of Menu Generator uses an input dictionary that contains the command to run along with any necessary/optional information that goes along with the command. The commands and their inputs are listed below:
+
+-----
+
+### Commands
+
+- `menu`
+    - Create vCard menu as single text string
+    - Inputs: `"menu"`: list of valid menu item dictionaries
+    - Output: vCard menu as a text string
+- `menu items`
+    - Create list of vCard menu text strings
+    - Inputs: `"menu"`: list of valid menu item dictionaries (described below)
+    - Output: list of vCard items as text strings
+- `get menu item details`
+    - Get a chosen menu item's dictionary using its `title` and `sub` (corresponding to `Name` and `Company` inside a `Contact` object), in order to easily access its properties.
+    - Inputs: 
+        - `"title"` and `"sub"`: title and subtitle of menu item to get details for. 
+        - `"menu items"`: list of menu item dictionaries used to make the menu in the first place, and that will be searched to find the specified title and subtitle
+    - Output: the found menu item matching the specified title and subtitle
+- `quick menu`
+    - Create vCard menu as single text string using quick menu string
+    - Inputs: `"menu"`: text string describing the quick menu
+    - Output: vCard menu as a text string
+- `quick menu items`
+    - Create list of vCard menu item text strings from quick menu string
+    - Inputs: `"menu"`: text string describing the quick menu
+    - Output: list of vCard items as text strings
+- `base64 overlay`
+    - Prepare icon base64 by overlaying transparent PNG image on the specified background color
+    - Inputs:
+        - `"icon"`: base64 string of a png image with some transparency
+        - `"background"`: hex string or valid HTML color name
+        - `"size"`: text or number, relative size of image in resulting icon (0 to 1 as ratio of resulting image)
+    - Output: base64 text string of overlaid image
+- `emoji icon`
+    - Prepare icon base64 from emoji
+    - Inputs:
+        - `“icon”`: text, the emoji to create image from
+        - `“size”`: optional: number, the size of the resulting image, between 0.0 and 1.0. Defaults to global shortcut default in config dictionary.
+        - `“background”`: optional: hex color or HTML color name of background. Defaults to transparent on macOS and dark/light based on device dark mode setting on iOS.
+    - Output: base64 text string of emoji icon
+- `font awesome icon`
+    - Prepare icon base64 from specified Font Awesome icon name
+    - HTML colors: https://www.w3schools.com/tags/ref_colornames.asp
+    - Inputs:
+        - `“icon”`: font awesome icon type and name, e.g. “fa-solid fa-font-awesome”
+        - `“size”`: size of icon, from 0.0 to 1.0
+        - `“color”`: hex color or HTML color name of icon, e.g. #1E3050
+        - `“background”`: hex color or HTML color name of icon, e.g. #fff
+    - Outputs: base64 text string of emoji icon
+
+-----
 
 ![Menu Generator Menu Examples Screenshots](https://github.com/twilsonco/SiriShortcuts/blob/main/img/menu-generator-example.png?raw=true)
 
