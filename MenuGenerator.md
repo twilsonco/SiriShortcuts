@@ -1,6 +1,6 @@
 ![Menu Generator Banner](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/main/img/menu-generator-banner.png)
 
-![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=Version&labelColor=green&color=%23320932.png) <a href="https://routinehub.co/shortcut/18397/"><img alt="Download on RoutineHub" src="https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535"></a>
+![Version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Froutinehub.co%2Fapi%2Fv1%2Fshortcuts%2F18397%2Fversions%2Flatest&query=%24.Version&label=Version&labelColor=green&color=%23320932.png) [![Download on RoutineHub](https://img.shields.io/badge/Download_On-RoutineHub-%23ee3535)](https://routinehub.co/shortcut/18397/)
 
 Easily create menus for your Shortcuts **without any external apps**.
 
