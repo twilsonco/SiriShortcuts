@@ -177,18 +177,19 @@ After that, you can then use `If` actions to perform tasks based on the option s
 
 The below example shortcuts demonstrate all of Menu Generator's features. Some analogous shortcuts doing the same things but using Toolbox Pro's menu capabilities are also provided, in order to make clear how similar the functionality and use are.
 
-- [Menu Generator Example - Menu](https://www.icloud.com/shortcuts/faf299dcdb0845a6aaf3957e7ad54e3b)
-    - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, Emoji, and Photos).
+- [Menu Generator Example - Menu](https://www.icloud.com/shortcuts/5e61965f9c06486ea42940958a7f44f3)
+    - Creates an advanced menu with Menu Generator using the different types of icons (base64, Font Awesome, and Emoji).
 - [Toolbox Pro Menu Generator](https://www.icloud.com/shortcuts/895d5aea0129459aa5204c312742206e) - (*Requires Toolbox Pro*)
     - Uses Toolbox Pro to create an advanced menu.
 - [Menu Generator Example - Menu Items](https://www.icloud.com/shortcuts/effd803e7aae4421b79c3026838c8f3c)
     - Creates an advanced menu with Menu Generator, then uses the cache to present another menu without the need to regenerate anything.
-- [Menu Generator - Quick Menu](https://www.icloud.com/shortcuts/6d01003ff5bd4e91b784bef436385b6b)
+- [Menu Generator Example - Quick Menu](https://www.icloud.com/shortcuts/6d01003ff5bd4e91b784bef436385b6b)
     - Creates a quick menu utilizing a `text` action.
 - [Toolbox Pro Quick Menu](https://www.icloud.com/shortcuts/3bdb5b49dfb44884afc5472b6386919f)
     - Uses Toolbox Pro's `Quick menu` action.
-- [Menu Generator - Photo Menu](https://www.icloud.com/shortcuts/3862685e4e5348c7be3fae3326a41960)
+- [Menu Generator Example - Photo Menu](https://www.icloud.com/shortcuts/3862685e4e5348c7be3fae3326a41960)
     - Pulls the last 10 photos from your Photo Library to create a menu with photos for icons.
+- [Menu Generator Example - Convert to base64](https://www.icloud.com/shortcuts/5222bcac2ad644c5b7c075fa788901b3)
 
 ## Embed Menu Generator inside your shortcut
 
