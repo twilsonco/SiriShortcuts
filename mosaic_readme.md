@@ -31,6 +31,7 @@ A photo mosaic is a picture made out of smaller pictures. This shortcut creates 
 - ***Preprocess tile library*** from full size images to smaller, square tiles. This step isn't strictly necessary, but is strongly recommended to improve output quality and performance. You may also experience crashes due to memory limitations if you don't preprocess tiles.
 - ***Visualize tile usage in the mosaic***. After a mosaic has been created, you can save/view the results, as well as generate a visualization of the tile useage in the mosaic. This visualization shows the tiles used in the mosaic, and how many times each tile was used. This can be useful for identifying tiles that are overused or underused, and for identifying tiles that are not a good match for the subject image.
 - ***Handling of long/tall images***. When preprocessing the tile library, the shortcut will make the most of long/tall images by creating multiple tiles from them. This is performed regardless of subdivision setting.
+  - When a long/tall image is subdivided, the subregions are also long/tall. Those are also subdivided in this way so that no part of the original image goes to waste.
 - ***Additional expert options***: Open the shortcut to find the configuration dictionary at the top. Here you can modify default values, and access some additional options that are not exposed in the shortcut's main interface.
 
 ![grid size](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_grid%20size.png?raw=true)
