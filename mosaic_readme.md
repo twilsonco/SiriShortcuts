@@ -22,13 +22,14 @@ A photo mosaic is a picture made out of smaller pictures. This shortcut creates 
 # Features
 
 - The mosaic ***grid size*** can be adjusted to create a more detailed or more abstract mosaic.
-- The tile-matching ***color space*** can be chosen from four options
+- The ***tile-matching color space*** can be chosen from four options
   - [(CIE)LAB](https://www.datacolor.com/business-solutions/blog/what-is-cielab): A color space that approximates human vision
   - [HSV](https://www.lifewire.com/what-is-hsv-in-design-1078068): A color space that separates color into hue, saturation, and value, which can be useful for matching colors that are similar but have different brightness
   - RGB: The standard color space used in digital images
   - [RGB+](https://www.compuphase.com/cmetric.htm): RGB enhanced with a gamma correction to make it more perceptually uniform
 - ***Subdivide tiles*** to create more unique tiles from a small tile library. This is "cheating" but who will know? As the image below shows, using subdivision improves the quality of the mosaic, even when the same mosaic grid is used. In the image below, a tile library of only 16 images was used, but the quality of the mosaic after maximum subdivision still looks good. Of course, it's better to have a larger tile library of truly unique tiles, but this feature can help you get by with fewer tiles.
 - ***Preprocess tile library*** from full size images to smaller, square tiles. This step isn't strictly necessary, but is strongly recommended to improve output quality and performance. You may also experience crashes due to memory limitations if you don't preprocess tiles.
+- ***Visualize tile usage in the mosaic***. After a mosaic has been created, you can save/view the results, as well as generate a visualization of the tile useage in the mosaic. This visualization shows the tiles used in the mosaic, and how many times each tile was used. This can be useful for identifying tiles that are overused or underused, and for identifying tiles that are not a good match for the subject image.
 - ***Handling of long/tall images***. When preprocessing the tile library, the shortcut will make the most of long/tall images by creating multiple tiles from them. This is performed regardless of subdivision setting.
 - ***Additional expert options***: Open the shortcut to find the configuration dictionary at the top. Here you can modify default values, and access some additional options that are not exposed in the shortcut's main interface.
 
@@ -43,5 +44,7 @@ A photo mosaic is a picture made out of smaller pictures. This shortcut creates 
 ![color spaces](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_color%20space.png?raw=true)
 
 ![tile usage](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_tile%20useage.png?raw=true)
+
+# Examples
 
 ![examples](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_examples.png?raw=true)
