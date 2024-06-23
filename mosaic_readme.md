@@ -44,7 +44,7 @@ A photo mosaic is a picture made out of smaller pictures. This shortcut creates 
 
 ![color spaces](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_color%20space.png?raw=true)
 
-![progress indication]([img/Mosaic_progress.png](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_progress.png?raw=true))
+![progress indication](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_progress.png?raw=true)
 
 ![tile usage](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_tile%20useage.png?raw=true)
 
