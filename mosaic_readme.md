@@ -97,3 +97,11 @@ Timing:
 # Examples
 
 ![examples](https://github.com/twilsonco/SiriShortcuts/blob/main/img/Mosaic_examples.png?raw=true)
+
+# Want an app instead?
+
+| Name | Price |
+| ----- | ----- |
+| [Photo Mosaica](https://apps.apple.com/us/app/photo-mosaica/id437992891) | $0.99 to unlock deluxe features |
+| [Pro Photo Mosaic Creator](https://apps.apple.com/us/app/pro-photo-mosaic-creator/id1219025715) | Free |
+| [mosaicPro: Photo Mosaic App](https://apps.apple.com/us/app/mosaicpro-photo-mosaic-app/id1616212938) | $9.99 to unlock full app |
