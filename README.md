@@ -146,7 +146,7 @@ When a dictionary is used as input, this shortcut will output a dictionary with 
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
 * This shortcut was adapted from the [“Dispatch” shortcut by Nicololo Diamante](https://github.com/nicolodiamante/dispatch) 🔗
 
-### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/8b88d3bae22647fe8566a612bbbd06cc) 🔗
+### B. [Speak text with ElevenLabs](https://www.icloud.com/shortcuts/74454f56a2f94deda842a29b438dfaa2) 🔗
 
 * Drop-in replacement for the "Speak Text" Shortcut action using ElevenLabs's TTS voices to speak the text
 * Falls back to using the "Speak Text" action if it fails
