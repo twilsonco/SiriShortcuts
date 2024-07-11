@@ -38,7 +38,9 @@
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda along with the weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### E. [ChatGPT via API](https://www.icloud.com/shortcuts/b25f4e45e68d4f02ae01a54cad2f59ea) 🔗
+### E. [ChatGPT via API](https://www.icloud.com/shortcuts/26a18292b23d47d3af04bd8f0fe17a77) 🔗
+
+([And voice-only version](https://www.icloud.com/shortcuts/2bc6892a2fa444f5a45c748354a66b6b))
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
 * Provide text or a valid dictionary as input and use the OpenAI API to submit the text to ChatGPT as a prompt
