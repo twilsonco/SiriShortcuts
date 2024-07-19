@@ -38,9 +38,9 @@
 * Define a list of iOS calendars and reminder lists which are used to fetch your scheduled events for the day, and have ChatGPT read back a summary of your agenda along with the weather
 * Uses the ChatGPT app like (1), so does not work on macOS
 
-### E. [ChatGPT via API](https://www.icloud.com/shortcuts/26a18292b23d47d3af04bd8f0fe17a77) 🔗
+### E. [ChatGPT via API](https://www.icloud.com/shortcuts/236b0e751bbb4305b3303778a35eeabf) 🔗
 
-([And voice-only version](https://www.icloud.com/shortcuts/2bc6892a2fa444f5a45c748354a66b6b))
+([And voice-only version](https://www.icloud.com/shortcuts/7195e7369c3348fcb4995be71f3e2128))
 
 * Drop-in replacement for the ChatGPT app's "Ask ChatGPT" Shortcut action
 * Provide text or a valid dictionary as input and use the OpenAI API to submit the text to ChatGPT as a prompt
@@ -48,10 +48,7 @@
 * If run with no input, the Shortcut will ask for text input
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
 * This does not provide any back-and-forth conversation capability, and only provides a basic example of how to use the OpenAI API for interacting with ChatGPT
-  * For back-and-forth conversation, you would need to give ChatGPT "memory" by including previous messages, both yours and ChatGPT's responses, in the `messages` array in the Dictionary that is passed to the "Get contents of URL" action.
-  * This functionality would need to be added by you (please PR an improved shortcut if you make one ;) )
-  * This method of "memory" will quickly increase the cost of using this shortcut, as the number of tokens in each API call will grow with each subsequent call
-  * For this reason it is preferable, in my opinion, to use the ChatGPT app as in the above shortcuts so that OpenAI's own internal method of "memory" is used, which has none of these drawbacks
+  * Includes back and forth conversation capability
 
 ### F. [Create calendar events](https://routinehub.co/shortcut/17514/) 🔗
 
