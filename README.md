@@ -47,8 +47,7 @@
   * Valid input dictionary contains optional keys “prompt”, “model”, “temperature”, and “apikey”
 * If run with no input, the Shortcut will ask for text input
 * Requires your own [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key) 🔗
-* This does not provide any back-and-forth conversation capability, and only provides a basic example of how to use the OpenAI API for interacting with ChatGPT
-  * Includes back and forth conversation capability
+* Includes back and forth conversation capability
 
 ### F. [Create calendar events](https://routinehub.co/shortcut/17514/) 🔗
 
