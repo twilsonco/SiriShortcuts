@@ -76,13 +76,13 @@
 ### A. [Gemini via API](https://routinehub.co/shortcut/17624/) 🔗
 
 * Drop-in replacement for the "Ask ChatGPT" shortcut action, or
-* Runs standalone for text/image-based Gemini requests
+* Runs standalone for voice/text/image/pdf/document/url/video-based Gemini requests
 * Logs conversations/images to Files App at `/Shortcuts/GeminiAPI`
+* Beautiful rich text display of Gemini response with ability to show entire conversation
 * [View/continue Gemini conversation with this companion shortcut](https://routinehub.co/shortcut/17671/) 🔗
-  * Companion shortcut uses actions from [Toolbox Pro](https://apps.apple.com/us/app/toolbox-pro-for-shortcuts/id1476205977) (no purchase necessary)
-* Currently, Gemini-Pro API access is FREE for up to 60 queries per minute!
+* Currently, Gemini-Pro API access is FREE for up to 15 queries per minute with 1.5-flash, or 2 per minute with 1.5-pro.
 
-![Screenshots of the View/continue Gemini conversation companion shortcut](img/view-continue-gemini-convo.png)
+![Screenshots of the View/continue Gemini conversation companion shortcut](https://github.com/twilsonco/SiriShortcuts/blob/main/img/gemini_viewer_iOS.png?raw=true)
 
 ```
 This shortcut is design to be run standalone or from other Shortcuts. It passes the input prompt to Google via their API and returns the response if successful.
