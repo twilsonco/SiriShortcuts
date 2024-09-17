@@ -193,3 +193,21 @@ When a dictionary is used as input, this shortcut will output a dictionary with 
 * Here's what the resulting PDF looks like
 
 ![](img/ReminderPDF.png)
+
+### B. [Photo collage](https://routinehub.co/shortcut/17870/)
+
+* Makes beautiful photo collages from the specified photos on iOS/iPadOS/macOS
+* This is a vanilla shortcut with the same functionality as (and that runs 10X slower than) my [PyPhotoCollage](https://github.com/twilsonco/PyPhotoCollage) prgrogram
+
+### C. [Photo mosaic](https://routinehub.co/shortcut/18978/)
+
+* Create beautiful photo mosaics from photos/videos on iOS/iPadOS/macOS
+* Advanced, multi-point tile matching for highest quality mosaid
+* Control over repeated mosaic tiles to reduce overuse of same tile
+
+### D. [Multi-stop navigation](https://routinehub.co/shortcut/18833/)
+
+* Optimize multi-stop routes by solving the travelling salesman problem
+* Optimize by travel time or distance
+* Supports driving/biking/walking/transit navigation
+* Supports Apple Maps, Google Maps, and Waze
