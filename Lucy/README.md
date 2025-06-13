@@ -1,8 +1,9 @@
-## Lucy: Your Configurable Siri Shortcut Assistant
+# Lucy: Your Configurable Siri Shortcut Assistant
 
-Lucy is a Siri Shortcut for iOS, iPadOS, and macOS that integrates with any OpenAI API-compatible Large Language Model (LLM) endpoint. It operates by utilizing other shortcuts as tools to accomplish tasks. Lucy works with full control over planning and execution, calling tools sequentially without requiring user input or oversight.
+Lucy is a Siri Shortcut for iOS, iPadOS, and macOS that integrates with any OpenAI API-compatible Large Language Model (LLM) endpoint. It operates by utilizing other shortcuts as tools to accomplish tasks. Lucy works with full control over planning and execution, calling tools sequentially without requiring user input or oversight. This is similar to the model context protocol (MCP) that's gaining popularity in the AI community, where a model can call other models or tools to complete tasks.
 
 This shortcut was initially introduced by r/Neurogram. I improved things by creating expanding Lucy's toolset and enhancing the capabilities its existing tools. Other improvements include:
+
 * Improved user communication (including presenting lists of choices where appropriate)
 * Automatic downloading of missing or updated tools
 * JSON validation of LLM responses to prevent errors or crashes
@@ -10,45 +11,13 @@ This shortcut was initially introduced by r/Neurogram. I improved things by crea
 
 **Configurability:**
 Lucy is configurable to meet user preferences:
+
 *   **Tool Access:** Users can select which tools Lucy has access to, either for a single run or on a persistent basis by configuring the shortcut.
 *   **Permissions:** Each tool can be configured to require user permission before use. If enabled, approval can be granted for each individual usage or once per tool per Lucy run.
 *   **Notifications:** Notifications can be configured to show when each tool is used.
 
 **Tool Management:**
 Lucy's tools are separate Siri Shortcuts. They download automatically when you run Lucy if they've been updated or are not yet installed.
-
-### Getting Started and Setup
-
-Setting up Lucy involves configuring its options within the main Lucy shortcut. These settings are found in a Dictionary action at the top of the shortcut:
-
-![Main Lucy configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/config.webp)
-
-1.  **LLM Settings:**
-    *   `provider`: Text (e.g., "Google" for Google models)
-    *   `url`: Text (the API endpoint URL)
-    *   `text_model`: Text (the specific LLM model ID)
-    *   `api_key`: Text (your API key for the chosen LLM provider)
-    *   `temperature`: Number between 0-2. Lower values yield more consistent, less error-prone, but less creative responses.
-    *   `reasoning_model`: Boolean. Set to `True` if the LLM you are using is a "reasoning model"; set to `False` if unsure.
-
-2.  **Tool and Interaction Settings:**
-    *   `choose_tools`: Boolean. If `True`, Lucy will present a list of tools for you to enable on each run.
-    *   `choose_select_all`: Boolean. If `choose_tools` is `True`, setting this to `True` will initially select all tools in the list presented to the user.
-    *   `install_tools`: Boolean. If `True`, Lucy will check that all enabled tools are installed on startup. Missing or updated tools will automatically download.
-    *   `token_usage_notification`: Boolean. If `True`, displays a notification showing token usage after a run.
-    *   `approve_tools`: Boolean. If `False`, disables tool approval dialogs completely.
-    *   `debug_logging`: Boolean. If `True`, logging is enabled and requires the free "Logger for Shortcuts" App.
-    *   `update_check_freq`: Number. How often (in days) to check for updates to Lucy and its tools. Set to `0` to check every run, or `-1` to disable update checks.
-
-3. **Tool Configuration:**
-    *   Each tool has three options: `enable`, `run_confirmation`, and `run_notification`.
-    *   Only the tools you enable will download and be available for use.
-
-![Example of tool configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/tool_config.webp)
-
-1.  **Initial Run:** After configuring your LLM settings, run Lucy. It will automatically download and install all enabled tools.
-
-2.  **Individual Tool Setup:** Some tools require their own specific configuration. For example, the **Web** tool requires a free API key for a Google Programmable Search Engine, and the **SummarizeText** tool requires LLM API information.
 
 ### Lucy's Toolset
 
@@ -133,6 +102,39 @@ Setting up Lucy involves configuring its options within the main Lucy shortcut. 
     2. Call 'Web' Shortcut to search for upcoming movie releases.
     3. Call 'SummarizeText' Shortcut to summarize relevant movie reviews.
     4. Present the user with a list of recommended movies based on their preferences.
+
+### Getting Started and Setup
+
+Setting up Lucy involves configuring its options within the main Lucy shortcut. These settings are found in a Dictionary action at the top of the shortcut:
+
+![Main Lucy configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/config.webp)
+
+1.  **LLM Settings:**
+    *   `provider`: Text (e.g., "Google" for Google models)
+    *   `url`: Text (the API endpoint URL)
+    *   `text_model`: Text (the specific LLM model ID)
+    *   `api_key`: Text (your API key for the chosen LLM provider)
+    *   `temperature`: Number between 0-2. Lower values yield more consistent, less error-prone, but less creative responses.
+    *   `reasoning_model`: Boolean. Set to `True` if the LLM you are using is a "reasoning model"; set to `False` if unsure.
+
+2.  **Tool and Interaction Settings:**
+    *   `choose_tools`: Boolean. If `True`, Lucy will present a list of tools for you to enable on each run.
+    *   `choose_select_all`: Boolean. If `choose_tools` is `True`, setting this to `True` will initially select all tools in the list presented to the user.
+    *   `install_tools`: Boolean. If `True`, Lucy will check that all enabled tools are installed on startup. Missing or updated tools will automatically download.
+    *   `token_usage_notification`: Boolean. If `True`, displays a notification showing token usage after a run.
+    *   `approve_tools`: Boolean. If `False`, disables tool approval dialogs completely.
+    *   `debug_logging`: Boolean. If `True`, logging is enabled and requires the free "Logger for Shortcuts" App.
+    *   `update_check_freq`: Number. How often (in days) to check for updates to Lucy and its tools. Set to `0` to check every run, or `-1` to disable update checks.
+
+3. **Tool Configuration:**
+    *   Each tool has three options: `enable`, `run_confirmation`, and `run_notification`.
+    *   Only the tools you enable will download and be available for use.
+
+![Example of tool configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/tool_config.webp)
+
+1.  **Initial Run:** After configuring your LLM settings, run Lucy. It will automatically download and install all enabled tools.
+
+2.  **Individual Tool Setup:** Some tools require their own specific configuration. For example, the **Web** tool requires a free API key for a Google Programmable Search Engine, and the **SummarizeText** tool requires LLM API information.
 
 ### Contributing
 Contributions are welcome! If you have ideas for new tools, improvements, or bug fixes, please submit a pull request or open an issue.
