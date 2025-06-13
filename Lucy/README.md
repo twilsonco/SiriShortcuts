@@ -1,4 +1,6 @@
-# Lucy: Your Configurable Siri Shortcut Assistant
+# Lucy
+
+**[Direct download link](https://www.icloud.com/shortcuts/f631e02850d14d5f97a1073a05fb42cb)**
 
 Lucy is a Siri Shortcut for iOS, iPadOS, and macOS that integrates with any OpenAI API-compatible Large Language Model (LLM) endpoint. It operates by utilizing other shortcuts as tools to accomplish tasks. Lucy works with full control over planning and execution, calling tools sequentially without requiring user input or oversight. This is similar to the model context protocol (MCP) that's gaining popularity in the AI community, where a model can call other models or tools to complete tasks.
 
@@ -50,7 +52,7 @@ Lucy's tools are separate Siri Shortcuts. You get to decide which tools will be 
 
 ### Examples of What Lucy Can Do
 
-#### "Text Jake to let him know which day we should meet next week for frisbee golf, and include some recommendations for good courses near me."
+##### "Text Jake to let him know which day we should meet next week for frisbee golf, and include some recommendations for good courses near me."
 - **Lucy:**
     1. Call 'Weather' Shortcut to check next week's weather.
     2. Call 'Calendar' Shortcut to find free days.
@@ -62,7 +64,7 @@ Lucy's tools are separate Siri Shortcuts. You get to decide which tools will be 
        - [preview enabled] Messages compose preview windows opens with the drafted message, allowing you to review and send it.
        - [preview disabled] Messages sends the message directly without preview.
 
-#### "Let's plan a hike-party up Pike's Peak for Steve next month in my Hiking group sometime the week after next. Find a good day, put it on my calendar, put necessary supplies on my shopping list, and text Steve and the group."
+##### "Let's plan a hike-party up Pike's Peak for Steve next month in my Hiking group sometime the week after next. Find a good day, put it on my calendar, put necessary supplies on my shopping list, and text Steve and the group."
 - **Lucy:**
     1. Call 'Weather' Shortcut to check the weather forecast for Pike's Peak for the week after next.
     2. Call 'Calendar' Shortcut to find a free day in your schedule.
@@ -75,35 +77,35 @@ Lucy's tools are separate Siri Shortcuts. You get to decide which tools will be 
        - [preview disabled] Messages sends the message directly without preview.
 
 
-#### "I have to pick between Seattle and Denver for some work next week. Which city has better weather?"
+##### "I have to pick between Seattle and Denver for some work next week. Which city has better weather?"
 - **Lucy:**
     1. Call 'Weather' Shortcut to get the forecast for Seattle and Denver for next week.
     2. Compare the weather conditions and respond with the city that has better weather.
 
-#### "Is now a good time to upgrade my Mac?"
+##### "Is now a good time to upgrade my Mac?"
 - **Lucy:**
     1. Call 'Web' Shortcut to search for articles and forums regarding Mac product cycles and community consensus.
     2. If needed, call 'SummarizeText' Shortcut or 'Web' Shortcut (get_webpage_content) to fetch full or summarized website content.
     3. Present the user with the results.
 
-#### "Plan my San Francisco trip next month. Find flights and hotels, suggest 3 attractions, and add trip details to my calendar."
+##### "Plan my San Francisco trip next month. Find flights and hotels, suggest 3 attractions, and add trip details to my calendar."
 - **Lucy:**
     1. Call 'Web' Shortcut to search for flights, hotels, and attractions within specified parameters.
     2. If needed, call 'SummarizeText' Shortcut to process travel information from multiple sources.
     3. Call 'Calendar' Shortcut to create events for the trip dates.
     4. Call 'Notes' Shortcut to store the full itinerary including flight/hotel bookings and chosen attractions.
 
-#### "Send a thank-you email to everyone who attended my birthday party last weekend. Find their contact info first."
+##### "Send a thank-you email to everyone who attended my birthday party last weekend. Find their contact info first."
 - **Lucy:**
     1. Call 'Calendar' Shortcut to find the "Birthday Party" event from last weekend and identify attendees.
     2. Call 'Contacts' Shortcut to retrieve the email addresses for each attendee.
     3. Call 'Mail' Shortcut to draft and send personalized thank-you emails.
 
-#### "I love racing movies."
+##### "I love racing movies."
 - **Lucy:**
     1. Call 'Memory' Shortcut to store this information as a memory.
     
-#### "Are there any good movies coming out this weekend I might like?"
+##### "Are there any good movies coming out this weekend I might like?"
 - **Lucy:**
     1. Call 'Memory' Shortcut to retrieve the user's preferences.
     2. Call 'Web' Shortcut to search for upcoming movie releases.
