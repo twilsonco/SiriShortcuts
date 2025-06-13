@@ -1,0 +1,143 @@
+# A single, complete definition of all possible reminder properties
+full_reminder_properties: &full_reminder_properties
+  title:
+    type: string
+    description: The title.
+  list:
+    type: string
+    description: List name. Uses default list if omitted.
+  new_list:
+    type: boolean
+    description: Set true to create the list if it doesn't exist.
+  due_date:
+    type: datetime
+    description: Reminder alert time (YYYY-MM-DD hh:mm:ss).
+  flag:
+    type: boolean
+    description: Set true to flag as important.
+  tags:
+    type: string
+    description: Comma-separated tags.
+  notes:
+    type: string
+    description: Additional notes.
+  url:
+    type: string
+    description: Associated URL.
+
+Tool: Reminders_v1-0
+Name: Reminders_v1-0
+Description: Manages tasks and reminders in the Reminders app.
+Functions:
+  - function_name: list_reminders
+    description: Lists reminders, filtered by query and date.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Regex for title/notes. Be generous with matches.
+        list:
+          type: string
+          description: List to search in.
+        begin_date:
+          type: datetime
+          description: Start date for search (YYYY-MM-DD hh:mm:ss).
+        include_completed:
+          type: boolean
+          description: Include completed reminders. Default false.
+      required:
+        - query
+        - list
+        - begin_date
+  - function_name: get_reminder_lists
+    description: Retrieves all reminder lists.
+    parameters: {}
+  - function_name: get_reminder_tags
+    description: Retrieves all unique tags from reminders.
+    parameters: {}
+  - function_name: add_new_reminders
+    description: Adds one or more new reminders.
+    parameters:
+      type: object
+      properties:
+        reminders:
+          type: array
+          description: Array of reminder objects to add.
+          items:
+            type: object
+            properties:
+              <<: *full_reminder_properties
+              subtasks:
+                type: array
+                description: Optional array of subtasks.
+                items:
+                  type: object
+                  properties:
+                    <<: *full_reminder_properties
+                  required:
+                    - title
+            required:
+              - title
+      required:
+        - reminders
+  - function_name: complete_reminder
+    description: Marks a reminder as completed or incomplete.
+    parameters:
+      type: object
+      properties:
+        list:
+          type: string
+          description: List containing the reminder.
+        title:
+          type: string
+          description: Exact title of the reminder.
+        creation_date:
+          type: datetime
+          description: Creation date (YYYY-MM-DD hh:mm:ss) for unique ID.
+        is_completed:
+          type: boolean
+          description: Set true to complete, false to un-complete.
+      required:
+        - list
+        - title
+        - creation_date
+        - is_completed
+  - function_name: edit_reminder
+    description: Modifies an existing reminder.
+    parameters:
+      type: object
+      properties:
+        list:
+          type: string
+          description: List containing the reminder.
+        title:
+          type: string
+          description: Exact title of the reminder.
+        creation_date:
+          type: datetime
+          description: Creation date (YYYY-MM-DD hh:mm:ss) for unique ID.
+        is_completed:
+          type: boolean
+          description: Current completion status for identification.
+        content:
+          type: object
+          description: Object with new attributes to overwrite.
+          properties:
+            <<: *full_reminder_properties
+      required:
+        - list
+        - title
+        - creation_date
+        - is_completed
+        - content
+  - function_name: open_reminder_list
+    description: Opens a specific reminder list.
+    parameters:
+      type: object
+      properties:
+        list:
+          type: "string"
+          description: "Name of the reminder list to open."
+      required:
+        - list

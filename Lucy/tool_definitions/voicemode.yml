@@ -1,0 +1,17 @@
+Name: VoiceMode_v1-0
+Description: Manages voice communication with the user, enabling spoken interactions.
+Functions:
+  - function_name: voice_chat
+    description: Activates the voice chat mode. Upon activation, the system will be ready to receive spoken input from the user. The LLM should then prompt the user to speak.
+    parameters: {}
+  - function_name: continue_voice_chat
+    description: Speaks a message provided by the LLM to the user, then listens for and captures the user's spoken response, returning it as a string.
+    parameters:
+      type: object
+      properties:
+        message_content:
+          type: string
+          description: "The message content that the LLM wishes to speak to the user. If omitted, the system will just listen for a response from the user."
+  - function_name: end_voice_chat
+    description: Deactivates the voice chat mode, returning the system to standard text-based interaction.
+    parameters: {}

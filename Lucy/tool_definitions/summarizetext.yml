@@ -1,0 +1,25 @@
+Name: SummarizeText_v1-0
+Description: Summarizes text in order to have it consume fewer tokens.
+Functions:
+  - function_name: summarize_webpages
+    description: Retrieves content from the specified URLs and generates a summary for each. The function returns a JSON dictionary where keys are the URLs and values are their corresponding summaries.
+    parameters:
+      type: object
+      properties:
+        urls:
+          type: array
+          description: A list of full URLs of the webpages to be summarized (e.g., ['https://example.com/article1', 'https://example.com/article2']). Each URL must be a valid string.
+          items:
+            type: string
+      required:
+        - urls
+  - function_name: summarize_text
+    description: Summarizes a text string.
+    parameters:
+      type: object
+      properties:
+        text:
+          type: string
+          description: A text string to summarize. This is only to be used in order to summarize text so that it consumes fewer tokens in future LLM API calls. If the user actually requests for text summarization, do not use this tool, and instead perform the summary yourself.
+      required:
+        - text

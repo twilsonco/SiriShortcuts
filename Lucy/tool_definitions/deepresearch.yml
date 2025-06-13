@@ -1,0 +1,6 @@
+Name: DeepResearch_v1-0
+Description: Activates a deep research routine to aggregate data from multiple sources for detailed, factual reports.
+Functions:
+  - function_name: deep_research
+    description: Performs in-depth research for detailed reports. For general queries, ask to confirm before using. If the user explicitly says 'research', use without asking.
+    parameters: {}

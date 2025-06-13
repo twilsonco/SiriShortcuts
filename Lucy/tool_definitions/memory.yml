@@ -1,0 +1,52 @@
+Name: Memory_v1-0
+Description: Saves, views, and searches for information about the user to recall later, like preferences, facts, and events.
+Functions:
+  - function_name: save_memory
+    description: Saves a new memory.
+    parameters:
+      type: object
+      properties:
+        memory:
+          type: object
+          description: Memory object with type, content, and keywords.
+          properties:
+            type:
+              type: string
+              description: The category of the memory.
+              enum: [entity, relationship, event, fact, instruction, definition, preference, goal]
+            content:
+              type: string
+              description: Information to remember.
+            keywords:
+              type: array
+              description: Keywords for recall. For events, include month and year.
+              items:
+                type: string
+          required:
+            - type
+            - content
+            - keywords
+      required:
+        - memory
+  - function_name: retrieve_all_memories
+    description: Returns all memories.
+    parameters: {}
+  - function_name: view_memories
+    description: Opens the memory storage for user Browse.
+    parameters: {}
+  - function_name: search_memories
+    description: Searches memories by type, content, and keywords.
+    parameters:
+      type: object
+      properties:
+        queries:
+          type: array
+          description: Queries to search memories.
+          items:
+            type: string
+      required:
+        - queries
+  - function_name: clear_memory
+    description: Deletes all memories.
+    note: Verify with the user before clearing all memories.
+    parameters: {}

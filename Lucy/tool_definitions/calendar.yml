@@ -1,0 +1,92 @@
+# A map of all standard properties for a calendar event
+event_properties: &event_properties
+  title:
+    type: string
+    description: "The title of the event."
+  start_date:
+    type: datetime
+    description: "The start date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
+  end_date:
+    type: datetime
+    description: "The end date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
+  notes:
+    type: string
+    description: "Additional notes for the event."
+  location:
+    type: string
+    description: "The physical location of the event."
+  is_all_day:
+    type: boolean
+    description: "Set to true if the event is an all-day event."
+  url:
+    type: string
+    description: "A URL associated with the event, such as a video conference link."
+
+Tool: Calendar_v1-0
+Name: Calendar_v1-0
+Description: Manages events in the Calendar app.
+Functions:
+  - function_name: search_events
+    description: Searches for calendar events based on a query and a specified time range relative to the current date.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: "Optional search query to filter events by title or notes. The search is case-insensitive."
+        past_days:
+          type: number
+          description: "The number of days in the past to search for events."
+        future_days:
+          type: number
+          description: "The number of days in the future to search for events. For today's events, set this to 1."
+        has_location:
+          type: boolean
+          description: "Set to true to only search events with locations. Omit to search events regardless of whether they have a specified location."
+      required:
+        - past_days
+        - future_days
+  - function_name: create_events
+    description: Creates one or more new events in the Calendar app. Please add all available information for the event, such as notes, location, and url, if applicable.
+    parameters:
+      type: object
+      properties:
+        events:
+          type: array
+          description: "An array of JSON dictionaries, where each dictionary represents an event to be created."
+          items:
+            type: object
+            properties:
+              <<: *event_properties
+            required:
+              - title
+              - start_date
+      required:
+        - events
+  - function_name: edit_event
+    description: Modifies the details of an existing calendar event.
+    parameters:
+      type: object
+      properties:
+        start_date:
+          type: datetime
+          description: "The original start date and time of the event to be edited (Format: YYYY-MM-DD hh:mm:ss). Used for unique identification."
+        calendar:
+          type: string
+          description: "The name of the calendar where the event to be edited is located. Used for unique identification."
+        title:
+          type: string
+          description: "The original title of the event to be edited. Used for unique identification."
+        content:
+          type: object
+          description: "An object containing the new content that will overwrite the specified event's attributes. Only include fields that are to be updated."
+          properties:
+            <<: *event_properties
+            calendar:
+              type: string
+              description: "New calendar name to move the event to."
+      required:
+        - start_date
+        - calendar
+        - title
+        - content

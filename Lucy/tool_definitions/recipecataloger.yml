@@ -1,0 +1,6 @@
+Name: RecipeCataloger_v1-0
+Description: Enables access to a powerful recipe cataloging routine. This allows the system to efficiently find, extract, and organize recipes from various web sources, building a comprehensive personal recipe collection based on the user's culinary interests.
+Functions:
+  - function_name: catalog_recipe
+    description: Finds and saves web recipes. If user just wants to find a recipe, confirm first, explaining it will save the recipe to Notes and add ingredients to Reminders. If user asks to save a recipe, use directly.
+    parameters: {}
