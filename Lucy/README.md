@@ -9,6 +9,8 @@ This shortcut was initially introduced by r/Neurogram. I improved things by crea
 * JSON validation of LLM responses to prevent errors or crashes
 * Debug logging
 
+**[Download Lucy here](https://routinehub.co/shortcut/22612/)**
+
 **Configurability:**
 Lucy is configurable to meet user preferences:
 
