@@ -11,7 +11,7 @@ This shortcut was initially introduced by r/Neurogram. I improved things by crea
 * Improved user communication (including presenting lists of choices where appropriate)
 * Automatic downloading of missing or updated tools
 * JSON validation of LLM responses to prevent errors or crashes
-* Debug logging
+* Optional debug logging
 
 **Configurability:**
 Lucy is configurable to meet user preferences:
