@@ -1,0 +1,38 @@
+Name: Contacts_v1-0
+Description: Manages iOS contacts.
+Functions:
+  - function_name: search_contacts
+    description: Searches for contacts.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Case-insensitive regex for name, phone, email, or company.
+      required:
+        - query
+  - function_name: add_contact
+    description: Adds a new contact.
+    parameters:
+      type: object
+      properties:
+        first_name:
+          type: string
+          description: Contact's first name.
+        last_name:
+          type: string
+          description: Contact's last name.
+        phone_number:
+          type: string
+          description: Primary phone number.
+        email_address:
+          type: string
+          description: Primary email address.
+        company:
+          type: string
+          description: Contact's company.
+        notes:
+          type: string
+          description: Notes about the contact.
+      required:
+        - first_name

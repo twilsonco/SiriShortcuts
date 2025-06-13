@@ -1,0 +1,125 @@
+# A map of properties used to look up a unique note.
+note_lookup_properties: &note_lookup_properties
+  name:
+    type: string
+    description: Name of the note to modify.
+  body:
+    type: string
+    description: Partial body text to find unique note.
+
+Name: Notes_v1-0
+Description: Create, modify, organize, and search notes.
+Functions:
+  - function_name: add_new_notes
+    description: Adds one or more new notes.
+    parameters:
+      type: object
+      properties:
+        notes:
+          type: array
+          description: Array of note objects to add.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Note title.
+              body:
+                type: string
+                description: Note content.
+              folder:
+                type: string
+                description: Folder to save note in.
+              tags:
+                type: array
+                description: Optional list of tags.
+                items:
+                  type: string
+              todos:
+                type: array
+                description: Optional list of todos.
+                items:
+                  type: string
+            required:
+              - name
+              - body
+              - folder
+      required:
+        - notes
+  - function_name: append_to_note
+    description: Appends content to a note.
+    parameters:
+      type: object
+      properties:
+        <<: *note_lookup_properties
+        content:
+          type: object
+          description: Content to append. Use one or more of `body`, `tags`, or `todos`.
+          properties:
+            body:
+              type: string
+              description: Additional text to append.
+            tags:
+              type: array
+              description: Tags to add.
+              items:
+                type: string
+            todos:
+              type: array
+              description: Todos to add.
+              items:
+                type: string
+      required:
+        - name
+        - body
+        - content
+  - function_name: open_note
+    description: Opens a note for viewing.
+    parameters:
+      type: object
+      properties:
+        <<: *note_lookup_properties
+      required:
+        - name
+        - body
+  - function_name: remove_tags_from_note
+    description: Removes tags from a note.
+    parameters:
+      type: object
+      properties:
+        <<: *note_lookup_properties
+        tags:
+          type: array
+          description: Tags to remove.
+          items:
+            type: string
+      required:
+        - name
+        - body
+        - tags
+  - function_name: search_notes
+    description: Searches note titles and bodies for a query.
+    parameters:
+      type: object
+      properties:
+        query:
+          type: string
+          description: Search query.
+      required:
+        - query
+  - function_name: get_folder_list
+    description: Lists all note folders.
+    parameters: {}
+  - function_name: get_tag_list
+    description: Lists all unique tags.
+    parameters: {}
+  - function_name: open_folder
+    description: Opens a note folder.
+    parameters:
+      type: object
+      properties:
+        folder:
+          type: string
+          description: Name of the folder to open.
+      required:
+        - folder

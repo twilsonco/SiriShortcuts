@@ -1,0 +1,73 @@
+{
+  "Name": "Web_v1-0",
+  "Description": "Searches web and gets webpage content.",
+  "Note": "open_url is not supported on Apple Watch or HomePod.",
+  "Functions": [
+    {
+      "function_name": "google_search",
+      "description": "Performs a Google search.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          },
+          "start_page": {
+            "type": "number",
+            "description": "Starting page number (1-10)."
+          },
+          "end_page": {
+            "type": "number",
+            "description": "Ending page number (1-10, >= start_page)."
+          }
+        },
+        "required": [
+          "query",
+          "start_page",
+          "end_page"
+        ]
+      }
+    },
+    {
+      "function_name": "open_url",
+      "description": "Opens a URL in the browser.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to open."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    },
+    {
+      "function_name": "get_webpage_content",
+      "description": "Gets raw content from a list of URLs.",
+      "tip": "Add .json to Reddit URLs to get post contents.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "urls": {
+            "type": "array",
+            "description": "List of URLs to get content from.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "get_raw_content": {
+            "type": "boolean",
+            "description": "Default is reader-view for articles (less tokens). Set true for full raw content."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "Name": "Pythonista_v1-0",
+  "Description": "Executes Python code using the Pythonista app on iOS.",
+  "Functions": [
+    {
+      "function_name": "run_python_script",
+      "description": "Executes a provided Python script within the Pythonista environment. The script's output (e.g., from print statements or the final evaluated expression) will be returned as a string. If the intended return value is a complex data structure (e.g., a dictionary or list), it must be serialized into a JSON string before being printed or returned.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "script": {
+            "type": "string",
+            "description": "The raw Python code to execute. This can be a single line or a multiline script. The tool will execute this code directly. For example: print('Hello') or x = 10\ny = 20\nprint(x + y)."
+          }
+        },
+        "required": [
+          "script"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "Name": "Maps_v1-0",
+  "Description": "Provides capabilities for searching places, initiating navigation, and retrieving current location using map applications on iOS.",
+  "Functions": [
+    {
+      "function_name": "search_places",
+      "description": "Searches for places of interest near a current or specified geographical location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query for the place (e.g., 'coffee shop', 'pizza', 'park')."
+          },
+          "city": {
+            "type": "string",
+            "description": "Optional city to narrow down the search location. Used in conjunction with state and country."
+          },
+          "state": {
+            "type": "string",
+            "description": "Optional state to narrow down the search location. Used in conjunction with city and country."
+          },
+          "country": {
+            "type": "string",
+            "description": "Optional country to narrow down the search location. Used with city/state or zip code."
+          },
+          "zip_code": {
+            "type": "string",
+            "description": "Optional zip code to narrow down the search location. If provided, city/state will be ignored."
+          },
+          "search_radius": {
+            "type": "number",
+            "description": "The search radius in miles."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "function_name": "start_navigation",
+      "description": "Initiates turn-by-turn navigation to a specified destination using a selected map application.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "map_app": {
+            "type": "string",
+            "description": "The preferred map application for navigation. Use Maps by default, or if unspecified.",
+            "enum": [
+              "Maps",
+              "Google Maps",
+              "Waze"
+            ]
+          },
+          "destination": {
+            "type": "string",
+            "description": "The full address of the destination to navigate to (e.g., '1600 Amphitheatre Parkway, Mountain View, CA 94043')."
+          }
+        },
+        "required": [
+          "map_app",
+          "destination"
+        ]
+      }
+    },
+    {
+      "function_name": "get_current_location",
+      "description": "Retrieves the user's current geographical location (latitude, longitude, and address). Use this tool if the user says something like '...near me' or '...in my town', so that you don't need to ask the user directly.",
+      "parameters": {}
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Name: RunJavaScript_v1-0
+Description: Executes custom JavaScript code within a secure environment. Whenever appropriate and possible, use this JavaScript tool when running code to help answer a question. For example, if asked to count words/letters, or do other string processing or math operations, you should generate JavaScript and run run it with this tool. Only use another code/terminal tool if the users requests a different language other than JavaScript.
+Functions:
+  - function_name: run_javascript
+    description: Executes a provided JavaScript script. This is the preferred method for performing computational tasks such as calculations, string manipulations, and other similar logical operations, rather than using other general-purpose execution environments for such purposes, especially if working in JavaScript. Rather than returning a value, the provided script must set the value of 'document.body.textContent = encodeURIComponent(<output_value>)' with the output value.
+    parameters:
+      type: object
+      properties:
+        script:
+          type: string
+          description: "The JavaScript code to execute. This script should perform the desired action and must explicitly set 'document.body.textContent'. For example, to return an object, use 'document.body.textContent = encodeURIComponent(JSON.stringify({ key: 'value' }));'."
+      required:
+        - script

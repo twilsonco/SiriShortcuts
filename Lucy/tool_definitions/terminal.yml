@@ -1,0 +1,13 @@
+Name: Terminal_v1-0
+Description: Local Unix terminal (iOS a-Shell, macOS bash). Supports commands like grep, curl, git, ffmpeg. Not for Apple Watch or HomePod.
+Functions:
+  - function_name: execute_command
+    description: Executes a shell command.
+    parameters:
+      type: object
+      properties:
+        command:
+          type: string
+          description: The shell command to execute.
+      required:
+        - command
