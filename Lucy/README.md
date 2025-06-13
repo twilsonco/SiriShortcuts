@@ -19,7 +19,7 @@ Lucy is configurable to meet user preferences:
 *   **Notifications:** Notifications can be configured to show when each tool is used.
 
 **Tool Management:**
-Lucy's tools are separate Siri Shortcuts. They download automatically when you run Lucy if they've been updated or are not yet installed.
+Lucy's tools are separate Siri Shortcuts. You get to decide which tools will be loaded. Enabled tools download automatically when you run Lucy if they've been updated or are not yet installed.
 
 ### Lucy's Toolset
 
@@ -32,21 +32,25 @@ Lucy's tools are separate Siri Shortcuts. They download automatically when you r
 7.  **Messages**: Sends messages to specified recipients via the Messages app.
 8.  **Mail**: Sends emails to specified recipients via the Mail app.
 9.  **Web**: Performs web searches and retrieves content from webpages. Requires a free API key for a Google Programmable Search Engine.
-10. **SummarizeText**: Summarizes text and webpage content to reduce token usage. Requires LLM API information.
+10. **SummarizeText**: Summarizes text and webpage content to reduce token usage for the main model. Requires LLM API information.
 11. **Terminal**: Executes Unix shell commands in a local terminal environment.
 12. **RunJavaScript**: Executes custom JavaScript code for computational tasks and string processing.
 13. **Pythonista**: Executes Python code in the Pythonista app.
-14. **DeepResearch**: Conducts in-depth research by aggregating data from multiple sources to create informative reports.
-15. **RecipeCataloger**: Catalogs recipes by finding, extracting, and organizing them from web sources into a personal collection.
-16. **VoiceMode**: Manages voice communication, enabling spoken interactions with the user.
+14. **DeepResearch**: Conducts in-depth research by aggregating data from multiple sources to create informative reports saved to Notes.
+15. **RecipeCataloger**: Catalogs recipes by finding, extracting, and organizing them from web sources into a personal collection. Each recipe gets a Note and its ingredients list added to "Lucy's Shopping List" in Reminders.
+16. **VoiceMode**: Switches a text conversation to a voice conversation. Ask to leave voice mode and it will return to text mode.
 17. **Memory**: Stores, retrieves, and searches for important information (memories) about the user.
+
+### Auxiliary Shortcuts (not tools)
+
+1. [Create task/note/event with Lucy](https://www.icloud.com/shortcuts/92fb1c2d8554436880db12c24f6600da)
+   1. Share text or an image to Lucy which will create a task, note, or event based on the content.
 
 ---
 
 ### Examples of What Lucy Can Do
 
-**Example:**
-- **You:** "Text Jake to let him know which day we should meet next week for frisbee golf, and include some recommendations for good courses near me."
+#### "Text Jake to let him know which day we should meet next week for frisbee golf, and include some recommendations for good courses near me."
 - **Lucy:**
     1. Call 'Weather' Shortcut to check next week's weather.
     2. Call 'Calendar' Shortcut to find free days.
@@ -54,56 +58,58 @@ Lucy's tools are separate Siri Shortcuts. They download automatically when you r
     4. Call 'Maps' Shortcut to find nearby frisbee golf courses.
     5. Call 'Web' Shortcut to search for reviews of those courses.
     6. Call 'Messages' Shortcut to send the message to Jake with the chosen day and course recommendations.
+    7. [Depending on the value of the "preview" options in the Messages tool shortcut]
+       - [preview enabled] Messages compose preview windows opens with the drafted message, allowing you to review and send it.
+       - [preview disabled] Messages sends the message directly without preview.
 
-**Example:**
-- **You:** "Should I take eastern or southern route from Denver to Houston next Tuesday? Which has better driving weather?"
+#### "Let's plan a hike-party up Pike's Peak for Steve next month in my Hiking group sometime the week after next. Find a good day, put it on my calendar, put necessary supplies on my shopping list, and text Steve and the group."
 - **Lucy:**
-    1. Call 'Maps' Shortcut to identify intermediate locations along both routes.
-    2. Call 'Weather' Shortcut to get the forecast for those locations for next Tuesday.
-    3. Respond with the route that has better driving weather.
+    1. Call 'Weather' Shortcut to check the weather forecast for Pike's Peak for the week after next.
+    2. Call 'Calendar' Shortcut to find a free day in your schedule.
+    3. Call 'Calendar' to create an event for the hike-party on the chosen day.
+    4. Call 'Contacts' Shortcut to get Steve's contact information and the Hiking group.
+    5. Call 'Reminders' Shortcut to add necessary supplies to "Lucy's Shopping List".
+    6. Call 'Messages' Shortcut to draft a message to Steve and the Hiking group with the planned date and details.
+    7. [Depending on the value of the "preview" options in the Messages tool shortcut]
+       - [preview enabled] Messages compose preview windows opens with the drafted message, allowing you to review and send it.
+       - [preview disabled] Messages sends the message directly without preview.
 
-**Example:**
-- **You:** "Is now a good time to upgrade my Mac?"
+
+#### "I have to pick between Seattle and Denver for some work next week. Which city has better weather?"
+- **Lucy:**
+    1. Call 'Weather' Shortcut to get the forecast for Seattle and Denver for next week.
+    2. Compare the weather conditions and respond with the city that has better weather.
+
+#### "Is now a good time to upgrade my Mac?"
 - **Lucy:**
     1. Call 'Web' Shortcut to search for articles and forums regarding Mac product cycles and community consensus.
     2. If needed, call 'SummarizeText' Shortcut or 'Web' Shortcut (get_webpage_content) to fetch full or summarized website content.
     3. Present the user with the results.
 
-**Example:**
-- **You:** "Research the best exercise/diet routine for a guy in their 20s."
-- **Lucy:**
-    1. Call 'DeepResearch' Shortcut to begin an in-depth analysis.
-    2. This involves calling 'Web' Shortcut for multiple Google searches.
-    3. This involves calling 'SummarizeText' Shortcut to summarize dozens of relevant websites.
-    4. Compile and answer the user's request.
-
-**Example:**
-- **You:** "Plan my San Francisco trip next month. Find flights and hotels, suggest 3 attractions, and add trip details to my calendar."
+#### "Plan my San Francisco trip next month. Find flights and hotels, suggest 3 attractions, and add trip details to my calendar."
 - **Lucy:**
     1. Call 'Web' Shortcut to search for flights, hotels, and attractions within specified parameters.
     2. If needed, call 'SummarizeText' Shortcut to process travel information from multiple sources.
     3. Call 'Calendar' Shortcut to create events for the trip dates.
     4. Call 'Notes' Shortcut to store the full itinerary including flight/hotel bookings and chosen attractions.
 
-**Example:**
-- **You:** "Send a thank-you email to everyone who attended my birthday party last weekend. Find their contact info first."
+#### "Send a thank-you email to everyone who attended my birthday party last weekend. Find their contact info first."
 - **Lucy:**
     1. Call 'Calendar' Shortcut to find the "Birthday Party" event from last weekend and identify attendees.
     2. Call 'Contacts' Shortcut to retrieve the email addresses for each attendee.
     3. Call 'Mail' Shortcut to draft and send personalized thank-you emails.
 
-**Example:**
-- **You:** "I love racing movies."
+#### "I love racing movies."
 - **Lucy:**
     1. Call 'Memory' Shortcut to store this information as a memory.
     
-**Example:**
-- **You:** "Are there any good movies coming out this weekend I might like?"
+#### "Are there any good movies coming out this weekend I might like?"
 - **Lucy:**
     1. Call 'Memory' Shortcut to retrieve the user's preferences.
     2. Call 'Web' Shortcut to search for upcoming movie releases.
     3. Call 'SummarizeText' Shortcut to summarize relevant movie reviews.
     4. Present the user with a list of recommended movies based on their preferences.
+
 
 ### Getting Started and Setup
 
