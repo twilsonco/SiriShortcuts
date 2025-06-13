@@ -21,7 +21,7 @@ Lucy's tools are separate Siri Shortcuts. They download automatically when you r
 
 Setting up Lucy involves configuring its options within the main Lucy shortcut. These settings are found in a Dictionary action at the top of the shortcut:
 
-![Main Lucy configuration](img/config.webp)
+![Main Lucy configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/config.webp)
 
 1.  **LLM Settings:**
     *   `provider`: Text (e.g., "Google" for Google models)
@@ -44,11 +44,11 @@ Setting up Lucy involves configuring its options within the main Lucy shortcut. 
     *   Each tool has three options: `enable`, `run_confirmation`, and `run_notification`.
     *   Only the tools you enable will download and be available for use.
 
-![Example of tool configuration](img/tool_config.webp)
+![Example of tool configuration](https://raw.githubusercontent.com/twilsonco/SiriShortcuts/refs/heads/main/Lucy/img/tool_config.webp)
 
-4.  **Initial Run:** After configuring your LLM settings, run Lucy. It will automatically download and install all enabled tools.
+1.  **Initial Run:** After configuring your LLM settings, run Lucy. It will automatically download and install all enabled tools.
 
-5.  **Individual Tool Setup:** Some tools require their own specific configuration. For example, the **Web** tool requires a free API key for a Google Programmable Search Engine, and the **SummarizeText** tool requires LLM API information.
+2.  **Individual Tool Setup:** Some tools require their own specific configuration. For example, the **Web** tool requires a free API key for a Google Programmable Search Engine, and the **SummarizeText** tool requires LLM API information.
 
 ### Lucy's Toolset
 
