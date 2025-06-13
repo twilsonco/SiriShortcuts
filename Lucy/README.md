@@ -2,6 +2,8 @@
 
 **[Direct download link](https://www.icloud.com/shortcuts/f631e02850d14d5f97a1073a05fb42cb)**
 
+**[RoutineHub Shortcut page](https://routinehub.co/shortcut/22612/)**
+
 Lucy is a Siri Shortcut for iOS, iPadOS, and macOS that integrates with any OpenAI API-compatible Large Language Model (LLM) endpoint. It operates by utilizing other shortcuts as tools to accomplish tasks. Lucy works with full control over planning and execution, calling tools sequentially without requiring user input or oversight. This is similar to the model context protocol (MCP) that's gaining popularity in the AI community, where a model can call other models or tools to complete tasks.
 
 This shortcut was initially introduced by r/Neurogram. I improved things by creating expanding Lucy's toolset and enhancing the capabilities its existing tools. Other improvements include:
@@ -10,8 +12,6 @@ This shortcut was initially introduced by r/Neurogram. I improved things by crea
 * Automatic downloading of missing or updated tools
 * JSON validation of LLM responses to prevent errors or crashes
 * Debug logging
-
-**[Download Lucy here](https://routinehub.co/shortcut/22612/)**
 
 **Configurability:**
 Lucy is configurable to meet user preferences:
