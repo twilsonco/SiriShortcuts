@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "description": "Overall status of the task.",
+            "enum": [
+                "in_progress",
+                "completed",
+                "clarification_needed"
+            ]
+        },
+        "decision": {
+            "type": "string",
+            "description": "Type of the next action.",
+            "enum": [
+                "tool",
+                "direct",
+                "quit"
+            ]
+        },
+        "decision_notes": {
+            "type": "string",
+            "description": "If decision is 'tool', provide a brief explanation for the user about the upcoming action using no more than 15 words, e.g., 'Checking tomorrow's weather...' or 'Adding a reminder for you...'. This field is null if decision is 'direct' or 'quit'."
+        },
+        "tool_name": {
+            "type": "string",
+            "description": "If decision is 'tool', the name of the selected Shortcut."
+        },
+        "function_name": {
+            "type": "string",
+            "description": "If decision is 'tool', the name of the selected function."
+        },
+        "parameters": {
+            "type": "object",
+            "description": "If decision is 'tool', a JSON object containing extracted parameters."
+        },
+        "direct_response": {
+            "type": "string",
+            "description": "If status is 'completed' or 'clarification_needed', or if decision is 'quit', this is the final response or clarification question for the user. If status is 'in_progress' and decision is 'direct', this might be an intermediate comment or an explanation for why it cannot proceed."
+        },
+        "user_options": {
+            "type": "object",
+            "description": "OMIT IF UNUSED. If the decision is 'direct', you can provide a list of strings from which the user will choose instead of providing you with a text response. If this is used, then 'direct_response' wont be shown and should be null. 'user_prompt' should still be provided.",
+            "properties": {
+                "options": {
+                    "type": "array",
+                    "description": "A list of strings to be shown as options.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "select_multiple": {
+                    "type": "boolean",
+                    "description": "allow multiple items to be selected"
+                },
+                "select_all_initially": {
+                    "type": "boolean",
+                    "description": "if multiple selection enabled, present list with all items selected"
+                }
+            }
+        },
+        "prompt_for_user": {
+            "type": "string",
+            "description": "If decision is 'direct', this field must be provided. It is shown to the user *after the 'direct_response' when their input is requested. It should feel like a follow up question to the 'direct_response', or a single_sentence summary. It should be not much longer than 30 words. It should not feel too repetitive of the 'direct_response'. This field is null if decision is 'tool' or 'quit'."
+        }
+    },
+    "required": [
+        "status",
+        "decision"
+    ]
+}

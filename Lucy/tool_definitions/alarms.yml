@@ -1,0 +1,48 @@
+Name: AlarmClock (tool_name)
+Description: Manages alarms on the device, including creation, searching, and modification.
+Functions:
+  - function_name: create_alarms
+    description: Creates one or more new alarms.
+    parameters:
+      type: "object"
+      properties:
+        alarms:
+          type: "array"
+          description: "An array of alarm objects to be created."
+          items:
+            type: "object"
+            properties:
+              time:
+                type: "string"
+                description: "The time for the alarm in `hh:mma` format (eg `07:30AM`)."
+              label:
+                type: "string"
+                description: "A descriptive name or label for the alarm (e.g., 'Wake up', 'Meeting reminder')."
+              snooze:
+                type: "boolean"
+                description: "Whether the snooze option should be allowed for this alarm. Defaults to true if omitted."
+              repeat_days:
+                type: "array"
+                items:
+                  type: "string"
+                description: "An array of full weekday names (lowercase, e.g., 'monday', 'tuesday') on which the alarm should repeat (be active). If omitted, the alarm will not repeat."
+            required:
+              - "time"
+              - "label"
+      required:
+        - "alarms"
+  - function_name: search_or_modify_alarms
+    description: Searches for existing alarms based on provided criteria and can optionally perform an action (delete, enable, disable) on the matched alarms.
+    parameters:
+      type: "object"
+      properties:
+        label:
+          type: "string"
+          description: "A string to search alarms based on their label. Can be blank to match all alarms, or a partial match."
+        time:
+          type: "string"
+          description: "An optional time in `HH:mm` format (eg `07:30` or `19:30`) to use as an additional search parameter to filter alarms."
+        action:
+          type: "string"
+          description: "The action to perform on the matched alarms. Defaults to 'search' if omitted."
+          enum: ["search", "delete", "enable", "disable"]

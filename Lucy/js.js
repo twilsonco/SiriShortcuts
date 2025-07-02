@@ -374,6 +374,8 @@ out = JSON.stringify({
     token_usage: token_usage || {}
 });
 
-console.log(`Output: ${out}`);
+// console.log(`Output: ${out}`);
+
+console.log(next_step)
 
 return out;
