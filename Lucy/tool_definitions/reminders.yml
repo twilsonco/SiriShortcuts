@@ -10,7 +10,7 @@ full_reminder_properties: &full_reminder_properties
     type: boolean
     description: Set true to create the list if it doesn't exist.
   due_date:
-    type: datetime
+    type: string
     description: Reminder alert time (YYYY-MM-DD hh:mm:ss).
   flag:
     type: boolean
@@ -25,12 +25,11 @@ full_reminder_properties: &full_reminder_properties
     type: string
     description: Associated URL.
 
-Tool: Reminders_v1-0
 Name: Reminders_v1-0
 Description: Manages tasks and reminders in the Reminders app.
 Functions:
   - function_name: list_reminders
-    description: Lists reminders, filtered by query and date.
+    description: Lists completed or incomplete reminders, optionally searching by query, list, and/or date.
     parameters:
       type: object
       properties:
@@ -39,17 +38,13 @@ Functions:
           description: Regex for title/notes. Be generous with matches.
         list:
           type: string
-          description: List to search in.
+          description: Regex to match list in which the reminder is located.
         begin_date:
-          type: datetime
+          type: string
           description: Start date for search (YYYY-MM-DD hh:mm:ss).
         include_completed:
           type: boolean
-          description: Include completed reminders. Default false.
-      required:
-        - query
-        - list
-        - begin_date
+          description: Include completed reminders. Default false. Only use if user specifies that the reminders they are interested in is/are *already completed*, and *you must get permission from the user before searching for completed reminders, because it may take a long time to search through all completed reminders.*
   - function_name: get_reminder_lists
     description: Retrieves all reminder lists.
     parameters: {}
@@ -82,7 +77,7 @@ Functions:
       required:
         - reminders
   - function_name: complete_reminder
-    description: Marks a reminder as completed or incomplete.
+    description: Marks a reminder as completed or incomplete. You may need to use 'list_reminders' to find the reminder metadata first.
     parameters:
       type: object
       properties:
@@ -93,7 +88,7 @@ Functions:
           type: string
           description: Exact title of the reminder.
         creation_date:
-          type: datetime
+          type: string
           description: Creation date (YYYY-MM-DD hh:mm:ss) for unique ID.
         is_completed:
           type: boolean
@@ -104,7 +99,7 @@ Functions:
         - creation_date
         - is_completed
   - function_name: edit_reminder
-    description: Modifies an existing reminder.
+    description: Modifies an existing reminder. You may need to use 'list_reminders' to find the reminder metadata first.
     parameters:
       type: object
       properties:
@@ -115,14 +110,14 @@ Functions:
           type: string
           description: Exact title of the reminder.
         creation_date:
-          type: datetime
+          type: string
           description: Creation date (YYYY-MM-DD hh:mm:ss) for unique ID.
         is_completed:
           type: boolean
           description: Current completion status for identification.
         content:
           type: object
-          description: Object with new attributes to overwrite.
+          description: Object with new attributes to overwrite. Only include fields that are to be updated.
           properties:
             <<: *full_reminder_properties
       required:

@@ -46,3 +46,13 @@ Functions:
           description: Default is reader-view for articles (less tokens). Set true for full raw content.
       required:
         - urls
+  - function_name: get_youtube_video_transcript_full
+    description: Gets the full transcript of a YouTube video.
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          description: YouTube video URL.
+      required:
+        - url

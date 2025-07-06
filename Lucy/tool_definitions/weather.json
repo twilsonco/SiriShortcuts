@@ -1,5 +1,4 @@
 {
-  "Tool": "Weather_v1-0",
   "Name": "Weather_v1-0",
   "Description": "Retrieves weather forecasts.",
   "Functions": [

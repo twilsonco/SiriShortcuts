@@ -1,1 +1,42 @@
-{"Name":"Timers (tool_name)","Description":"Manages a single active timer, allowing for starting, pausing, resuming, canceling, and checking its status.","Functions":[{"function_name":"start_timer","description":"Starts a new countdown timer for a specified duration. If a timer is already running, this will start a new one, potentially replacing the existing one.","parameters":{"type":"object","properties":{"duration_minutes":{"type":"number","description":"The duration of the timer in minutes(can use fractional minutes)."}},"required":["duration_minutes"]}},{"function_name":"resume_timer","description":"Resumes the current timer if it is paused. Has no effect if the timer is already running or if no timer is active.","parameters":[]},{"function_name":"pause_timer","description":"Pauses the current timer if it is running. Has no effect if the timer is already paused or if no timer is active.","parameters":[]},{"function_name":"cancel_timer","description":"Cancels and stops the current timer, effectively resetting it.","parameters":[]},{"function_name":"get_current_timer","description":"Retrieves information about the current timer's status (e.g., remaining time, state) without affecting its operation.","parameters":[]}]}
+{
+  "Name": "Timers (tool_name)",
+  "Description": "Manages a single active timer, allowing for starting, pausing, resuming, canceling, and checking its status.",
+  "Functions": [
+    {
+      "function_name": "start_timer",
+      "description": "Starts a new countdown timer for a specified duration. If a timer is already running, this will start a new one, potentially replacing the existing one.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "duration_minutes": {
+            "type": "number",
+            "description": "The duration of the timer in minutes  (can use fractional minutes)."
+          }
+        },
+        "required": [
+          "duration_minutes"
+        ]
+      }
+    },
+    {
+      "function_name": "resume_timer",
+      "description": "Resumes the current timer if it is paused. Has no effect if the timer is already running or if no timer is active.",
+      "parameters": []
+    },
+    {
+      "function_name": "pause_timer",
+      "description": "Pauses the current timer if it is running. Has no effect if the timer is already paused or if no timer is active.",
+      "parameters": []
+    },
+    {
+      "function_name": "cancel_timer",
+      "description": "Cancels and stops the current timer, effectively resetting it.",
+      "parameters": []
+    },
+    {
+      "function_name": "get_current_timer",
+      "description": "Retrieves information about the current timer's status (e.g., remaining time, state) without affecting its operation.",
+      "parameters": []
+    }
+  ]
+}

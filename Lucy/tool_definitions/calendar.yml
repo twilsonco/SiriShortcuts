@@ -4,10 +4,10 @@ event_properties: &event_properties
     type: string
     description: "The title of the event."
   start_date:
-    type: datetime
+    type: string
     description: "The start date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
   end_date:
-    type: datetime
+    type: string
     description: "The end date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
   notes:
     type: string
@@ -22,7 +22,6 @@ event_properties: &event_properties
     type: string
     description: "A URL associated with the event, such as a video conference link."
 
-Tool: Calendar_v1-0
 Name: Calendar_v1-0
 Description: Manages events in the Calendar app.
 Functions:
@@ -69,7 +68,7 @@ Functions:
       type: object
       properties:
         start_date:
-          type: datetime
+          type: string
           description: "The original start date and time of the event to be edited (Format: YYYY-MM-DD hh:mm:ss). Used for unique identification."
         calendar:
           type: string

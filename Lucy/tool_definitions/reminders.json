@@ -1,45 +1,10 @@
 {
-  "full_reminder_properties": {
-    "title": {
-      "type": "string",
-      "description": "The title."
-    },
-    "list": {
-      "type": "string",
-      "description": "List name. Uses default list if omitted."
-    },
-    "new_list": {
-      "type": "boolean",
-      "description": "Set true to create the list if it doesn't exist."
-    },
-    "due_date": {
-      "type": "datetime",
-      "description": "Reminder alert time (YYYY-MM-DD hh:mm:ss)."
-    },
-    "flag": {
-      "type": "boolean",
-      "description": "Set true to flag as important."
-    },
-    "tags": {
-      "type": "string",
-      "description": "Comma-separated tags."
-    },
-    "notes": {
-      "type": "string",
-      "description": "Additional notes."
-    },
-    "url": {
-      "type": "string",
-      "description": "Associated URL."
-    }
-  },
-  "Tool": "Reminders_v1-0",
   "Name": "Reminders_v1-0",
   "Description": "Manages tasks and reminders in the Reminders app.",
   "Functions": [
     {
       "function_name": "list_reminders",
-      "description": "Lists reminders, filtered by query and date.",
+      "description": "Lists completed or incomplete reminders, optionally searching by query, list, and/or date.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -49,22 +14,17 @@
           },
           "list": {
             "type": "string",
-            "description": "List to search in."
+            "description": "Regex to match list in which the reminder is located."
           },
           "begin_date": {
-            "type": "datetime",
+            "type": "string",
             "description": "Start date for search (YYYY-MM-DD hh:mm:ss)."
           },
           "include_completed": {
             "type": "boolean",
-            "description": "Include completed reminders. Default false."
+            "description": "Include completed reminders. Default false. Only use if user specifies that the reminder(s) of interest is/are *already completed*. If searching in order to find a reminder to complete, omit this parameter."
           }
-        },
-        "required": [
-          "query",
-          "list",
-          "begin_date"
-        ]
+        }
       }
     },
     {
@@ -102,7 +62,7 @@
                   "description": "Set true to create the list if it doesn't exist."
                 },
                 "due_date": {
-                  "type": "datetime",
+                  "type": "string",
                   "description": "Reminder alert time (YYYY-MM-DD hh:mm:ss)."
                 },
                 "flag": {
@@ -140,7 +100,7 @@
                         "description": "Set true to create the list if it doesn't exist."
                       },
                       "due_date": {
-                        "type": "datetime",
+                        "type": "string",
                         "description": "Reminder alert time (YYYY-MM-DD hh:mm:ss)."
                       },
                       "flag": {
@@ -179,7 +139,7 @@
     },
     {
       "function_name": "complete_reminder",
-      "description": "Marks a reminder as completed or incomplete.",
+      "description": "Marks a reminder as completed or incomplete. You may need to use 'list_reminders' to find the reminder metadata first.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -192,7 +152,7 @@
             "description": "Exact title of the reminder."
           },
           "creation_date": {
-            "type": "datetime",
+            "type": "string",
             "description": "Creation date (YYYY-MM-DD hh:mm:ss) for unique ID."
           },
           "is_completed": {
@@ -210,7 +170,7 @@
     },
     {
       "function_name": "edit_reminder",
-      "description": "Modifies an existing reminder.",
+      "description": "Modifies an existing reminder. You may need to use 'list_reminders' to find the reminder metadata first.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -223,7 +183,7 @@
             "description": "Exact title of the reminder."
           },
           "creation_date": {
-            "type": "datetime",
+            "type": "string",
             "description": "Creation date (YYYY-MM-DD hh:mm:ss) for unique ID."
           },
           "is_completed": {
@@ -232,7 +192,7 @@
           },
           "content": {
             "type": "object",
-            "description": "Object with new attributes to overwrite.",
+            "description": "Object with new attributes to overwrite. Only include fields that are to be updated.",
             "properties": {
               "title": {
                 "type": "string",
@@ -247,7 +207,7 @@
                 "description": "Set true to create the list if it doesn't exist."
               },
               "due_date": {
-                "type": "datetime",
+                "type": "string",
                 "description": "Reminder alert time (YYYY-MM-DD hh:mm:ss)."
               },
               "flag": {

@@ -62,7 +62,7 @@
         },
         "prompt_for_user": {
             "type": "string",
-            "description": "If decision is 'direct', this field must be provided. It is shown to the user *after the 'direct_response' when their input is requested. It should feel like a follow up question to the 'direct_response', or a single_sentence summary. It should be not much longer than 30 words. It should not feel too repetitive of the 'direct_response'. This field is null if decision is 'tool' or 'quit'."
+            "description": "This is shown to the user *after the 'direct_response' when their input is requested. It should feel like a follow up question to the 'direct_response', or a single_sentence summary. It should be not much longer than 30 words. It should not feel too repetitive of the 'direct_response'. This field is null if decision is 'tool' or 'quit'. If decision is 'direct', this field must be provided, even if status is 'completed'."
         }
     },
     "required": [

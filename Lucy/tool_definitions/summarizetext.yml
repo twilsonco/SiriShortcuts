@@ -1,5 +1,5 @@
 Name: SummarizeText_v1-0
-Description: Summarizes text in order to have it consume fewer tokens.
+Description: Summarizes text in order to have it consume fewer tokens. When you use this tool to summarize text, you must use the resulting summary as context for your next message to the user. This tool only generates summaries for you to see and use as context in your conversation with the user.
 Functions:
   - function_name: summarize_webpages
     description: Retrieves content from the specified URLs and generates a summary for each. The function returns a JSON dictionary where keys are the URLs and values are their corresponding summaries.
@@ -13,6 +13,16 @@ Functions:
             type: string
       required:
         - urls
+  - function_name: summarize_youtube_video_transcript
+    description: Retrieves the transcript of a YouTube video and generates a summary.
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The full or shortened URL of the YouTube video to summarize.
+      required:
+        - url
   - function_name: summarize_text
     description: Summarizes a text string.
     parameters:
