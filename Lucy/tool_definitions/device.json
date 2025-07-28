@@ -1,0 +1,143 @@
+{
+  "Name": "Device_v1-0",
+  "Description": "Controls and retrieves information about device settings and toggles. This tool allows users to change device configurations, toggle settings on/off, retrieve current setting values, and perform batch operations on multiple settings.",
+  "Functions": [
+    {
+      "function_name": "set_value",
+      "description": "Changes a specified device setting to the provided value.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "names"
+            ],
+            "description": "The name of the device setting to modify."
+          },
+          "value": {
+            "type": "string",
+            "description": "The new value to set for the specified setting."
+          }
+        },
+        "name_value_hints": {
+          "value_one": "value_one_hint"
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      }
+    },
+    {
+      "function_name": "change_toggle",
+      "description": "Toggles a specified device setting on, off, or switches its current state.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "names"
+            ],
+            "description": "The name of the device toggle setting to modify."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "toggle",
+              "turn_on",
+              "turn_off"
+            ],
+            "description": "The action to perform on the toggle setting."
+          }
+        },
+        "required": [
+          "name",
+          "action"
+        ]
+      }
+    },
+    {
+      "function_name": "get_value",
+      "description": "Retrieves information about a specified device setting.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": [
+              "names"
+            ],
+            "description": "The name of the device setting to retrieve information for."
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    {
+      "function_name": "change_settings",
+      "description": "Executes multiple device setting operations in a single batch. At least one array of actions must be provided.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "toggle_actions": {
+            "type": "array",
+            "description": "Array of toggle actions to perform.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Enum using the name values of 'change_toggle' function"
+                },
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "toggle",
+                    "turn_on",
+                    "turn_off"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "action"
+              ]
+            }
+          },
+          "set_value_actions": {
+            "type": "array",
+            "description": "Array of set value actions to perform.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Enum using the name values of 'set_value' function"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "value"
+              ]
+            }
+          },
+          "get_value_actions": {
+            "type": "array",
+            "description": "Array of setting names to retrieve values for.",
+            "items": {
+              "type": "string",
+              "description": "Enum using the name values of 'get_value' function"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

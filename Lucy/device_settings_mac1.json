@@ -1,0 +1,39 @@
+{
+    "get_value": [
+        "battery",
+        "current_focus_mode",
+        "device_and_OS_info",
+        "display_info",
+        "network_info",
+        "volume"
+    ],
+    "set_value": [
+        "accessibility_audio_descriptions",
+        "accessibility_captions_shd",
+        "accessibility_color_filters",
+        "accessibility_increased_ui_contrast",
+        "accessibility_live_captions",
+        "accessibility_mono_audio",
+        "accessibility_voice_control",
+        "accessibility_voice_over",
+        "airdrop_receive_contacts_only",
+        "airdrop_receive_everyone_10_minutes",
+        "bluetooth",
+        "lock_screen",
+        "media_volume",
+        "reboot_device",
+        "reduce_ui_motion",
+        "reduce_ui_transparency",
+        "ringtone_volume",
+        "screen_brightness",
+        "screen_night_shift_warm_colors",
+        "screen_true_tone_color",
+        "shutdown_device",
+        "ui_classic_invert_colors",
+        "ui_dark_mode",
+        "ui_smart_invert_colors",
+        "vpn",
+        "vpn_on_demand",
+        "wifi"
+    ]
+}

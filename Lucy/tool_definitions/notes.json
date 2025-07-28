@@ -10,11 +10,11 @@
     }
   },
   "Name": "Notes_v1-0",
-  "Description": "Create, modify, organize, and search notes.",
+  "Description": "Create, modify, organize, and search notes. **DO NOT USE THE NOTES TOOL TO REMEMBER THINGS ABOUT THE USER. INSTEAD, USE THE MEMORY TOOL FOR USER INFORMATION.**",
   "Functions": [
     {
       "function_name": "add_new_notes",
-      "description": "Adds one or more new notes.",
+      "description": "Adds one or more new notes. **DO NOT USE THE NOTES TOOL TO REMEMBER THINGS ABOUT THE USER. INSTEAD, USE THE MEMORY TOOL FOR USER INFORMATION.**",
       "parameters": {
         "type": "object",
         "properties": {

@@ -3,23 +3,38 @@
   "Description": "Sends messages via the Messages app. When you're told to \"tell\" something to someone, this is one way to do that. You must use the Contacts tool to get a valid phone number or email address to use as the recipient before using this tool.",
   "Functions": [
     {
-      "function_name": "send_message",
-      "description": "Sends a message to a specified recipient using the Messages app.",
+      "function_name": "send_messages",
+      "description": "Sends messages to specified recipients using the Messages app.",
       "parameters": {
         "type": "object",
         "properties": {
-          "recipient": {
-            "type": "string",
-            "description": "The name of the contact or the phone number/email address of the recipient. If a name is provided, the tool will attempt to resolve it to a contact."
-          },
-          "message_body": {
-            "type": "string",
-            "description": "The content of the message to be sent."
+          "messages": {
+            "type": "array",
+            "description": "An array of message objects to be sent.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "recipients": {
+                  "type": "array",
+                  "description": "An array of phone numbers or email addresses of the recipients.",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "message_body": {
+                  "type": "string",
+                  "description": "The content of the message to be sent."
+                }
+              },
+              "required": [
+                "recipients",
+                "message_body"
+              ]
+            }
           }
         },
         "required": [
-          "recipient",
-          "message_body"
+          "messages"
         ]
       }
     }

@@ -2,24 +2,46 @@ Name: Web_v1-0
 Description: Searches web and gets webpage content.
 Note: open_url is not supported on Apple Watch or HomePod.
 Functions:
-  - function_name: google_search
-    description: Performs a Google search.
+  - function_name: perform_searches
+    description: Performs multiple searches across different platforms.
     parameters:
       type: object
       properties:
-        query:
-          type: string
-          description: Search query.
-        start_page:
-          type: number
-          description: Starting page number (1-10).
-        end_page:
-          type: number
-          description: Ending page number (1-10, >= start_page).
+        searches:
+          type: array
+          description: Array of search operations to perform.
+          items:
+            type: object
+            properties:
+              search_tool:
+                type: string
+                enum: ['google_search', 'arxiv_search', 'chemrxiv_search']
+                description: Type of search to perform.
+                enum_hints:
+                  google_search: Web search using Google.
+                  arxiv_search: Search arXiv for academic papers (preprints) in physics, mathematics, and computer science, quantitative biology/finance, statistics, electrical engineering, systems science, and economics.
+                  chemrxiv_search: Search ChemRxiv for academic papers (preprints) in chemistry.
+              parameters:
+                type: object
+                properties:
+                  query:
+                    type: string
+                    description: Search query.
+                  start_page:
+                    type: number
+                    description: Starting page number (1-10).
+                  end_page:
+                    type: number
+                    description: Ending page number (1-10, >= start_page).
+                required:
+                  - query
+                  - start_page
+                  - end_page
+            required:
+              - function_name
+              - parameters
       required:
-        - query
-        - start_page
-        - end_page
+        - searches
   - function_name: open_url
     description: Opens a URL in the browser.
     parameters:

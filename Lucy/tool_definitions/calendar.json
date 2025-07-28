@@ -1,4 +1,34 @@
 {
+  "event_properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the event."
+    },
+    "start_date": {
+      "type": "string",
+      "description": "The start date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
+    },
+    "end_date": {
+      "type": "string",
+      "description": "The end date and time of the event (Format: YYYY-MM-DD hh:mm:ss)."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes for the event."
+    },
+    "location": {
+      "type": "string",
+      "description": "The physical location of the event."
+    },
+    "is_all_day": {
+      "type": "boolean",
+      "description": "Set to true if the event is an all-day event."
+    },
+    "url": {
+      "type": "string",
+      "description": "A URL associated with the event, such as a video conference link."
+    }
+  },
   "Name": "Calendar_v1-0",
   "Description": "Manages events in the Calendar app.",
   "Functions": [

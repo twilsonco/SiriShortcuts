@@ -1,33 +1,36 @@
 Name: Memory_v1-0
-Description: Saves, views, and searches for information about the user to recall later, like preferences, facts, and events.
+Description: Saves, views, and searches for information about the user to recall later, like preferences, facts, and events. **This is the preferred tool for personal attributes, unlike the Notes tool.**
 Functions:
-  - function_name: save_memory
-    description: Saves a new memory.
+  - function_name: save_memories
+    description: Saves new memories.
     parameters:
       type: object
       properties:
-        memory:
-          type: object
-          description: Memory object with type, content, and keywords.
-          properties:
-            type:
-              type: string
-              description: The category of the memory.
-              enum: [entity, relationship, event, fact, instruction, definition, preference, goal]
-            content:
-              type: string
-              description: Information to remember.
-            keywords:
-              type: array
-              description: Keywords for recall. For events, include month and year.
-              items:
+        memories:
+          type: array
+          description: Array of memory objects to save.
+          items:
+            type: object
+            description: Memory object with type, content, and keywords.
+            properties:
+              type:
                 type: string
-          required:
-            - type
-            - content
-            - keywords
+                description: The category of the memory.
+                enum: [entity, relationship, event, fact, instruction, definition, preference, goal]
+              content:
+                type: string
+                description: Information to remember.
+              keywords:
+                type: array
+                description: Keywords for recall. For events, include month and year.
+                items:
+                  type: string
+            required:
+              - type
+              - content
+              - keywords
       required:
-        - memory
+        - memories
   - function_name: retrieve_all_memories
     description: Returns all memories.
     parameters: {}

@@ -1,4 +1,38 @@
 {
+  "full_reminder_properties": {
+    "title": {
+      "type": "string",
+      "description": "The title."
+    },
+    "list": {
+      "type": "string",
+      "description": "List name. Uses default list if omitted."
+    },
+    "new_list": {
+      "type": "boolean",
+      "description": "Set true to create the list if it doesn't exist."
+    },
+    "due_date": {
+      "type": "string",
+      "description": "Reminder alert time (YYYY-MM-DD hh:mm:ss)."
+    },
+    "flag": {
+      "type": "boolean",
+      "description": "Set true to flag as important."
+    },
+    "tags": {
+      "type": "string",
+      "description": "Comma-separated tags."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes."
+    },
+    "url": {
+      "type": "string",
+      "description": "Associated URL."
+    }
+  },
   "Name": "Reminders_v1-0",
   "Description": "Manages tasks and reminders in the Reminders app.",
   "Functions": [
@@ -22,7 +56,7 @@
           },
           "include_completed": {
             "type": "boolean",
-            "description": "Include completed reminders. Default false. Only use if user specifies that the reminder(s) of interest is/are *already completed*. If searching in order to find a reminder to complete, omit this parameter."
+            "description": "Include completed reminders. Default false. Only use if user specifies that the reminders they are interested in is/are *already completed*, and *you must get permission from the user before searching for completed reminders, because it may take a long time to search through all completed reminders.*"
           }
         }
       }

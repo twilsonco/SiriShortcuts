@@ -10,10 +10,14 @@
         "properties": {
           "urls": {
             "type": "array",
-            "description": "A list of full URLs of the webpages to be summarized (e.g., ['https://example.com/article1', 'https://example.com/article2']). Each URL must be a valid string.",
+            "description": "A list of full URLs of the webpages to be summarized (e.g., ['https://example.com/article1', 'https://example.com/article2.pdf']). Each URL must be a valid string. URLs to PDFs and other files are supported.",
             "items": {
               "type": "string"
             }
+          },
+          "summary_notes": {
+            "type": "string",
+            "description": "Additional notes or context to consider when summarizing the text."
           }
         },
         "required": [
@@ -30,6 +34,10 @@
           "url": {
             "type": "string",
             "description": "The full or shortened URL of the YouTube video to summarize."
+          },
+          "summary_notes": {
+            "type": "string",
+            "description": "Additional notes or context to consider when summarizing the text."
           }
         },
         "required": [
@@ -46,6 +54,10 @@
           "text": {
             "type": "string",
             "description": "A text string to summarize. This is only to be used in order to summarize text so that it consumes fewer tokens in future LLM API calls. If the user actually requests for text summarization, do not use this tool, and instead perform the summary yourself."
+          },
+          "summary_notes": {
+            "type": "string",
+            "description": "Additional notes or context to consider when summarizing the text."
           }
         },
         "required": [

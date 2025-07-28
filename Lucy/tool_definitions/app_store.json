@@ -1,0 +1,61 @@
+{
+  "Name": "AppStore_v1-0",
+  "Description": "Searches for apps in the App Store. Can search by developer name or across all app data, and supports iPhone, iPad, and Mac apps.",
+  "Functions": [
+    {
+      "function_name": "find_apps",
+      "description": "Searches for apps in the App Store based on specified criteria.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "queries": {
+            "type": "array",
+            "description": "Array of search query objects.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "query": {
+                  "type": "string",
+                  "description": "String query to search for apps."
+                },
+                "device": {
+                  "type": "string",
+                  "enum": [
+                    "iPhone",
+                    "iPad",
+                    "Mac"
+                  ],
+                  "description": "What types of apps to search for. Use <device type> as default."
+                },
+                "num_results": {
+                  "type": "number",
+                  "description": "Number of results to generate for query (10-20 is a good value)."
+                },
+                "include_description": {
+                  "type": "boolean",
+                  "description": "Whether to include full item descriptions in search results, which increases token usage (optional, false by default). If user asks for more details, set to true."
+                },
+                "search_by": {
+                  "type": "string",
+                  "enum": [
+                    "developer",
+                    "all"
+                  ],
+                  "description": "Search by only developer name or search all app data (optional, 'all' by default)."
+                }
+              },
+              "required": [
+                "query",
+                "device",
+                "num_results"
+              ]
+            }
+          }
+        },
+        "required": [
+          "queries"
+        ]
+      }
+    }
+  ]
+}

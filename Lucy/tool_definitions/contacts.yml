@@ -6,11 +6,13 @@ Functions:
     parameters:
       type: object
       properties:
-        query:
-          type: string
-          description: Case-insensitive regex for name, phone, email, or company.
+        queries:
+          type: array
+          items:
+            type: string
+          description: Array of search strings for name, phone, email, or company. For names, include common variations of names and nicknames, such as "Robert" and "Bob", and variations of queries for searching first and last names separately.
       required:
-        - query
+        - queries
   - function_name: add_contact
     description: Adds a new contact.
     parameters:

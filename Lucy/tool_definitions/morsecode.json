@@ -1,0 +1,31 @@
+{
+  "Name": "MorseCode_v1-0",
+  "Description": "Converts text messages to Morse code and transmits them using the device's flashlight and optional screen flashing. This tool allows users to send messages in Morse code format with customizable repetition and visual feedback options.",
+  "Functions": [
+    {
+      "function_name": "send_message",
+      "description": "Converts a text message to Morse code and transmits it using the device's flashlight, with optional screen flashing and message repetition.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "The text message to convert to Morse code and transmit. The message will be converted to standard International Morse Code format."
+          },
+          "number_of_repetitions": {
+            "type": "number",
+            "description": "The number of times to repeat the Morse code transmission of the message. Must be a positive integer. Use 1 if user doesn't specify."
+          },
+          "flash_screen": {
+            "type": "boolean",
+            "description": "Optional parameter to enable screen flashing synchronized with the flashlight during Morse code transmission. Defaults to false if not specified."
+          }
+        },
+        "required": [
+          "message",
+          "number_of_repetitions"
+        ]
+      }
+    }
+  ]
+}

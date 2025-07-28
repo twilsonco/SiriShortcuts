@@ -1,21 +1,41 @@
 Name: Mail_v1-0
-Description: Sends emails via the Mail app. You must use the Contacts tool to get a valid phone number or email address to use as the recipient before using this tool.
+Description: Sends emails via the Mail app. You may need to use the Contacts tool to get valid email addresses to use as the recipient before using this tool.
 Functions:
-  - function_name: send_mail
-    description: Sends an email to a specified recipient using the Mail app.
+  - function_name: send_emails
+    description: Sends emails to specified recipients using the Mail app.
     parameters:
       type: object
       properties:
-        recipient:
-          type: string
-          description: "The email address of the recipient. If a name is provided, the tool will attempt to resolve it to a contact."
-        body:
-          type: string
-          description: "The content of the email to be sent."
-        subject:
-          type: string
-          description: "The subject of the email to be sent."
+        messages:
+          type: array
+          description: "Array of message objects to be sent."
+          items:
+            type: object
+            properties:
+              recipient:
+                type: array
+                items:
+                  type: string
+                description: "Array of email addresses of the recipients."
+              cc:
+                type: array
+                items:
+                  type: string
+                description: "Array of email addresses for CC recipients (optional)."
+              bcc:
+                type: array
+                items:
+                  type: string
+                description: "Array of email addresses for BCC recipients (optional)."
+              body:
+                type: string
+                description: "The content of the email to be sent."
+              subject:
+                type: string
+                description: "The subject of the email to be sent."
+            required:
+              - recipient
+              - body
+              - subject
       required:
-        - recipient
-        - body
-        - subject
+        - messages

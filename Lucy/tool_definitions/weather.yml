@@ -2,26 +2,32 @@ Name: Weather_v1-0
 Description: Retrieves weather forecasts.
 Functions:
   - function_name: get_weather
-    description: Retrieves the current real-time or forecasted weather for the specified location, as city [+ state [+ country]] or zip + country. Feel free to speculate about the state and country. If no location is specified, the user's current location is used.
+    description: Performs one or more weather queries. Each query contains location information as city [+ state [+ country]] or zip + country. Feel free to speculate about the state and country. If no location info is specified for a given location, the user's current location is used for that query. For example, you can get hourly and daily forecasts for multiple cities using a list of queries.
     parameters:
       type: object
       properties:
-        city:
-          type: string
-          description: "The name of the city for which to retrieve the current weather."
-        state:
-          type: string
-          description: "The name of the state for which to retrieve the current weather."
-        country:
-          type: string
-          description: "The name of the country for which to retrieve the current weather. e.g. 'United States'"
-        zip:
-          type: number
-          description: "The ZIP code for which to retrieve the current weather. If provided, please provide country as well."
-        type:
-          type: string
-          description: "The type of weather data to retrieve. Must be either 'current' for real-time weather, or 'hourly' or 'daily' for 24-hour or 10-day forecasted weather respectively. Use 'hourly' as default."
-          enum: ["current", "hourly", "daily"]
+        queries:
+          type: array
+          description: "An array of location objects for which to retrieve weather data."
+          items:
+            type: object
+            properties:
+              city:
+                type: string
+                description: "The name of the city for which to retrieve the current weather."
+              state:
+                type: string
+                description: "The name of the state for which to retrieve the current weather."
+              country:
+                type: string
+                description: "The name of the country for which to retrieve the current weather. e.g. 'United States'"
+              zip:
+                type: number
+                description: "The ZIP code for which to retrieve the current weather. If provided, please provide country as well."
+              type:
+                type: string
+                description: "The type of weather data to retrieve. Must be either 'current' for real-time weather, or 'hourly' or 'daily' for 24-hour or 10-day forecasted weather respectively. Use 'hourly' as default."
+                enum: ["current", "hourly", "daily"]
         data:
           type: array
           description: "An array of data types to include in the response. Request data types relevant to the task/question at hand. As a default, use temperature and condition, including others if they're noteworthy."
@@ -29,5 +35,5 @@ Functions:
             type: string
             enum: ["low", "high", "temperature", "feels_like", "condition", "visibility", "dewpoint", "humidity", "pressure", "precipitation_amount", "precipitation_chance", "wind_speed", "wind_direction", "uv_index", "sunrise_time", "sunset_time", "air_quality_index", "air_quality_category", "air_pollutants"]
       required:
-        - type
+        - queries
         - data
