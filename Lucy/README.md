@@ -51,7 +51,7 @@ Lucy's tools are separate Siri Shortcuts. You get to decide which tools will be 
 19. **Timers**: Set a timer or pause/resume/cancel/check current timer in the Clock app.
 20. **VoiceMode**: Switches a text conversation to a voice conversation. Ask to leave voice mode and it will return to text mode.
 21. **Weather**: Retrieves current and forecasted weather for specified locations.
-22. **Web**: Performs web searches (Google, ArXiv, ChemRxiv), retrieves content from webpages, and retrieves YouTube video transcripts. Requires a free API key for a Google Programmable Search Engine to do searches.
+22. **Web**: Performs web searches (Google, ArXiv, ChemRxiv), retrieves content from webpages, and retrieves YouTube video transcripts. Requires a free API key for a Google Programmable Search Engine to do google searches.
 
 ### Auxiliary Shortcuts (not tools)
 
