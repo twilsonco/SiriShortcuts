@@ -19,21 +19,34 @@
                 "quit"
             ]
         },
-        "decision_notes": {
-            "type": "string",
-            "description": "If decision is 'tool', provide a brief explanation for the user about the upcoming action using no more than 15 words, e.g., 'Checking tomorrow's weather...' or 'Adding a reminder for you...'. This field is null if decision is 'direct' or 'quit'."
-        },
-        "tool_name": {
-            "type": "string",
-            "description": "If decision is 'tool', the name of the selected Shortcut."
-        },
-        "function_name": {
-            "type": "string",
-            "description": "If decision is 'tool', the name of the selected function."
-        },
-        "parameters": {
-            "type": "object",
-            "description": "If decision is 'tool', a JSON object containing extracted parameters."
+        "tool_calls": {
+            "type": "array",
+            "description": "If decision is 'tool', an array of objects, each with tool_name, function_name, and parameters.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tool_notes": {
+                        "type": "string",
+                        "description": "A brief explanation for the user about the upcoming action for this tool call, using no more than 15 words."
+                    },
+                    "tool_name": {
+                        "type": "string",
+                        "description": "The name of the selected Shortcut."
+                    },
+                    "function_name": {
+                        "type": "string",
+                        "description": "The name of the selected function."
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "description": "An array of JSON objects containing extracted parameters.",
+                        "items": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "required": ["tool_notes", "tool_name", "function_name", "parameters"]
+            }
         },
         "direct_response": {
             "type": "string",

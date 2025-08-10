@@ -234,35 +234,38 @@ function validate(modelContentString, globalSchemaString, toolSchemas) {
     return { isValid: false, error: `Global Schema Error: ${validationError}`, data: modelContentString };
   }
 
-  // Level 3: Tool Parameter Validation
-  if (parsedModelJson.decision === 'tool') {
-    const toolName = parsedModelJson.tool_name;
-    const functionName = parsedModelJson.function_name;
-    const toolSchemaString = toolSchemas[toolName];
-    let badContent = modelContentString;
+  // Level 3: Tool Parameter Validation (multi-tool-call structure)
+  if (parsedModelJson.decision === 'tool' && Array.isArray(parsedModelJson.tool_calls)) {
+    for (let i = 0; i < parsedModelJson.tool_calls.length; i++) {
+      const call = parsedModelJson.tool_calls[i];
+      const toolName = call.tool_name;
+      const functionName = call.function_name;
+      const parameters = call.parameters;
+      const toolSchemaString = toolSchemas[toolName];
+      let badContent = JSON.stringify(call, null, 2);
 
-    if (!toolSchemaString) {
-      validationError = `Tool Schema Error: No schema found for tool '${toolName}'.`;
-    } else {
-      try {
-        const tool = JSON.parse(toolSchemaString);
-        const funcSchema = tool.Functions.find(f => f.function_name === functionName);
-        if (!funcSchema) {
-          validationError = `Tool Schema Error: No function named '${functionName}' found in tool '${toolName}'.`;
-        } else {
-          // *** Using the single, unified validator here ***
-          validationError = checkObjectSchema(parsedModelJson.parameters, funcSchema.parameters);
-          if (validationError) {
-            validationError = `For function '${functionName}' of tool '${toolName}', ${validationError}`;
-            badContent = JSON.stringify(parsedModelJson.parameters, null, 0);
+      if (!toolSchemaString) {
+        validationError = `Tool Schema Error: No schema found for tool '${toolName}' (tool_calls[${i}]).`;
+      } else {
+        try {
+          const tool = JSON.parse(toolSchemaString);
+          const funcSchema = tool.Functions.find(f => f.function_name === functionName);
+          if (!funcSchema) {
+            validationError = `Tool Schema Error: No function named '${functionName}' found in tool '${toolName}' (tool_calls[${i}]).`;
+          } else {
+            validationError = checkObjectSchema(parameters, funcSchema.parameters);
+            if (validationError) {
+              validationError = `For function '${functionName}' of tool '${toolName}' (tool_calls[${i}]), ${validationError}`;
+              badContent = JSON.stringify(parameters, null, 0);
+            }
           }
+        } catch (e) {
+          validationError = `Tool Schema Error: Failed to parse the schema for tool '${toolName}' (tool_calls[${i}]). Error: ${e.message}`;
         }
-      } catch (e) {
-        validationError = `Tool Schema Error: Failed to parse the schema for tool '${toolName}'. Error: ${e.message}`;
       }
-    }
-    if (validationError) {
-      return { isValid: false, error: validationError, data: badContent };
+      if (validationError) {
+        return { isValid: false, error: validationError, data: badContent };
+      }
     }
   }
   
