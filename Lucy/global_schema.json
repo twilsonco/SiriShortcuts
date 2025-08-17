@@ -21,7 +21,7 @@
         },
         "tool_calls": {
             "type": "array",
-            "description": "If decision is 'tool', an array of objects, each with tool_name, function_name, and parameters.",
+            "description": "If decision is 'tool', an array of objects, each with tool_notes, tool_name, function_name, and parameters.",
             "items": {
                 "type": "object",
                 "properties": {
@@ -38,14 +38,16 @@
                         "description": "The name of the selected function."
                     },
                     "parameters": {
-                        "type": "array",
-                        "description": "An array of JSON objects containing extracted parameters.",
-                        "items": {
-                            "type": "object"
-                        }
+                        "type": "object",
+                        "description": "The parameters to be passed to the function."
                     }
                 },
-                "required": ["tool_notes", "tool_name", "function_name", "parameters"]
+                "required": [
+                    "tool_notes",
+                    "tool_name",
+                    "function_name",
+                    "parameters"
+                ]
             }
         },
         "direct_response": {

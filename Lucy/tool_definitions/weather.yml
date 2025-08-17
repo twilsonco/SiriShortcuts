@@ -28,6 +28,8 @@ Functions:
                 type: string
                 description: "The type of weather data to retrieve. Must be either 'current' for real-time weather, or 'hourly' or 'daily' for 24-hour or 10-day forecasted weather respectively. Use 'hourly' as default."
                 enum: ["current", "hourly", "daily"]
+            required:
+              - type
         data:
           type: array
           description: "An array of data types to include in the response. Request data types relevant to the task/question at hand. As a default, use temperature and condition, including others if they're noteworthy."

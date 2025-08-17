@@ -39,7 +39,10 @@
                     "daily"
                   ]
                 }
-              }
+              },
+              "required": [
+                "type"
+              ]
             }
           },
           "data": {
