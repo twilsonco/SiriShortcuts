@@ -1,0 +1,194 @@
+# schemas.yml (v2.3)
+
+# --- Reusable Component Definitions ---
+
+menu_item_base:
+  type: object
+  properties:
+    name: { type: string }
+    description: { type: string }
+    icon: { type: string }
+    index: { type: number }
+    masked: { type: boolean, default: false }
+  required: [name, description, type]
+
+stringItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'String' }
+        value: { type: string }
+        linked_default: { type: string }
+        multiline: { type: boolean, default: false}
+      required: [value]
+
+dateItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Date' }
+        value: { type: string }
+        linked_default: { type: string }
+      required: [value]
+
+dateTimeItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Datetime' }
+        value: { type: string }
+        linked_default: { type: string }
+      required: [value]
+
+timeItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Time' }
+        value: { type: string }
+        linked_default: { type: string }
+      required: [value]
+
+urlItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'URL' }
+        value: { type: string }
+        linked_default: { type: string }
+      required: [value]
+
+numberItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Number' }
+        value: { type: number }
+        min: { type: number }
+        max: { type: number }
+        allow_decimal: { type: boolean, default: true }
+        linked_default: { type: string }
+      required: [value]
+
+booleanItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Boolean' }
+        value: { type: boolean }
+        linked_default: { type: string }
+      required: [value]
+
+# New definition for an option within an Enum's menu
+EnumOption:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'EnumOption' }
+      # This type does not have a 'value' property
+
+enumItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Enum' }
+        value: { type: string }
+        menu:
+          type: object
+          additionalProperties: { $ref: '#/EnumOption' }
+        linked_default: { type: string }
+      required: [value, menu]
+
+submenuItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Submenu' }
+        menu: { $ref: '#/menu' } # Points to the main menu definition
+      required: [menu]
+
+commandItem:
+  allOf:
+    - { $ref: '#/menu_item_base' }
+    - type: object
+      properties:
+        type: { const: 'Command' }
+
+menu_item:
+  oneOf:
+    - { $ref: '#/stringItem' }
+    - { $ref: '#/urlItem' }
+    - { $ref: '#/numberItem' }
+    - { $ref: '#/booleanItem' }
+    - { $ref: '#/enumItem' }
+    - { $ref: '#/submenuItem' }
+    - { $ref: '#/commandItem' }
+    - { $ref: '#/EnumOption' }
+    - { $ref: '#/dateItem' }
+    - { $ref: '#/dateTimeItem' }
+    - { $ref: '#/timeItem' }
+  discriminator:
+    propertyName: "type"
+
+# --- Top-Level Schemas ---
+
+menu:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "Menu Dictionary"
+  type: object
+  additionalProperties: { $ref: '#/menu_item' }
+
+state:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "State Dictionary"
+  type: object
+  properties:
+    current_path: { type: string, default: "" }
+    new_value:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties: true
+    option_values:
+      $ref: '#/option_values'
+  required: [current_path]
+  additionalProperties: false
+
+option_values:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "Option Values"
+  type: object
+  additionalProperties:
+    type: [string, number, boolean]
+
+return:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  title: "JS Return Object"
+  oneOf:
+    - type: object
+      properties:
+        menu:
+          type: array
+          items: { type: string }
+        option_values: { $ref: '#/option_values' }
+        menu_dict: { $ref: '#/menu' }
+        state: { $ref: '#/state' }
+        command: { type: string }
+        error: { type: string }
+      required: [menu, option_values, menu_dict, state]
+      additionalProperties: false
+    - type: object
+      properties:
+        error: { type: string }
+      required: [error]
+      additionalProperties: false

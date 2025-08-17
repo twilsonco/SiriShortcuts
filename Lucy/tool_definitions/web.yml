@@ -38,7 +38,7 @@ Functions:
                   - start_page
                   - end_page
             required:
-              - function_name
+              - search_tool
               - parameters
       required:
         - searches

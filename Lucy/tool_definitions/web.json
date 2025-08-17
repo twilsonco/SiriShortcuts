@@ -53,7 +53,7 @@
                 }
               },
               "required": [
-                "function_name",
+                "search_tool",
                 "parameters"
               ]
             }

@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=utf-8:LLM model settings;
+ORG;CHARSET=UTF-8:Settings for the LLM model used by Lucy;
+NOTE:model
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=utf-8:Tool settings;
+ORG;CHARSET=UTF-8:Settings for the tools used by Lucy;
+NOTE:tools
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=utf-8:Check for updates every - 7 days;
+ORG;CHARSET=UTF-8:;
+NOTE:update_check_freq
+END:VCARD
