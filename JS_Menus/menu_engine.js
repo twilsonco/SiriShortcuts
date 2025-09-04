@@ -23,7 +23,7 @@ const menuDictIn = {
             "provider_info": {
                 "index": -1,
                 "type": "Submenu",
-                "name": "LLM providers",
+                "name": "Select LLM provider",
                 "description": "Setup provider or get provider information",
                 "menu": {
                     "api_google_gemini": {
@@ -73,9 +73,9 @@ const menuDictIn = {
             "provider": {
                 "index": 0,
                 "type": "String",
-                "name": "Selected provider",
+                "name": "LLM provider",
                 "description": "Can enter a custom provider if desired",
-                "value": "Google"
+                "value": ""
             },
             "api_key": {
                 "index": 1,
@@ -83,7 +83,7 @@ const menuDictIn = {
                 "name": "API Key",
                 "icon": "key",
                 "description": "Used to authenticate and access the model",
-                "value": "Enter API key",
+                "value": "",
                 "masked": true
             },
             "url": {
@@ -91,7 +91,7 @@ const menuDictIn = {
                 "type": "URL",
                 "name": "API URL",
                 "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)",
-                "value": "https://generativelanguage.googleapis.com/v1beta/openai"
+                "value": ""
             },
             "model": {
                 "index": 3,
@@ -99,7 +99,7 @@ const menuDictIn = {
                 "name": "Model",
                 "icon": "model_settings",
                 "description": "Name of the text model to use",
-                "value": "models/gemini-2.5-flash",
+                "value": "",
                 "menu": {
                     "models/gemini-25-flash": {
                         "type": "EnumOption",
@@ -726,7 +726,7 @@ const menuDictIn = {
                             "provider_info": {
                                 "index": -1,
                                 "type": "Submenu",
-                                "name": "LLM providers",
+                                "name": "Select LLM provider for Summarize",
                                 "description": "Setup provider or get provider information",
                                 "menu": {
                                     "api_google_gemini": {
@@ -807,18 +807,7 @@ const menuDictIn = {
                                 "description": "Name of the fast/cheap text model to use for summarization",
                                 "value": "",
                                 "linked_default": "model.model",
-                                "menu": {
-                                    "models/gemini-25-flash": {
-                                        "type": "EnumOption",
-                                        "name": "Gemini 2.5 Flash",
-                                        "description": "models/gemini-2.5-flash"
-                                    },
-                                    "models/gemini-25": {
-                                        "type": "EnumOption",
-                                        "name": "Gemini 2.5 Pro",
-                                        "description": "Balanced model"
-                                    }
-                                }
+                                "menu": {}
                             },
                             "temperature": {
                                 "index": 4,
@@ -939,14 +928,14 @@ const menuDictIn = {
                                 "value": true
                             },
                             "search_engine_id": {
-                                "index": 0,
+                                "index": 1,
                                 "type": "String",
                                 "name": "Search engine ID",
                                 "description": "Google Programmable Search Engine ID",
                                 "value": ""
                             },
-                            "api_key": {
-                                "index": 1,
+                            "api_key_gpse": {
+                                "index": 2,
                                 "type": "String",
                                 "name": "API Key",
                                 "icon": "key",
@@ -955,7 +944,7 @@ const menuDictIn = {
                                 "masked": true
                             },
                             "url_google_search": {
-                                "index": 2,
+                                "index": 0,
                                 "type": "Command",
                                 "name": "Get Google search engine API info",
                                 "description": "Open web site with info on getting a Google Programmable Search Engine ID and API key"
@@ -1014,7 +1003,223 @@ const menuDictIn = {
 };
 
 const stateDict = {
-    "current_path":"","option_values":{"update_check_freq":"7","model":{"provider":"Google","reasoning_model":true,"token_usage_notification":false,"provider_info":{},"model":"models\/aqa","temperature":0.69999999999999996,"reasoning_effort":"low","api_key":"AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q","url":"https:\/\/generativelanguage.googleapis.com\/v1beta\/openai"},"debug_logging":false,"tools":{"config":{"RunJavaScript":{"run_confirmation":false,"run_notification":true},"Summarize":{"provider":"Google","run_confirmation":false,"provider_info":{},"model":"models\/gemini-2.5-flash-lite","temperature":0.20000000000000001,"run_notification":true,"api_key":"AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q","url":"https:\/\/generativelanguage.googleapis.com\/v1beta\/openai\/chat\/completions\/"},"Pythonista":{"run_confirmation":false,"run_notification":true},"Mail":{"run_confirmation":false,"run_notification":true,"preview":true},"DeepResearch":{"run_confirmation":false,"run_notification":true},"Weather":{"run_confirmation":false,"run_notification":true},"Alarms":{"run_confirmation":false,"run_notification":true},"Contacts":{"run_confirmation":false,"run_notification":true},"RecipeCataloger":{"run_confirmation":false,"run_notification":true},"Calendar":{"run_confirmation":false,"run_notification":true},"Messages":{"run_confirmation":false,"run_notification":true,"preview":true},"Timers":{"run_confirmation":false,"run_notification":true},"AppStore":{"run_confirmation":false,"run_notification":true},"Web":{"run_confirmation":false,"search_engine_id":"b5fd654fca087407c","run_notification":true,"api_key":"AIzaSyB_si-zsJUYDa4bvz2sMrbqiirnLOFO3Zc"},"Memory":{"run_confirmation":false,"run_notification":true},"Device":{"run_confirmation":false,"run_notification":true},"Notes":{"run_confirmation":false,"run_notification":true},"Reminders":{"run_confirmation":false,"run_notification":true},"VoiceMode":{"run_confirmation":false,"run_notification":true},"MorseCode":{"run_confirmation":false,"run_notification":true},"Terminal":{"run_confirmation":false,"run_notification":true},"Maps":{"run_confirmation":false,"run_notification":true,"map_apps":"Maps, Google Maps, Waze"}},"enabled":{"RunJavaScript":true,"Summarize":true,"Pythonista":true,"Mail":true,"DeepResearch":true,"Weather":true,"Alarms":true,"Contacts":true,"Clock":true,"Calendar":true,"RecipeCataloger":true,"Messages":true,"Timers":true,"AppStore":true,"Web":true,"Memory":true,"Device":true,"Notes":true,"Reminders":true,"VoiceMode":true,"MorseCode":true,"Terminal":true,"Maps":true},"choose_tools":false,"choose_select_all":true,"install_tools":false,"approve_tools":true}},"new_value":{"model.menu.model.menu":["models\/aqa","models\/embedding-001","models\/embedding-gecko-001","models\/gemini-1.5-flash","models\/gemini-1.5-flash-002","models\/gemini-1.5-flash-8b","models\/gemini-1.5-flash-8b-001","models\/gemini-1.5-flash-8b-latest","models\/gemini-1.5-flash-latest","models\/gemini-1.5-pro","models\/gemini-1.5-pro-002","models\/gemini-1.5-pro-latest","models\/gemini-2.0-flash","models\/gemini-2.0-flash-001","models\/gemini-2.0-flash-exp","models\/gemini-2.0-flash-exp-image-generation","models\/gemini-2.0-flash-lite","models\/gemini-2.0-flash-lite-001","models\/gemini-2.0-flash-lite-preview","models\/gemini-2.0-flash-lite-preview-02-05","models\/gemini-2.0-flash-live-001","models\/gemini-2.0-flash-preview-image-generation","models\/gemini-2.0-flash-thinking-exp","models\/gemini-2.0-flash-thinking-exp-01-21","models\/gemini-2.0-flash-thinking-exp-1219","models\/gemini-2.0-pro-exp","models\/gemini-2.0-pro-exp-02-05","models\/gemini-2.5-flash","models\/gemini-2.5-flash-exp-native-audio-thinking-dialog","models\/gemini-2.5-flash-image-preview","models\/gemini-2.5-flash-lite","models\/gemini-2.5-flash-lite-preview-06-17","models\/gemini-2.5-flash-live-preview","models\/gemini-2.5-flash-preview-05-20","models\/gemini-2.5-flash-preview-native-audio-dialog","models\/gemini-2.5-flash-preview-tts","models\/gemini-2.5-pro","models\/gemini-2.5-pro-preview-03-25","models\/gemini-2.5-pro-preview-05-06","models\/gemini-2.5-pro-preview-06-05","models\/gemini-2.5-pro-preview-tts","models\/gemini-embedding-001","models\/gemini-embedding-exp","models\/gemini-embedding-exp-03-07","models\/gemini-exp-1206","models\/gemini-live-2.5-flash-preview","models\/gemma-3-12b-it","models\/gemma-3-1b-it","models\/gemma-3-27b-it","models\/gemma-3-4b-it","models\/gemma-3n-e2b-it","models\/gemma-3n-e4b-it","models\/imagen-3.0-generate-002","models\/imagen-4.0-fast-generate-001","models\/imagen-4.0-generate-001","models\/imagen-4.0-generate-preview-06-06","models\/imagen-4.0-ultra-generate-001","models\/imagen-4.0-ultra-generate-preview-06-06","models\/learnlm-2.0-flash-experimental","models\/lyria-realtime-exp","models\/text-embedding-004","models\/veo-2.0-generate-001","models\/veo-3.0-fast-generate-preview","models\/veo-3.0-generate-preview"]}
+    "current_path": "tools.menu.config.menu.Summarize.menu",
+    "new_value": {
+        "model.menu.model.menu": [
+            "models/aqa",
+            "models/embedding-001",
+            "models/embedding-gecko-001",
+            "models/gemini-1.5-flash",
+            "models/gemini-1.5-flash-002",
+            "models/gemini-1.5-flash-8b",
+            "models/gemini-1.5-flash-8b-001",
+            "models/gemini-1.5-flash-8b-latest",
+            "models/gemini-1.5-flash-latest",
+            "models/gemini-1.5-pro",
+            "models/gemini-1.5-pro-002",
+            "models/gemini-1.5-pro-latest",
+            "models/gemini-2.0-flash",
+            "models/gemini-2.0-flash-001",
+            "models/gemini-2.0-flash-exp",
+            "models/gemini-2.0-flash-exp-image-generation",
+            "models/gemini-2.0-flash-lite",
+            "models/gemini-2.0-flash-lite-001",
+            "models/gemini-2.0-flash-lite-preview",
+            "models/gemini-2.0-flash-lite-preview-02-05",
+            "models/gemini-2.0-flash-live-001",
+            "models/gemini-2.0-flash-preview-image-generation",
+            "models/gemini-2.0-flash-thinking-exp",
+            "models/gemini-2.0-flash-thinking-exp-01-21",
+            "models/gemini-2.0-flash-thinking-exp-1219",
+            "models/gemini-2.0-pro-exp",
+            "models/gemini-2.0-pro-exp-02-05",
+            "models/gemini-2.5-flash",
+            "models/gemini-2.5-flash-exp-native-audio-thinking-dialog",
+            "models/gemini-2.5-flash-image-preview",
+            "models/gemini-2.5-flash-lite",
+            "models/gemini-2.5-flash-lite-preview-06-17",
+            "models/gemini-2.5-flash-live-preview",
+            "models/gemini-2.5-flash-preview-05-20",
+            "models/gemini-2.5-flash-preview-native-audio-dialog",
+            "models/gemini-2.5-flash-preview-tts",
+            "models/gemini-2.5-pro",
+            "models/gemini-2.5-pro-preview-03-25",
+            "models/gemini-2.5-pro-preview-05-06",
+            "models/gemini-2.5-pro-preview-06-05",
+            "models/gemini-2.5-pro-preview-tts",
+            "models/gemini-embedding-001",
+            "models/gemini-embedding-exp",
+            "models/gemini-embedding-exp-03-07",
+            "models/gemini-exp-1206",
+            "models/gemini-live-2.5-flash-preview",
+            "models/gemma-3-12b-it",
+            "models/gemma-3-1b-it",
+            "models/gemma-3-27b-it",
+            "models/gemma-3-4b-it",
+            "models/gemma-3n-e2b-it",
+            "models/gemma-3n-e4b-it",
+            "models/imagen-3.0-generate-002",
+            "models/imagen-4.0-fast-generate-001",
+            "models/imagen-4.0-generate-001",
+            "models/imagen-4.0-generate-preview-06-06",
+            "models/imagen-4.0-ultra-generate-001",
+            "models/imagen-4.0-ultra-generate-preview-06-06",
+            "models/learnlm-2.0-flash-experimental",
+            "models/lyria-realtime-exp",
+            "models/text-embedding-004",
+            "models/veo-2.0-generate-001",
+            "models/veo-3.0-fast-generate-preview",
+            "models/veo-3.0-generate-preview"
+        ],
+        "model.menu.api_key": "AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q"
+    },
+    "option_values": {
+        "tools": {
+            "config": {
+                "RunJavaScript": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Summarize": {
+                    "provider": "",
+                    "run_confirmation": false,
+                    "provider_info": {},
+                    "model": "",
+                    "temperature": 0.2,
+                    "run_notification": true,
+                    "api_key": "",
+                    "url": ""
+                },
+                "Pythonista": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Mail": {
+                    "run_confirmation": false,
+                    "run_notification": true,
+                    "preview": true
+                },
+                "DeepResearch": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Weather": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Alarms": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Contacts": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "RecipeCataloger": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Calendar": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Messages": {
+                    "run_confirmation": false,
+                    "run_notification": true,
+                    "preview": true
+                },
+                "Timers": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "AppStore": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Web": {
+                    "run_confirmation": false,
+                    "search_engine_id": "",
+                    "run_notification": true,
+                    "api_key": ""
+                },
+                "Memory": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Device": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Notes": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Reminders": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "VoiceMode": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "MorseCode": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Terminal": {
+                    "run_confirmation": false,
+                    "run_notification": true
+                },
+                "Maps": {
+                    "run_confirmation": false,
+                    "run_notification": true,
+                    "map_apps": "Maps, Google Maps, Waze"
+                }
+            },
+            "enabled": {
+                "RunJavaScript": true,
+                "Summarize": true,
+                "Pythonista": true,
+                "Mail": true,
+                "DeepResearch": true,
+                "Weather": true,
+                "Alarms": true,
+                "Contacts": true,
+                "Clock": true,
+                "Calendar": true,
+                "RecipeCataloger": true,
+                "Messages": true,
+                "Timers": true,
+                "AppStore": true,
+                "Web": true,
+                "Memory": true,
+                "Device": true,
+                "Notes": true,
+                "Reminders": true,
+                "VoiceMode": true,
+                "MorseCode": true,
+                "Terminal": true,
+                "Maps": true
+            },
+            "choose_tools": false,
+            "choose_select_all": true,
+            "install_tools": false,
+            "approve_tools": true
+        },
+        "model": {
+            "provider": "Google",
+            "reasoning_model": true,
+            "token_usage_notification": false,
+            "provider_info": {},
+            "model": "models/gemini-1.5-pro",
+            "temperature": 0.7,
+            "reasoning_effort": "low",
+            "api_key": "",
+            "url": "https://generativelanguage.googleapis.com/v1beta/openai"
+        },
+        "debug_logging": false,
+        "update_check_freq": "7"
+    }
 };
 
 // iconDict needs to have 'Submenu' and 'quit_button' keys for the global icons.
@@ -1024,11 +1229,6 @@ const iconDict = {
 
 const IS_DARK_MODE = "Dark Mode" === "Dark Mode" ? true : false;
 const DARK_MODE_STR = IS_DARK_MODE ? "dark_mode" : "light_mode";
-
-// This object contains all definitions and top-level schemas.
-const SCHEMAS = {
-    "menu_item_base":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"},"icon":{"type":"string"},"index":{"type":"number"},"masked":{"type":"boolean","default":false}},"required":["name","description","type"]},"stringItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"String"},"value":{"type":"string"},"default":{"type":"string"},"multiline":{"type":"boolean","default":false}},"required":["value"]}]},"dateItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Date"},"value":{"type":"string"},"default":{"type":"string"}},"required":["value"]}]},"dateTimeItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Datetime"},"value":{"type":"string"},"default":{"type":"string"}},"required":["value"]}]},"timeItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Time"},"value":{"type":"string"},"default":{"type":"string"}},"required":["value"]}]},"urlItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"URL"},"value":{"type":"string"},"default":{"type":"string"}},"required":["value"]}]},"numberItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Number"},"value":{"type":"number"},"min":{"type":"number"},"max":{"type":"number"},"allow_decimal":{"type":"boolean","default":true},"default":{"type":"string"}},"required":["value"]}]},"booleanItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Boolean"},"value":{"type":"boolean"},"default":{"type":"string"}},"required":["value"]}]},"EnumOption":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"EnumOption"}}}]},"enumItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Enum"},"value":{"type":"string"},"menu":{"type":"object","additionalProperties":{"$ref":"#/EnumOption"}},"default":{"type":"string"}},"required":["value","menu"]}]},"submenuItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Submenu"},"menu":{"$ref":"#/menu"}},"required":["menu"]}]},"commandItem":{"allOf":[{"$ref":"#/menu_item_base"},{"type":"object","properties":{"type":{"const":"Command"}}}]},"menu_item":{"oneOf":[{"$ref":"#/stringItem"},{"$ref":"#/urlItem"},{"$ref":"#/numberItem"},{"$ref":"#/booleanItem"},{"$ref":"#/enumItem"},{"$ref":"#/submenuItem"},{"$ref":"#/commandItem"},{"$ref":"#/EnumOption"},{"$ref":"#/dateItem"},{"$ref":"#/dateTimeItem"},{"$ref":"#/timeItem"}],"discriminator":{"propertyName":"type"}},"menu":{"$schema":"http://json-schema.org/draft-07/schema#","title":"Menu Dictionary","type":"object","additionalProperties":{"$ref":"#/menu_item"}},"state":{"$schema":"http://json-schema.org/draft-07/schema#","title":"State Dictionary","type":"object","properties":{"current_path":{"type":"string","default":""},"new_value":{"type":"object","minProperties":1,"maxProperties":1,"additionalProperties":true},"option_values":{"$ref":"#/option_values"}},"required":["current_path"],"additionalProperties":false},"option_values":{"$schema":"http://json-schema.org/draft-07/schema#","title":"Option Values","type":"object","additionalProperties":{"type":["string","number","boolean"]}},"return":{"$schema":"http://json-schema.org/draft-07/schema#","title":"JS Return Object","oneOf":[{"type":"object","properties":{"menu":{"type":"array","items":{"type":"string"}},"option_values":{"$ref":"#/option_values"},"menu_dict":{"$ref":"#/menu"},"state":{"$ref":"#/state"},"command":{"type":"string"},"error":{"type":"string"}},"required":["menu","option_values","menu_dict","state"],"additionalProperties":false},{"type":"object","properties":{"error":{"type":"string"}},"required":["error"],"additionalProperties":false}]}
-};
 
 // ========================================================================
 // :: HELPER FUNCTIONS
@@ -1070,6 +1270,67 @@ const resolveLinkedDefault = (item, menuDict) => {
     }
     
     return item.value; // Fallback to original value if linked item not found
+};
+
+const propagateEnumMenuChanges = (changedEnumPath, menuDict) => {
+        
+    const findLinkedEnums = (obj, currentPath = '') => {
+        const linkedEnums = [];
+                
+        // Convert changedEnumPath to reduced path for comparison
+        const reducedChangedPath = changedEnumPath.replace(/\.menu/g, '');
+        
+        for (const [key, item] of Object.entries(obj)) {
+            const itemPath = currentPath ? `${currentPath}.${key}` : key;
+            
+            if (item.type === 'Enum' && item.linked_default && item.linked_default === reducedChangedPath) {
+                linkedEnums.push(itemPath);
+            }
+            
+            // Recursively search in submenus
+            if ((item.type === 'Submenu' || item.type === 'Enum') && item.menu) {
+                linkedEnums.push(...findLinkedEnums(item.menu, `${itemPath}.menu`));
+            }
+        }
+        
+                return linkedEnums;
+    };
+    
+    const linkedEnumPaths = findLinkedEnums(menuDict);
+        
+    const sourceEnum = getDescendantProp(menuDict, changedEnumPath);
+        
+    if (!sourceEnum || !sourceEnum.menu) {
+        return;
+    }
+    
+    for (const linkedPath of linkedEnumPaths) {
+        const linkedEnum = getDescendantProp(menuDict, linkedPath);
+
+        if (linkedEnum && linkedEnum.type === 'Enum') {
+            const replaceMenu = linkedEnum.value === '';
+
+            // Only overwrite if the linked enum's menu is empty
+            if (replaceMenu) {
+                linkedEnum.menu = JSON.parse(JSON.stringify(sourceEnum.menu));
+
+                // Reset value if it's no longer valid in the new menu
+                const currentValue = linkedEnum.value;
+                const encodedValue = currentValue ? currentValue.replace(/\./g, '__dot__') : null;
+                const isValidValue = encodedValue && linkedEnum.menu[encodedValue];
+
+                if (currentValue && !isValidValue) {
+                    const firstOption = Object.keys(linkedEnum.menu)[0];
+
+                    if (firstOption) {
+                        linkedEnum.value = firstOption.replace(/__dot__/g, '.');
+                    } else {
+                        linkedEnum.value = "";
+                    }
+                }
+            }
+        }
+    }
 };
 
 const flattenOptionValues = (menu, menuDict) => {
@@ -1138,8 +1399,12 @@ const generateLinkedPath = (outputPath, menuDict) => {
 const generateVCard = (key, item, pathPrefix, menuDict) => {
     let subtitle = item.description;
     // Add linked default note if present
+    let linkedItem = null;
     if (item.linked_default) {
         const linkedPath = generateLinkedPath(item.linked_default, menuDict);
+        // Convert linked_default to menu path before lookup, with final ".menu" removed from path
+        const linkedMenuPath = convertOutputPathToMenuPath(item.linked_default, menuDict).replace(/\.menu$/, '');
+        linkedItem = getDescendantProp(menuDict, linkedMenuPath);
         if (linkedPath) {
             subtitle += ` (if blank, defaults to ${linkedPath})`;
         }
@@ -1155,13 +1420,21 @@ const generateVCard = (key, item, pathPrefix, menuDict) => {
         if (displayValue.length > 35) {
             displayValue = displayValue.slice(0, 35) + '...';
         }
-        if (item.type === 'Enum' && item.menu && item.menu[item.value]) {
-            displayValue = item.menu[item.value].name;
+        if (item.type === 'Enum') {
+            if (item.value === '' && linkedItem && linkedItem.menu && linkedItem.menu[linkedItem.value]) {
+                displayValue = ` ( ${linkedItem.menu[linkedItem.value].name} )`;
+            } else if (item.menu && item.menu[item.value]) {
+                displayValue = item.menu[item.value].name;
+            }
         }
         if (item.unit) {
             displayValue += ` ${item.unit}`;
         }
-        title += ': ' + displayValue;
+        if ((!displayValue || displayValue === '') && linkedItem && linkedItem.hasOwnProperty('value')) {
+            title += ` (${linkedItem.value})`;
+        } else {
+            title += ': ' + displayValue;
+        }
     }
 
     const vCardParts = [
@@ -1254,6 +1527,10 @@ const processMenu = (menu, state) => {
                         if (!enumItem.menu[enumItem.value.replace(/\./g, '__dot__')]) {
                             enumItem.value = newOptions[0] || "";
                         }
+                        
+                        // Propagate menu changes to linked enums
+                        propagateEnumMenuChanges(enumPath, menuDict);
+                        
                         optionsChanged = true;
                     } else {
                         error = `Error: Options value must be an array for enum at path '${enumPath}'.`;
@@ -1392,8 +1669,6 @@ const processMenu = (menu, state) => {
     if (iconDict['quit_button']) { saveAndQuitVCardParts.push(`PHOTO;ENCODING=b:${iconDict['quit_button'][DARK_MODE_STR]}`); }
     saveAndQuitVCardParts.push('NOTE:__quit__', 'END:VCARD');
     vCardMenu.push(saveAndQuitVCardParts.join('\n'));
-
-    console.log(JSON.stringify(currentMenuLevel), newPath);
 
     // Sort menu items by index, then alphabetically by name
     const sortedEntries = Object.entries(currentMenuLevel).sort(([, a], [, b]) => {

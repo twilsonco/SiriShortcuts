@@ -9,7 +9,7 @@
             "provider_info": {
                 "index": -1,
                 "type": "Submenu",
-                "name": "LLM providers",
+                "name": "Select LLM provider",
                 "description": "Setup provider or get provider information",
                 "menu": {
                     "api_google_gemini": {
@@ -25,13 +25,6 @@
                         "description": "ChatGPT and 'o' models",
                         "url_get_api": "https://platform.openai.com/api-keys",
                         "url_api": "https://api.openai.com/v1"
-                    },
-                    "api_anthropic": {
-                        "type": "Command",
-                        "name": "Anthropic",
-                        "description": "Claude models",
-                        "url_get_api": "https://console.anthropic.com/settings/keys",
-                        "url_api": "https://api.anthropic.com/v1"
                     },
                     "api_groq": {
                         "type": "Command",
@@ -59,9 +52,9 @@
             "provider": {
                 "index": 0,
                 "type": "String",
-                "name": "Selected provider",
+                "name": "LLM provider",
                 "description": "Can enter a custom provider if desired",
-                "value": "Google"
+                "value": ""
             },
             "api_key": {
                 "index": 1,
@@ -69,7 +62,7 @@
                 "name": "API Key",
                 "icon": "key",
                 "description": "Used to authenticate and access the model",
-                "value": "Enter API key",
+                "value": "",
                 "masked": true
             },
             "url": {
@@ -77,7 +70,7 @@
                 "type": "URL",
                 "name": "API URL",
                 "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)",
-                "value": "https://generativelanguage.googleapis.com/v1beta/openai"
+                "value": ""
             },
             "model": {
                 "index": 3,
@@ -85,7 +78,7 @@
                 "name": "Model",
                 "icon": "model_settings",
                 "description": "Name of the text model to use",
-                "value": "models/gemini-2.5-flash",
+                "value": "",
                 "menu": {
                     "models/gemini-25-flash": {
                         "type": "EnumOption",
@@ -712,7 +705,7 @@
                             "provider_info": {
                                 "index": -1,
                                 "type": "Submenu",
-                                "name": "LLM providers",
+                                "name": "Select LLM provider for Summarize",
                                 "description": "Setup provider or get provider information",
                                 "menu": {
                                     "api_google_gemini": {
@@ -728,13 +721,6 @@
                                         "description": "ChatGPT and 'o' models",
                                         "url_get_api": "https://platform.openai.com/api-keys",
                                         "url_api": "https://api.openai.com/v1"
-                                    },
-                                    "api_anthropic": {
-                                        "type": "Command",
-                                        "name": "Anthropic",
-                                        "description": "Claude models",
-                                        "url_get_api": "https://console.anthropic.com/settings/keys",
-                                        "url_api": "https://api.anthropic.com/v1"
                                     },
                                     "api_groq": {
                                         "type": "Command",
@@ -793,18 +779,7 @@
                                 "description": "Name of the fast/cheap text model to use for summarization",
                                 "value": "",
                                 "linked_default": "model.model",
-                                "menu": {
-                                    "models/gemini-25-flash": {
-                                        "type": "EnumOption",
-                                        "name": "Gemini 2.5 Flash",
-                                        "description": "models/gemini-2.5-flash"
-                                    },
-                                    "models/gemini-25": {
-                                        "type": "EnumOption",
-                                        "name": "Gemini 2.5 Pro",
-                                        "description": "Balanced model"
-                                    }
-                                }
+                                "menu": {}
                             },
                             "temperature": {
                                 "index": 4,
@@ -925,14 +900,14 @@
                                 "value": true
                             },
                             "search_engine_id": {
-                                "index": 0,
+                                "index": 1,
                                 "type": "String",
                                 "name": "Search engine ID",
                                 "description": "Google Programmable Search Engine ID",
                                 "value": ""
                             },
-                            "api_key": {
-                                "index": 1,
+                            "api_key_gpse": {
+                                "index": 2,
                                 "type": "String",
                                 "name": "API Key",
                                 "icon": "key",
@@ -941,7 +916,7 @@
                                 "masked": true
                             },
                             "url_google_search": {
-                                "index": 2,
+                                "index": 0,
                                 "type": "Command",
                                 "name": "Get Google search engine API info",
                                 "description": "Open web site with info on getting a Google Programmable Search Engine ID and API key"
