@@ -252,7 +252,13 @@ function validateAgainstSchema(data, schema, path = 'root') {
   }
 
   const t = schema.type;
+  
+  // Allow empty schemas (no type specified) - they match anything
   if (t === undefined) {
+    // If schema is empty object {}, it's valid and matches any data
+    if (Object.keys(schema).length === 0) {
+      return null;
+    }
     return `FATAL Schema Error: Schema 'type' missing at path '${path}'.`;
   }
 
