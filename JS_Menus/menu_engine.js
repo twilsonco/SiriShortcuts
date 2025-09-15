@@ -13,1213 +13,1634 @@ APPLE SHORTCUTS MENU ENGINE v1.0
 // In Shortcuts, the `args` array contains the inputs.
 // Define constants here for clarity and easy replacement.
 const menuDictIn = {
-    "model": {
-        "index": 0,
-        "type": "Submenu",
-        "name": "LLM model settings",
-        "icon": "model_settings",
-        "description": "Settings for the LLM model used by Lucy",
-        "menu": {
-            "provider_info": {
-                "index": -1,
-                "type": "Submenu",
-                "name": "Select LLM provider",
-                "description": "Setup provider or get provider information",
-                "menu": {
-                    "api_google_gemini": {
-                        "type": "Command",
-                        "name": "Google",
-                        "description": "Gemini (Flash) has a sufficient free tier",
-                        "url_get_api": "https://makersuite.google.com/app/apikey",
-                        "url_api": "https://generativelanguage.googleapis.com/v1beta/openai"
-                    },
-                    "api_openai": {
-                        "type": "Command",
-                        "name": "OpenAI",
-                        "description": "ChatGPT and 'o' models",
-                        "url_get_api": "https://platform.openai.com/api-keys",
-                        "url_api": "https://api.openai.com/v1"
-                    },
-                    "api_anthropic": {
-                        "type": "Command",
-                        "name": "Anthropic",
-                        "description": "Claude models",
-                        "url_get_api": "https://console.anthropic.com/settings/keys",
-                        "url_api": "https://api.anthropic.com/v1"
-                    },
-                    "api_groq": {
-                        "type": "Command",
-                        "name": "Groq",
-                        "description": "Insanely fast speeds. Meta Llama, OpenAI OSS models, Alibaba Qwen",
-                        "url_get_api": "https://console.groq.com/keys",
-                        "url_api": "https://api.groq.com/openai/v1"
-                    },
-                    "api_openrouter": {
-                        "type": "Command",
-                        "name": "OpenRouter",
-                        "description": "They serve over 500 different models",
-                        "url_get_api": "https://openrouter.ai/settings/keys",
-                        "url_api": "https://openrouter.ai/api/v1"
-                    },
-                    "api_minstral": {
-                        "type": "Command",
-                        "name": "Minstral",
-                        "description": "Offers a free tier",
-                        "url_get_api": "https://admin.mistral.ai/organization/api-keys",
-                        "url_api": "https://api.mistral.ai/v1"
-                    }
-                }
-            },
-            "provider": {
-                "index": 0,
-                "type": "String",
-                "name": "LLM provider",
-                "description": "Can enter a custom provider if desired",
-                "value": ""
-            },
-            "api_key": {
-                "index": 1,
-                "type": "String",
-                "name": "API Key",
-                "icon": "key",
-                "description": "Used to authenticate and access the model",
-                "value": "",
-                "masked": true
-            },
-            "url": {
-                "index": 2,
-                "type": "URL",
-                "name": "API URL",
-                "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)",
-                "value": ""
-            },
-            "model": {
-                "index": 3,
-                "type": "Enum",
-                "name": "Model",
-                "icon": "model_settings",
-                "description": "Name of the text model to use",
-                "value": "",
-                "menu": {
-                    "models/gemini-25-flash": {
-                        "type": "EnumOption",
-                        "name": "Gemini 2.5 Flash",
-                        "description": "models/gemini-2.5-flash"
-                    },
-                    "models/gemini-25": {
-                        "type": "EnumOption",
-                        "name": "Gemini 2.5 Pro",
-                        "description": "Balanced model"
-                    }
-                }
-            },
-            "temperature": {
-                "index": 4,
-                "type": "Number",
-                "name": "Temperature",
-                "icon": "temperature",
-                "description": "Controls how creative or focused the model's responses are",
-                "value": 0.5,
-                "min": 0,
-                "max": 2,
-                "allow_decimal": true
-            },
-            "token_usage_notification": {
-                "index": 5,
-                "type": "Boolean",
-                "name": "Token usage notification",
-                "description": "Show token usage after each message with Lucy?",
-                "value": false
-            },
-            "reasoning_model": {
-                "index": 6,
-                "type": "Boolean",
-                "name": "Reasoning model",
-                "description": "Is the specified model a reasoning model?",
-                "value": true
-            },
-            "reasoning_effort": {
-                "index": 7,
-                "type": "Enum",
-                "name": "Reasoning effort",
-                "icon": "brain",
-                "description": "Level of reasoning effort (and time) to use",
-                "value": "medium",
-                "menu": {
-                    "low": {
-                        "index": 0,
-                        "type": "EnumOption",
-                        "name": "Low reasoning effort",
-                        "description": "Use a low level of reasoning effort with quick response"
-                    },
-                    "medium": {
-                        "index": 1,
-                        "type": "EnumOption",
-                        "name": "Medium reasoning effort",
-                        "description": "Balance between speed and quality"
-                    },
-                    "high": {
-                        "index": 2,
-                        "type": "EnumOption",
-                        "name": "High reasoning effort",
-                        "description": "Slow response; may cause timeout errors"
-                    },
-                    "none": {
-                        "index": 3,
-                        "type": "EnumOption",
-                        "name": "No reasoning effort",
-                        "description": "Do not use reasoning effort"
-                    }
-                }
-            }
-        }
-    },
-    "tools": {
-        "index": 1,
-        "type": "Submenu",
-        "name": "Tool settings",
-        "icon": "tool_settings",
-        "description": "Settings for the tools used by Lucy",
-        "menu": {
-            "enabled": {
-                "index": 0,
-                "type": "Submenu",
-                "name": "Enable/disable tools",
-                "icon": "checklist",
-                "description": "Quickly toggle tools on or off",
-                "menu":{
-                    "Alarms": {
-                        "type": "Boolean",
-                        "name": "Alarms",
-                        "icon": "Time",
-                        "description": "Manage alarms in the clock app",
-                        "value": true
-                    },
-                    "AppStore": {
-                        "type": "Boolean",
-                        "name": "App Store",
-                        "icon": "AppStore",
-                        "description": "Search for iOS/iPad/Mac apps",
-                        "value": true
-                    },
-                    "Calendar": {
-                        "type": "Boolean",
-                        "name": "Calendar",
-                        "icon": "Date",
-                        "description": "Create and manage calendar events",
-                        "value": true
-                    },
-                    "Clock": {
-                        "type": "Boolean",
-                        "name": "Clock",
-                        "icon": "Time",
-                        "description": "Manage alarms in the clock app",
-                        "value": true
-                    },
-                    "Contacts": {
-                        "type": "Boolean",
-                        "name": "Contacts",
-                        "icon": "Contacts",
-                        "description": "Access and manage contacts",
-                        "value": true
-                    },
-                    "DeepResearch": {
-                        "type": "Boolean",
-                        "name": "Deep Research",
-                        "icon": "DeepResearch",
-                        "description": "Ask Lucy to do research on a topic",
-                        "value": true
-                    },
-                    "Device": {
-                        "type": "Boolean",
-                        "name": "Device",
-                        "icon": "Device",
-                        "description": "Access and manage device settings",
-                        "value": true
-                    },
-                    "Mail": {
-                        "type": "Boolean",
-                        "name": "Mail",
-                        "icon": "Mail",
-                        "description": "Send emails using the Mail app",
-                        "value": true
-                    },
-                    "Maps": {
-                        "type": "Boolean",
-                        "name": "Maps",
-                        "icon": "Maps",
-                        "description": "Search places, start navigation, get location",
-                        "value": true
-                    },
-                    "Memory": {
-                        "type": "Boolean",
-                        "name": "Memory",
-                        "icon": "Memory",
-                        "description": "Allow Lucy to remember and recall information",
-                        "value": true
-                    },
-                    "Messages": {
-                        "type": "Boolean",
-                        "name": "Messages",
-                        "icon": "Messages",
-                        "description": "Send messages using the Messages app",
-                        "value": true
-                    },
-                    "MorseCode": {
-                        "type": "Boolean",
-                        "name": "Morse Code",
-                        "icon": "MorseCode",
-                        "description": "Send messages using the flashlight and/or screen flashing",
-                        "value": true
-                    },
-                    "Notes": {
-                        "type": "Boolean",
-                        "name": "Notes",
-                        "icon": "Notes",
-                        "description": "Create and manage Apple Notes",
-                        "value": true
-                    },
-                    "Pythonista": {
-                        "type": "Boolean",
-                        "name": "Pythonista",
-                        "icon": "Pythonista",
-                        "description": "Run Python code with Pythonista App",
-                        "value": true
-                    },
-                    "RecipeCataloger": {
-                        "type": "Boolean",
-                        "name": "Recipe Cataloger",
-                        "icon": "RecipeCataloger",
-                        "description": "Ask Lucy to find recipes",
-                        "value": true
-                    },
-                    "Reminders": {
-                        "type": "Boolean",
-                        "name": "Reminders",
-                        "icon": "checklist",
-                        "description": "Manage Reminders app",
-                        "value": true
-                    },
-                    "RunJavaScript": {
-                        "type": "Boolean",
-                        "name": "Run JavaScript",
-                        "icon": "RunJavaScript",
-                        "description": "Execute JavaScript code",
-                        "value": true
-                    },
-                    "Summarize": {
-                        "type": "Boolean",
-                        "name": "Summarize",
-                        "icon": "Summarize",
-                        "description": "Summarize text or webpages during research",
-                        "value": true
-                    },
-                    "Terminal": {
-                        "type": "Boolean",
-                        "name": "Terminal",
-                        "icon": "Terminal",
-                        "description": "Use Terminal on Mac or a-Shell on iOS/iPadOS",
-                        "value": true
-                    },
-                    "Timers": {
-                        "type": "Boolean",
-                        "name": "Timers",
-                        "icon": "Timers",
-                        "description": "Manage timers in the Clock app",
-                        "value": true
-                    },
-                    "VoiceMode": {
-                        "type": "Boolean",
-                        "name": "Voice Mode",
-                        "icon": "VoiceMode",
-                        "description": "Tell Lucy to start a voice conversation",
-                        "value": true
-                    },
-                    "Weather": {
-                        "type": "Boolean",
-                        "name": "Weather",
-                        "icon": "Weather",
-                        "description": "Get weather information and forecasts with the Weather app",
-                        "value": true
-                    },
-                    "Web": {
-                        "type": "Boolean",
-                        "name": "Web",
-                        "icon": "URL",
-                        "description": "Get website content and search Google/ArXiv/ChemRxiv",
-                        "value": true
-                    }
-                }
-            },
-            "config": {
-                "index": 1,
-                "type": "Submenu",
-                "name": "Configure tools",
-                "icon": "tool_settings",
-                "description": "Configure tool confirmation and notifications",
-                "menu":{
-                    "Alarms": {
-                        "type": "Submenu",
-                        "name": "Alarms",
-                        "icon": "Time",
-                        "description": "Manage alarms in the clock app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "AppStore": {
-                        "type": "Submenu",
-                        "name": "App Store",
-                        "icon": "AppStore",
-                        "description": "Search for iOS/iPad/Mac apps",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Calendar": {
-                        "type": "Submenu",
-                        "name": "Calendar",
-                        "icon": "Date",
-                        "description": "Create and manage calendar events",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Contacts": {
-                        "type": "Submenu",
-                        "name": "Contacts",
-                        "icon": "Contacts",
-                        "description": "Access and manage contacts",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "DeepResearch": {
-                        "type": "Submenu",
-                        "name": "Deep Research",
-                        "icon": "DeepResearch",
-                        "description": "Ask Lucy to do research on a topic",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Device": {
-                        "type": "Submenu",
-                        "name": "Device",
-                        "icon": "Device",
-                        "description": "Access and manage device settings",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Mail": {
-                        "type": "Submenu",
-                        "name": "Mail",
-                        "icon": "Mail",
-                        "description": "Send emails using the Mail app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "preview" : {
-                                "index": 0,
-                                "type": "Boolean",
-                                "name": "Message preview",
-                                "description": "Show an editable preview of the message before sending?",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Maps": {
-                        "type": "Submenu",
-                        "name": "Maps",
-                        "icon": "Maps",
-                        "description": "Search places, start navigation, get location",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "map_apps" : {
-                                "index": 0,
-                                "type": "String",
-                                "name": "Available map apps",
-                                "description": "Comma-separated list of map apps to use. First in list is preferred",
-                                "value": "Maps, Google Maps, Waze"
-                            }
-                        }
-                    },
-                    "Memory": {
-                        "type": "Submenu",
-                        "name": "Memory",
-                        "icon": "Memory",
-                        "description": "Allow Lucy to remember and recall information",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Messages": {
-                        "type": "Submenu",
-                        "name": "Messages",
-                        "icon": "Messages",
-                        "description": "Send messages using the Messages app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "preview" : {
-                                "index": 0,
-                                "type": "Boolean",
-                                "name": "Message preview",
-                                "description": "Show an editable preview of the message before sending?",
-                                "value": true
-                            }
-                        }
-                    },
-                    "MorseCode": {
-                        "type": "Submenu",
-                        "name": "Morse Code",
-                        "icon": "MorseCode",
-                        "description": "Send messages using the flashlight and/or screen flashing",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Notes": {
-                        "type": "Submenu",
-                        "name": "Notes",
-                        "icon": "Notes",
-                        "description": "Create and manage Apple Notes",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Pythonista": {
-                        "type": "Submenu",
-                        "name": "Pythonista",
-                        "icon": "Pythonista",
-                        "description": "Run Python code with Pythonista App",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "url_pythonista": {
-                                "index": 0,
-                                "type": "Command",
-                                "name": "Learn more about Pythonista",
-                                "description": "Open the App Store page for Pythonista"
-                            }
-                        }
-                    },
-                    "RecipeCataloger": {
-                        "type": "Submenu",
-                        "name": "Recipe Cataloger",
-                        "icon": "RecipeCataloger",
-                        "description": "Ask Lucy to find recipes",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Reminders": {
-                        "type": "Submenu",
-                        "name": "Reminders",
-                        "icon": "checklist",
-                        "description": "Manage Reminders app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "RunJavaScript": {
-                        "type": "Submenu",
-                        "name": "Run JavaScript",
-                        "icon": "RunJavaScript",
-                        "description": "Execute JavaScript code",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Summarize": {
-                        "type": "Submenu",
-                        "name": "Summarize",
-                        "icon": "Summarize",
-                        "description": "Summarize text or webpages during research",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "provider_info": {
-                                "index": -1,
-                                "type": "Submenu",
-                                "name": "Select LLM provider for Summarize",
-                                "description": "Setup provider or get provider information",
-                                "menu": {
-                                    "api_google_gemini": {
-                                        "type": "Command",
-                                        "name": "Google",
-                                        "description": "Gemini (Flash) has a sufficient free tier",
-                                        "url_get_api": "https://makersuite.google.com/app/apikey",
-                                        "url_api": "https://generativelanguage.googleapis.com/v1beta/openai"
-                                    },
-                                    "api_openai": {
-                                        "type": "Command",
-                                        "name": "OpenAI",
-                                        "description": "ChatGPT and 'o' models",
-                                        "url_get_api": "https://platform.openai.com/api-keys",
-                                        "url_api": "https://api.openai.com/v1"
-                                    },
-                                    "api_anthropic": {
-                                        "type": "Command",
-                                        "name": "Anthropic",
-                                        "description": "Claude models",
-                                        "url_get_api": "https://console.anthropic.com/settings/keys",
-                                        "url_api": "https://api.anthropic.com/v1"
-                                    },
-                                    "api_groq": {
-                                        "type": "Command",
-                                        "name": "Groq",
-                                        "description": "Insanely fast speeds. Meta Llama, OpenAI OSS models, Alibaba Qwen",
-                                        "url_get_api": "https://console.groq.com/keys",
-                                        "url_api": "https://api.groq.com/openai/v1"
-                                    },
-                                    "api_openrouter": {
-                                        "type": "Command",
-                                        "name": "OpenRouter",
-                                        "description": "They serve over 500 different models",
-                                        "url_get_api": "https://openrouter.ai/settings/keys",
-                                        "url_api": "https://openrouter.ai/api/v1"
-                                    },
-                                    "api_minstral": {
-                                        "type": "Command",
-                                        "name": "Minstral",
-                                        "description": "Offers a free tier",
-                                        "url_get_api": "https://admin.mistral.ai/organization/api-keys",
-                                        "url_api": "https://api.mistral.ai/v1"
-                                    }
-                                }
-                            },
-                            "provider": {
-                                "index": 0,
-                                "type": "String",
-                                "name": "Model provider",
-                                "description": "Name of company/service providing the model",
-                                "value": "",
-                                "linked_default": "model.provider"
-                            },
-                            "api_key": {
-                                "index": 1,
-                                "type": "String",
-                                "name": "API Key",
-                                "icon": "key",
-                                "description": "Used to authenticate and access the model",
-                                "value": "",
-                                "linked_default": "model.api_key",
-                                "masked": true
-                            },
-                            "url": {
-                                "index": 2,
-                                "type": "URL",
-                                "name": "API URL",
-                                "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)",
-                                "value": "",
-                                "linked_default": "model.url"
-                            },
-                            "model": {
-                                "index": 3,
-                                "type": "Enum",
-                                "name": "Model",
-                                "icon": "model_settings",
-                                "description": "Name of the fast/cheap text model to use for summarization",
-                                "value": "",
-                                "linked_default": "model.model",
-                                "menu": {}
-                            },
-                            "temperature": {
-                                "index": 4,
-                                "type": "Number",
-                                "name": "Temperature",
-                                "icon": "temperature",
-                                "description": "Controls how creative or focused the model's responses are",
-                                "value": 0.2,
-                                "min": 0,
-                                "max": 2,
-                                "allow_decimal": true,
-                                "linked_default": "model.temperature"
-                            }
-                        }
-                    },
-                    "Terminal": {
-                        "type": "Submenu",
-                        "name": "Terminal",
-                        "icon": "Terminal",
-                        "description": "Use Terminal on Mac or a-Shell on iOS/iPadOS",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "url_ashell_mini": {
-                                "index": 0,
-                                "type": "Command",
-                                "name": "Learn more about a-Shell Mini",
-                                "description": "Open the App Store page for a-Shell Mini"
-                            }
-                        }
-                    },
-                    "Timers": {
-                        "type": "Submenu",
-                        "name": "Timers",
-                        "icon": "Timers",
-                        "description": "Manage timers in the Clock app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "VoiceMode": {
-                        "type": "Submenu",
-                        "name": "Voice Mode",
-                        "icon": "VoiceMode",
-                        "description": "Tell Lucy to start a voice conversation",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Weather": {
-                        "type": "Submenu",
-                        "name": "Weather",
-                        "icon": "Weather",
-                        "description": "Get weather information and forecasts with the Weather app",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            }
-                        }
-                    },
-                    "Web": {
-                        "type": "Submenu",
-                        "name": "Web",
-                        "icon": "URL",
-                        "description": "Get website content and search Google/ArXiv/ChemRxiv",
-                        "menu": {
-                            "run_confirmation": {
-                                "type": "Boolean",
-                                "name": "Run confirmation",
-                                "description": "Require confirmation before using",
-                                "value": false
-                            },
-                            "run_notification": {
-                                "type": "Boolean",
-                                "name": "Run notification",
-                                "description": "Show a notification when used",
-                                "value": true
-                            },
-                            "search_engine_id": {
-                                "index": 1,
-                                "type": "String",
-                                "name": "Search engine ID",
-                                "description": "Google Programmable Search Engine ID",
-                                "value": ""
-                            },
-                            "api_key_gpse": {
-                                "index": 2,
-                                "type": "String",
-                                "name": "API Key",
-                                "icon": "key",
-                                "description": "Google Programmable Search Engine API key",
-                                "value": "",
-                                "masked": true
-                            },
-                            "url_google_search": {
-                                "index": 0,
-                                "type": "Command",
-                                "name": "Get Google search engine API info",
-                                "description": "Open web site with info on getting a Google Programmable Search Engine ID and API key"
-                            }
-                        }
-                    }
-                }
-            },
-            "choose_tools": {
-                "index": 2,
-                "type": "Boolean",
-                "name": "Choose tools before each run",
-                "description": "Select the tool list each time you run Lucy?",
-                "value": false
-            },
-            "choose_select_all": {
-                "index": 3,
-                "type": "Boolean",
-                "name": "Select all tools by default",
-                "description": "When selecting tools, select all by default?",
-                "value": true
-            },
-            "install_tools": {
-                "index": 4,
-                "type": "Boolean",
-                "name": "Install/update tools",
-                "description": "Install and check for updates to tools?",
-                "value": true
-            },
-            "approve_tools": {
-                "index": 5,
-                "type": "Boolean",
-                "name": "Approve tool use",
-                "description": "For configured tools, approve first use on each Lucy run?",
-                "value": false
-            }
-        }
-    },
     "update_check_freq": {
-        "index": 2,
-        "type": "Number",
-        "name": "Update check every",
-        "icon": "update_check",
-        "description": "(0 for always, -1 for never)",
-        "value": "7",
-        "min": -1,
-        "unit": "days"
-    },
-    "debug_logging": {
-        "index": 3,
-        "type": "Boolean",
-        "name": "Enable detailed logging?",
-        "description": "Log debugging info using 'Logger for Shortcuts' app",
-        "value": false
-    }
+            "unit": "days",
+            "index": 2,
+            "min": -1,
+            "value": "7",
+            "type": "Number",
+            "description": "(0 for always, -1 for never)",
+            "name": "Update check every",
+            "icon": "update_check"
+        },
+        "model": {
+            "type": "Submenu",
+            "index": 0,
+            "icon": "model_settings",
+            "name": "LLM model settings",
+            "description": "Settings for the LLM model used by Lucy",
+            "menu": {
+                "provider": {
+                    "index": 0,
+                    "value": "Google",
+                    "type": "String",
+                    "name": "LLM provider",
+                    "description": "Can enter a custom provider if desired"
+                },
+                "reasoning_model": {
+                    "index": 6,
+                    "value": true,
+                    "type": "Boolean",
+                    "name": "Reasoning model",
+                    "description": "Is the specified model a reasoning model?"
+                },
+                "token_usage_notification": {
+                    "index": 5,
+                    "value": false,
+                    "type": "Boolean",
+                    "name": "Token usage notification",
+                    "description": "Show token usage after each message with Lucy?"
+                },
+                "provider_info": {
+                    "type": "Submenu",
+                    "index": -1,
+                    "name": "Select LLM provider",
+                    "description": "Setup provider or get provider information",
+                    "menu": {
+                        "api_minstral": {
+                            "type": "Command",
+                            "name": "Minstral",
+                            "description": "Offers a free tier",
+                            "url_get_api": "https://admin.mistral.ai/organization/api-keys",
+                            "url_api": "https://api.mistral.ai/v1"
+                        },
+                        "api_openrouter": {
+                            "type": "Command",
+                            "name": "OpenRouter",
+                            "description": "They serve over 500 different models",
+                            "url_get_api": "https://openrouter.ai/settings/keys",
+                            "url_api": "https://openrouter.ai/api/v1"
+                        },
+                        "api_groq": {
+                            "type": "Command",
+                            "name": "Groq",
+                            "description": "Insanely fast speeds. Meta Llama, OpenAI OSS models, Alibaba Qwen",
+                            "url_get_api": "https://console.groq.com/keys",
+                            "url_api": "https://api.groq.com/openai/v1"
+                        },
+                        "api_google_gemini": {
+                            "type": "Command",
+                            "name": "Google",
+                            "description": "Gemini (Flash) has a sufficient free tier",
+                            "url_get_api": "https://makersuite.google.com/app/apikey",
+                            "url_api": "https://generativelanguage.googleapis.com/v1beta/openai"
+                        },
+                        "api_openai": {
+                            "type": "Command",
+                            "name": "OpenAI",
+                            "description": "ChatGPT and 'o' models",
+                            "url_get_api": "https://platform.openai.com/api-keys",
+                            "url_api": "https://api.openai.com/v1"
+                        }
+                    }
+                },
+                "model": {
+                    "index": 3,
+                    "menu": {
+                        "models/gemma-3n-e4b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3n-e4b-it",
+                            "description": ""
+                        },
+                        "models/imagen-4__dot__0-generate-preview-06-06": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-4.0-generate-preview-06-06",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-lite": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-lite",
+                            "description": ""
+                        },
+                        "models/gemma-3-27b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3-27b-it",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash",
+                            "description": ""
+                        },
+                        "models/veo-2__dot__0-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/veo-2.0-generate-001",
+                            "description": ""
+                        },
+                        "models/veo-3__dot__0-fast-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/veo-3.0-fast-generate-001",
+                            "description": ""
+                        },
+                        "models/imagen-4__dot__0-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-4.0-generate-001",
+                            "description": ""
+                        },
+                        "models/imagen-4__dot__0-ultra-generate-preview-06-06": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-4.0-ultra-generate-preview-06-06",
+                            "description": ""
+                        },
+                        "models/aqa": {
+                            "type": "EnumOption",
+                            "name": "models/aqa",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-lite": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-lite",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-image-preview": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-image-preview",
+                            "description": ""
+                        },
+                        "models/imagen-3__dot__0-generate-002": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-3.0-generate-002",
+                            "description": ""
+                        },
+                        "models/veo-3__dot__0-generate-preview": {
+                            "type": "EnumOption",
+                            "name": "models/veo-3.0-generate-preview",
+                            "description": ""
+                        },
+                        "models/gemma-3n-e2b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3n-e2b-it",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-pro-latest": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-pro-latest",
+                            "description": ""
+                        },
+                        "models/text-embedding-004": {
+                            "type": "EnumOption",
+                            "name": "models/text-embedding-004",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-pro-exp-02-05": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-pro-exp-02-05",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash-latest": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash-latest",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-lite-preview-02-05": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-lite-preview-02-05",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash-002": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash-002",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash-8b-001": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash-8b-001",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-exp": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-exp",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash-8b": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash-8b",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-pro": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-pro",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-preview-tts": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-preview-tts",
+                            "description": ""
+                        },
+                        "models/gemini-embedding-exp-03-07": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-embedding-exp-03-07",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash-8b-latest": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash-8b-latest",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-flash": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-flash",
+                            "description": ""
+                        },
+                        "models/imagen-4__dot__0-fast-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-4.0-fast-generate-001",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-lite-preview": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-lite-preview",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-001": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-001",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-pro": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-pro",
+                            "description": ""
+                        },
+                        "models/embedding-gecko-001": {
+                            "type": "EnumOption",
+                            "name": "models/embedding-gecko-001",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-live-001": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-live-001",
+                            "description": ""
+                        },
+                        "models/gemini-embedding-exp": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-embedding-exp",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-live-preview": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-live-preview",
+                            "description": ""
+                        },
+                        "models/gemini-exp-1206": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-exp-1206",
+                            "description": ""
+                        },
+                        "models/veo-3__dot__0-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/veo-3.0-generate-001",
+                            "description": ""
+                        },
+                        "models/gemma-3-4b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3-4b-it",
+                            "description": ""
+                        },
+                        "models/gemma-3-12b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3-12b-it",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-thinking-exp": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-thinking-exp",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-pro-exp": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-pro-exp",
+                            "description": ""
+                        },
+                        "models/embedding-001": {
+                            "type": "EnumOption",
+                            "name": "models/embedding-001",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-exp-native-audio-thinking-dialog": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-exp-native-audio-thinking-dialog",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-lite-preview-06-17": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-lite-preview-06-17",
+                            "description": ""
+                        },
+                        "models/gemini-embedding-001": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-embedding-001",
+                            "description": ""
+                        },
+                        "models/lyria-realtime-exp": {
+                            "type": "EnumOption",
+                            "name": "models/lyria-realtime-exp",
+                            "description": ""
+                        },
+                        "models/gemini-live-2__dot__5-flash-preview": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-live-2.5-flash-preview",
+                            "description": ""
+                        },
+                        "models/imagen-4__dot__0-ultra-generate-001": {
+                            "type": "EnumOption",
+                            "name": "models/imagen-4.0-ultra-generate-001",
+                            "description": ""
+                        },
+                        "models/gemma-3-1b-it": {
+                            "type": "EnumOption",
+                            "name": "models/gemma-3-1b-it",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-lite-001": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-lite-001",
+                            "description": ""
+                        },
+                        "models/learnlm-2__dot__0-flash-experimental": {
+                            "type": "EnumOption",
+                            "name": "models/learnlm-2.0-flash-experimental",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-preview-image-generation": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-preview-image-generation",
+                            "description": ""
+                        },
+                        "models/veo-3__dot__0-fast-generate-preview": {
+                            "type": "EnumOption",
+                            "name": "models/veo-3.0-fast-generate-preview",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-pro-preview-05-06": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-pro-preview-05-06",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-pro-preview-06-05": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-pro-preview-06-05",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-preview-05-20": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-preview-05-20",
+                            "description": ""
+                        },
+                        "models/gemini-1__dot__5-pro-002": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-1.5-pro-002",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash-preview-native-audio-dialog": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash-preview-native-audio-dialog",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-pro-preview-03-25": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-pro-preview-03-25",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-flash": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-flash",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-thinking-exp-1219": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-thinking-exp-1219",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-thinking-exp-01-21": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-thinking-exp-01-21",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__0-flash-exp-image-generation": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.0-flash-exp-image-generation",
+                            "description": ""
+                        },
+                        "models/gemini-2__dot__5-pro-preview-tts": {
+                            "type": "EnumOption",
+                            "name": "models/gemini-2.5-pro-preview-tts",
+                            "description": ""
+                        }
+                    },
+                    "value": "models/gemini-2.5-flash",
+                    "type": "Enum",
+                    "description": "Name of the text model to use",
+                    "name": "Model",
+                    "icon": "model_settings"
+                },
+                "temperature": {
+                    "max": 2,
+                    "name": "Temperature",
+                    "min": 0,
+                    "index": 4,
+                    "value": 0.5,
+                    "allow_decimal": true,
+                    "type": "Number",
+                    "icon": "temperature",
+                    "description": "Controls how creative or focused the model's responses are"
+                },
+                "reasoning_effort": {
+                    "index": 7,
+                    "menu": {
+                        "low": {
+                            "index": 0,
+                            "type": "EnumOption",
+                            "name": "Low reasoning effort",
+                            "description": "Use a low level of reasoning effort with quick response"
+                        },
+                        "medium": {
+                            "index": 1,
+                            "type": "EnumOption",
+                            "name": "Medium reasoning effort",
+                            "description": "Balance between speed and quality"
+                        },
+                        "high": {
+                            "index": 2,
+                            "type": "EnumOption",
+                            "name": "High reasoning effort",
+                            "description": "Slow response; may cause timeout errors"
+                        },
+                        "none": {
+                            "index": 3,
+                            "type": "EnumOption",
+                            "name": "No reasoning effort",
+                            "description": "Do not use reasoning effort"
+                        }
+                    },
+                    "value": "low",
+                    "type": "Enum",
+                    "description": "Level of reasoning effort (and time) to use",
+                    "name": "Reasoning effort",
+                    "icon": "brain"
+                },
+                "api_key": {
+                    "masked": true,
+                    "index": 1,
+                    "value": "AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q",
+                    "type": "String",
+                    "description": "Used to authenticate and access the model",
+                    "name": "API Key",
+                    "icon": "key"
+                },
+                "url": {
+                    "index": 2,
+                    "value": "https://generativelanguage.googleapis.com/v1beta/openai",
+                    "type": "URL",
+                    "name": "API URL",
+                    "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)"
+                }
+            }
+        },
+        "tools": {
+            "type": "Submenu",
+            "index": 1,
+            "icon": "tool_settings",
+            "name": "Tool settings",
+            "description": "Settings for the tools used by Lucy",
+            "menu": {
+                "config": {
+                    "type": "Submenu",
+                    "index": 1,
+                    "icon": "tool_settings",
+                    "name": "Configure tools",
+                    "description": "Configure tool confirmation and notifications",
+                    "menu": {
+                        "RunJavaScript": {
+                            "type": "Submenu",
+                            "icon": "RunJavaScript",
+                            "name": "Run JavaScript",
+                            "description": "Execute JavaScript code",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Summarize": {
+                            "type": "Submenu",
+                            "icon": "Summarize",
+                            "name": "Summarize",
+                            "description": "Summarize text or webpages during research",
+                            "menu": {
+                                "provider": {
+                                    "type": "String",
+                                    "value": "Google",
+                                    "index": 0,
+                                    "name": "Model provider",
+                                    "description": "Name of company/service providing the model",
+                                    "linked_default": "model.provider"
+                                },
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "provider_info": {
+                                    "type": "Submenu",
+                                    "index": -1,
+                                    "name": "Select LLM provider for Summarize",
+                                    "description": "Setup provider or get provider information",
+                                    "menu": {
+                                        "api_minstral": {
+                                            "type": "Command",
+                                            "name": "Minstral",
+                                            "description": "Offers a free tier",
+                                            "url_get_api": "https://admin.mistral.ai/organization/api-keys",
+                                            "url_api": "https://api.mistral.ai/v1"
+                                        },
+                                        "api_openrouter": {
+                                            "type": "Command",
+                                            "name": "OpenRouter",
+                                            "description": "They serve over 500 different models",
+                                            "url_get_api": "https://openrouter.ai/settings/keys",
+                                            "url_api": "https://openrouter.ai/api/v1"
+                                        },
+                                        "api_groq": {
+                                            "type": "Command",
+                                            "name": "Groq",
+                                            "description": "Insanely fast speeds. Meta Llama, OpenAI OSS models, Alibaba Qwen",
+                                            "url_get_api": "https://console.groq.com/keys",
+                                            "url_api": "https://api.groq.com/openai/v1"
+                                        },
+                                        "api_google_gemini": {
+                                            "type": "Command",
+                                            "name": "Google",
+                                            "description": "Gemini (Flash) has a sufficient free tier",
+                                            "url_get_api": "https://makersuite.google.com/app/apikey",
+                                            "url_api": "https://generativelanguage.googleapis.com/v1beta/openai"
+                                        },
+                                        "api_openai": {
+                                            "type": "Command",
+                                            "name": "OpenAI",
+                                            "description": "ChatGPT and 'o' models",
+                                            "url_get_api": "https://platform.openai.com/api-keys",
+                                            "url_api": "https://api.openai.com/v1"
+                                        }
+                                    }
+                                },
+                                "model": {
+                                    "name": "Model",
+                                    "index": 3,
+                                    "menu": {
+                                        "models/gemma-3n-e4b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3n-e4b-it",
+                                            "description": ""
+                                        },
+                                        "models/imagen-4__dot__0-generate-preview-06-06": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-4.0-generate-preview-06-06",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-lite": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-lite",
+                                            "description": ""
+                                        },
+                                        "models/gemma-3-27b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3-27b-it",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash",
+                                            "description": ""
+                                        },
+                                        "models/veo-2__dot__0-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/veo-2.0-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/veo-3__dot__0-fast-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/veo-3.0-fast-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/imagen-4__dot__0-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-4.0-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/imagen-4__dot__0-ultra-generate-preview-06-06": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-4.0-ultra-generate-preview-06-06",
+                                            "description": ""
+                                        },
+                                        "models/aqa": {
+                                            "type": "EnumOption",
+                                            "name": "models/aqa",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-lite": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-lite",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-image-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-image-preview",
+                                            "description": ""
+                                        },
+                                        "models/imagen-3__dot__0-generate-002": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-3.0-generate-002",
+                                            "description": ""
+                                        },
+                                        "models/veo-3__dot__0-generate-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/veo-3.0-generate-preview",
+                                            "description": ""
+                                        },
+                                        "models/gemma-3n-e2b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3n-e2b-it",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-pro-latest": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-pro-latest",
+                                            "description": ""
+                                        },
+                                        "models/text-embedding-004": {
+                                            "type": "EnumOption",
+                                            "name": "models/text-embedding-004",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-pro-exp-02-05": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-pro-exp-02-05",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash-latest": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash-latest",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-lite-preview-02-05": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-lite-preview-02-05",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash-002": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash-002",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash-8b-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash-8b-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-exp": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-exp",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash-8b": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash-8b",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-pro": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-pro",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-preview-tts": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-preview-tts",
+                                            "description": ""
+                                        },
+                                        "models/gemini-embedding-exp-03-07": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-embedding-exp-03-07",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash-8b-latest": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash-8b-latest",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-flash": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-flash",
+                                            "description": ""
+                                        },
+                                        "models/imagen-4__dot__0-fast-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-4.0-fast-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-lite-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-lite-preview",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-pro": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-pro",
+                                            "description": ""
+                                        },
+                                        "models/embedding-gecko-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/embedding-gecko-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-live-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-live-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-embedding-exp": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-embedding-exp",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-live-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-live-preview",
+                                            "description": ""
+                                        },
+                                        "models/gemini-exp-1206": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-exp-1206",
+                                            "description": ""
+                                        },
+                                        "models/veo-3__dot__0-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/veo-3.0-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/gemma-3-4b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3-4b-it",
+                                            "description": ""
+                                        },
+                                        "models/gemma-3-12b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3-12b-it",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-thinking-exp": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-thinking-exp",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-pro-exp": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-pro-exp",
+                                            "description": ""
+                                        },
+                                        "models/embedding-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/embedding-001",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-exp-native-audio-thinking-dialog": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-exp-native-audio-thinking-dialog",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-lite-preview-06-17": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-lite-preview-06-17",
+                                            "description": ""
+                                        },
+                                        "models/gemini-embedding-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-embedding-001",
+                                            "description": ""
+                                        },
+                                        "models/lyria-realtime-exp": {
+                                            "type": "EnumOption",
+                                            "name": "models/lyria-realtime-exp",
+                                            "description": ""
+                                        },
+                                        "models/gemini-live-2__dot__5-flash-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-live-2.5-flash-preview",
+                                            "description": ""
+                                        },
+                                        "models/imagen-4__dot__0-ultra-generate-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/imagen-4.0-ultra-generate-001",
+                                            "description": ""
+                                        },
+                                        "models/gemma-3-1b-it": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemma-3-1b-it",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-lite-001": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-lite-001",
+                                            "description": ""
+                                        },
+                                        "models/learnlm-2__dot__0-flash-experimental": {
+                                            "type": "EnumOption",
+                                            "name": "models/learnlm-2.0-flash-experimental",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-preview-image-generation": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-preview-image-generation",
+                                            "description": ""
+                                        },
+                                        "models/veo-3__dot__0-fast-generate-preview": {
+                                            "type": "EnumOption",
+                                            "name": "models/veo-3.0-fast-generate-preview",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-pro-preview-05-06": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-pro-preview-05-06",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-pro-preview-06-05": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-pro-preview-06-05",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-preview-05-20": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-preview-05-20",
+                                            "description": ""
+                                        },
+                                        "models/gemini-1__dot__5-pro-002": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-1.5-pro-002",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash-preview-native-audio-dialog": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash-preview-native-audio-dialog",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-pro-preview-03-25": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-pro-preview-03-25",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-flash": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-flash",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-thinking-exp-1219": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-thinking-exp-1219",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-thinking-exp-01-21": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-thinking-exp-01-21",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__0-flash-exp-image-generation": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.0-flash-exp-image-generation",
+                                            "description": ""
+                                        },
+                                        "models/gemini-2__dot__5-pro-preview-tts": {
+                                            "type": "EnumOption",
+                                            "name": "models/gemini-2.5-pro-preview-tts",
+                                            "description": ""
+                                        }
+                                    },
+                                    "value": "models/gemini-2.5-flash",
+                                    "type": "Enum",
+                                    "description": "Name of the fast/cheap text model to use for summarization",
+                                    "icon": "model_settings",
+                                    "linked_default": "model.model"
+                                },
+                                "temperature": {
+                                    "type": "Number",
+                                    "description": "Controls how creative or focused the model's responses are",
+                                    "min": 0,
+                                    "name": "Temperature",
+                                    "index": 4,
+                                    "value": 0.2,
+                                    "max": 2,
+                                    "allow_decimal": true,
+                                    "icon": "temperature",
+                                    "linked_default": "model.temperature"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "api_key": {
+                                    "masked": true,
+                                    "name": "API Key",
+                                    "index": 1,
+                                    "value": "AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q",
+                                    "type": "String",
+                                    "description": "Used to authenticate and access the model",
+                                    "icon": "key",
+                                    "linked_default": "model.api_key"
+                                },
+                                "url": {
+                                    "type": "URL",
+                                    "value": "https://generativelanguage.googleapis.com/v1beta/openai",
+                                    "index": 2,
+                                    "name": "API URL",
+                                    "description": "URL to OpenAI-compatible api (e.g. https://api.openai.com/v1)",
+                                    "linked_default": "model.url"
+                                }
+                            }
+                        },
+                        "Pythonista": {
+                            "type": "Submenu",
+                            "icon": "Pythonista",
+                            "name": "Pythonista",
+                            "description": "Run Python code with Pythonista App",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "url_pythonista": {
+                                    "index": 0,
+                                    "type": "Command",
+                                    "name": "Learn more about Pythonista",
+                                    "description": "Open the App Store page for Pythonista"
+                                }
+                            }
+                        },
+                        "Mail": {
+                            "type": "Submenu",
+                            "icon": "Mail",
+                            "name": "Mail",
+                            "description": "Send emails using the Mail app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "preview": {
+                                    "index": 0,
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Message preview",
+                                    "description": "Show an editable preview of the message before sending?"
+                                }
+                            }
+                        },
+                        "DeepResearch": {
+                            "type": "Submenu",
+                            "icon": "DeepResearch",
+                            "name": "Deep Research",
+                            "description": "Ask Lucy to do research on a topic",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Weather": {
+                            "type": "Submenu",
+                            "icon": "Weather",
+                            "name": "Weather",
+                            "description": "Get weather information and forecasts with the Weather app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Alarms": {
+                            "type": "Submenu",
+                            "icon": "Time",
+                            "name": "Alarms",
+                            "description": "Manage alarms in the clock app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Contacts": {
+                            "type": "Submenu",
+                            "icon": "Contacts",
+                            "name": "Contacts",
+                            "description": "Access and manage contacts",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "RecipeCataloger": {
+                            "type": "Submenu",
+                            "icon": "RecipeCataloger",
+                            "name": "Recipe Cataloger",
+                            "description": "Ask Lucy to find recipes",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Calendar": {
+                            "type": "Submenu",
+                            "icon": "Date",
+                            "name": "Calendar",
+                            "description": "Create and manage calendar events",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Messages": {
+                            "type": "Submenu",
+                            "icon": "Messages",
+                            "name": "Messages",
+                            "description": "Send messages using the Messages app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "preview": {
+                                    "index": 0,
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Message preview",
+                                    "description": "Show an editable preview of the message before sending?"
+                                }
+                            }
+                        },
+                        "Timers": {
+                            "type": "Submenu",
+                            "icon": "Timers",
+                            "name": "Timers",
+                            "description": "Manage timers in the Clock app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "AppStore": {
+                            "type": "Submenu",
+                            "icon": "AppStore",
+                            "name": "App Store",
+                            "description": "Search for iOS/iPad/Mac apps",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Web": {
+                            "type": "Submenu",
+                            "icon": "URL",
+                            "name": "Web",
+                            "description": "Get website content and search Google/ArXiv/ChemRxiv",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "search_engine_id": {
+                                    "index": 1,
+                                    "value": "440c69716453741ed",
+                                    "type": "String",
+                                    "name": "Search engine ID",
+                                    "description": "Google Programmable Search Engine ID"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "api_key_gpse": {
+                                    "masked": true,
+                                    "index": 2,
+                                    "value": "AIzaSyA5E_ITPRx_ayIJEeuJMFE8s4oKKeiLUDc",
+                                    "type": "String",
+                                    "description": "Google Programmable Search Engine API key",
+                                    "name": "API Key",
+                                    "icon": "key"
+                                },
+                                "url_google_search": {
+                                    "index": 0,
+                                    "type": "Command",
+                                    "name": "Get Google search engine API info",
+                                    "description": "Open web site with info on getting a Google Programmable Search Engine ID and API key"
+                                }
+                            }
+                        },
+                        "Memory": {
+                            "type": "Submenu",
+                            "icon": "Memory",
+                            "name": "Memory",
+                            "description": "Allow Lucy to remember and recall information",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Device": {
+                            "type": "Submenu",
+                            "icon": "Device",
+                            "name": "Device",
+                            "description": "Access and manage device settings",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Notes": {
+                            "type": "Submenu",
+                            "icon": "Notes",
+                            "name": "Notes",
+                            "description": "Create and manage Apple Notes",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Reminders": {
+                            "type": "Submenu",
+                            "icon": "checklist",
+                            "name": "Reminders",
+                            "description": "Manage Reminders app",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "VoiceMode": {
+                            "type": "Submenu",
+                            "icon": "VoiceMode",
+                            "name": "Voice Mode",
+                            "description": "Tell Lucy to start a voice conversation",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "MorseCode": {
+                            "type": "Submenu",
+                            "icon": "MorseCode",
+                            "name": "Morse Code",
+                            "description": "Send messages using the flashlight and/or screen flashing",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                }
+                            }
+                        },
+                        "Terminal": {
+                            "type": "Submenu",
+                            "icon": "Terminal",
+                            "name": "Terminal",
+                            "description": "Use Terminal on Mac or a-Shell on iOS/iPadOS",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "url_ashell_mini": {
+                                    "index": 0,
+                                    "type": "Command",
+                                    "name": "Learn more about a-Shell Mini",
+                                    "description": "Open the App Store page for a-Shell Mini"
+                                }
+                            }
+                        },
+                        "Maps": {
+                            "type": "Submenu",
+                            "icon": "Maps",
+                            "name": "Maps",
+                            "description": "Search places, start navigation, get location",
+                            "menu": {
+                                "run_confirmation": {
+                                    "value": false,
+                                    "type": "Boolean",
+                                    "name": "Run confirmation",
+                                    "description": "Require confirmation before using"
+                                },
+                                "run_notification": {
+                                    "value": true,
+                                    "type": "Boolean",
+                                    "name": "Run notification",
+                                    "description": "Show a notification when used"
+                                },
+                                "map_apps": {
+                                    "index": 0,
+                                    "value": "Maps, Google Maps, Waze",
+                                    "type": "String",
+                                    "name": "Available map apps",
+                                    "description": "Comma-separated list of map apps to use. First in list is preferred"
+                                }
+                            }
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "Submenu",
+                    "index": 0,
+                    "icon": "checklist",
+                    "name": "Enable/disable tools",
+                    "description": "Quickly toggle tools on or off",
+                    "menu": {
+                        "RunJavaScript": {
+                            "value": true,
+                            "icon": "RunJavaScript",
+                            "type": "Boolean",
+                            "name": "Run JavaScript",
+                            "description": "Execute JavaScript code"
+                        },
+                        "Summarize": {
+                            "value": true,
+                            "icon": "Summarize",
+                            "type": "Boolean",
+                            "name": "Summarize",
+                            "description": "Summarize text or webpages during research"
+                        },
+                        "Pythonista": {
+                            "value": true,
+                            "icon": "Pythonista",
+                            "type": "Boolean",
+                            "name": "Pythonista",
+                            "description": "Run Python code with Pythonista App"
+                        },
+                        "Mail": {
+                            "value": true,
+                            "icon": "Mail",
+                            "type": "Boolean",
+                            "name": "Mail",
+                            "description": "Send emails using the Mail app"
+                        },
+                        "DeepResearch": {
+                            "value": true,
+                            "icon": "DeepResearch",
+                            "type": "Boolean",
+                            "name": "Deep Research",
+                            "description": "Ask Lucy to do research on a topic"
+                        },
+                        "Weather": {
+                            "value": true,
+                            "icon": "Weather",
+                            "type": "Boolean",
+                            "name": "Weather",
+                            "description": "Get weather information and forecasts with the Weather app"
+                        },
+                        "Alarms": {
+                            "value": true,
+                            "icon": "Time",
+                            "type": "Boolean",
+                            "name": "Alarms",
+                            "description": "Manage alarms in the clock app"
+                        },
+                        "Contacts": {
+                            "value": true,
+                            "icon": "Contacts",
+                            "type": "Boolean",
+                            "name": "Contacts",
+                            "description": "Access and manage contacts"
+                        },
+                        "Clock": {
+                            "value": true,
+                            "icon": "Time",
+                            "type": "Boolean",
+                            "name": "Clock",
+                            "description": "Manage alarms in the clock app"
+                        },
+                        "Calendar": {
+                            "value": true,
+                            "icon": "Date",
+                            "type": "Boolean",
+                            "name": "Calendar",
+                            "description": "Create and manage calendar events"
+                        },
+                        "RecipeCataloger": {
+                            "value": true,
+                            "icon": "RecipeCataloger",
+                            "type": "Boolean",
+                            "name": "Recipe Cataloger",
+                            "description": "Ask Lucy to find recipes"
+                        },
+                        "Messages": {
+                            "value": true,
+                            "icon": "Messages",
+                            "type": "Boolean",
+                            "name": "Messages",
+                            "description": "Send messages using the Messages app"
+                        },
+                        "Timers": {
+                            "value": true,
+                            "icon": "Timers",
+                            "type": "Boolean",
+                            "name": "Timers",
+                            "description": "Manage timers in the Clock app"
+                        },
+                        "AppStore": {
+                            "value": true,
+                            "icon": "AppStore",
+                            "type": "Boolean",
+                            "name": "App Store",
+                            "description": "Search for iOS/iPad/Mac apps"
+                        },
+                        "Web": {
+                            "value": true,
+                            "icon": "URL",
+                            "type": "Boolean",
+                            "name": "Web",
+                            "description": "Get website content and search Google/ArXiv/ChemRxiv"
+                        },
+                        "Memory": {
+                            "value": true,
+                            "icon": "Memory",
+                            "type": "Boolean",
+                            "name": "Memory",
+                            "description": "Allow Lucy to remember and recall information"
+                        },
+                        "Device": {
+                            "value": true,
+                            "icon": "Device",
+                            "type": "Boolean",
+                            "name": "Device",
+                            "description": "Access and manage device settings"
+                        },
+                        "Notes": {
+                            "value": true,
+                            "icon": "Notes",
+                            "type": "Boolean",
+                            "name": "Notes",
+                            "description": "Create and manage Apple Notes"
+                        },
+                        "Reminders": {
+                            "value": true,
+                            "icon": "checklist",
+                            "type": "Boolean",
+                            "name": "Reminders",
+                            "description": "Manage Reminders app"
+                        },
+                        "VoiceMode": {
+                            "value": true,
+                            "icon": "VoiceMode",
+                            "type": "Boolean",
+                            "name": "Voice Mode",
+                            "description": "Tell Lucy to start a voice conversation"
+                        },
+                        "MorseCode": {
+                            "value": true,
+                            "icon": "MorseCode",
+                            "type": "Boolean",
+                            "name": "Morse Code",
+                            "description": "Send messages using the flashlight and/or screen flashing"
+                        },
+                        "Terminal": {
+                            "value": true,
+                            "icon": "Terminal",
+                            "type": "Boolean",
+                            "name": "Terminal",
+                            "description": "Use Terminal on Mac or a-Shell on iOS/iPadOS"
+                        },
+                        "Maps": {
+                            "value": true,
+                            "icon": "Maps",
+                            "type": "Boolean",
+                            "name": "Maps",
+                            "description": "Search places, start navigation, get location"
+                        }
+                    }
+                },
+                "choose_tools": {
+                    "index": 2,
+                    "value": false,
+                    "type": "Boolean",
+                    "name": "Choose tools before each run",
+                    "description": "Select the tool list each time you run Lucy?"
+                },
+                "choose_select_all": {
+                    "index": 3,
+                    "value": true,
+                    "type": "Boolean",
+                    "name": "Select all tools by default",
+                    "description": "When selecting tools, select all by default?"
+                },
+                "install_tools": {
+                    "index": 4,
+                    "value": true,
+                    "type": "Boolean",
+                    "name": "Install/update tools",
+                    "description": "Install and check for updates to tools?"
+                },
+                "approve_tools": {
+                    "index": 5,
+                    "value": false,
+                    "type": "Boolean",
+                    "name": "Approve tool use",
+                    "description": "For configured tools, approve first use on each Lucy run?"
+                }
+            }
+        },
+        "debug_logging": {
+            "index": 3,
+            "value": false,
+            "type": "Boolean",
+            "name": "Enable detailed logging?",
+            "description": "Log debugging info using 'Logger for Shortcuts' app"
+        }
 };
 
 const stateDict = {
-    "current_path": "tools.menu.config.menu.Summarize.menu",
-    "new_value": {
-        "model.menu.model.menu": [
-            "models/aqa",
-            "models/embedding-001",
-            "models/embedding-gecko-001",
-            "models/gemini-1.5-flash",
-            "models/gemini-1.5-flash-002",
-            "models/gemini-1.5-flash-8b",
-            "models/gemini-1.5-flash-8b-001",
-            "models/gemini-1.5-flash-8b-latest",
-            "models/gemini-1.5-flash-latest",
-            "models/gemini-1.5-pro",
-            "models/gemini-1.5-pro-002",
-            "models/gemini-1.5-pro-latest",
-            "models/gemini-2.0-flash",
-            "models/gemini-2.0-flash-001",
-            "models/gemini-2.0-flash-exp",
-            "models/gemini-2.0-flash-exp-image-generation",
-            "models/gemini-2.0-flash-lite",
-            "models/gemini-2.0-flash-lite-001",
-            "models/gemini-2.0-flash-lite-preview",
-            "models/gemini-2.0-flash-lite-preview-02-05",
-            "models/gemini-2.0-flash-live-001",
-            "models/gemini-2.0-flash-preview-image-generation",
-            "models/gemini-2.0-flash-thinking-exp",
-            "models/gemini-2.0-flash-thinking-exp-01-21",
-            "models/gemini-2.0-flash-thinking-exp-1219",
-            "models/gemini-2.0-pro-exp",
-            "models/gemini-2.0-pro-exp-02-05",
-            "models/gemini-2.5-flash",
-            "models/gemini-2.5-flash-exp-native-audio-thinking-dialog",
-            "models/gemini-2.5-flash-image-preview",
-            "models/gemini-2.5-flash-lite",
-            "models/gemini-2.5-flash-lite-preview-06-17",
-            "models/gemini-2.5-flash-live-preview",
-            "models/gemini-2.5-flash-preview-05-20",
-            "models/gemini-2.5-flash-preview-native-audio-dialog",
-            "models/gemini-2.5-flash-preview-tts",
-            "models/gemini-2.5-pro",
-            "models/gemini-2.5-pro-preview-03-25",
-            "models/gemini-2.5-pro-preview-05-06",
-            "models/gemini-2.5-pro-preview-06-05",
-            "models/gemini-2.5-pro-preview-tts",
-            "models/gemini-embedding-001",
-            "models/gemini-embedding-exp",
-            "models/gemini-embedding-exp-03-07",
-            "models/gemini-exp-1206",
-            "models/gemini-live-2.5-flash-preview",
-            "models/gemma-3-12b-it",
-            "models/gemma-3-1b-it",
-            "models/gemma-3-27b-it",
-            "models/gemma-3-4b-it",
-            "models/gemma-3n-e2b-it",
-            "models/gemma-3n-e4b-it",
-            "models/imagen-3.0-generate-002",
-            "models/imagen-4.0-fast-generate-001",
-            "models/imagen-4.0-generate-001",
-            "models/imagen-4.0-generate-preview-06-06",
-            "models/imagen-4.0-ultra-generate-001",
-            "models/imagen-4.0-ultra-generate-preview-06-06",
-            "models/learnlm-2.0-flash-experimental",
-            "models/lyria-realtime-exp",
-            "models/text-embedding-004",
-            "models/veo-2.0-generate-001",
-            "models/veo-3.0-fast-generate-preview",
-            "models/veo-3.0-generate-preview"
-        ],
-        "model.menu.api_key": "AIzaSyCjMapYKQI8_Ft6L08GqU4Is_gxjHrhz-Q"
-    },
-    "option_values": {
-        "tools": {
-            "config": {
-                "RunJavaScript": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Summarize": {
-                    "provider": "",
-                    "run_confirmation": false,
-                    "provider_info": {},
-                    "model": "",
-                    "temperature": 0.2,
-                    "run_notification": true,
-                    "api_key": "",
-                    "url": ""
-                },
-                "Pythonista": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Mail": {
-                    "run_confirmation": false,
-                    "run_notification": true,
-                    "preview": true
-                },
-                "DeepResearch": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Weather": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Alarms": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Contacts": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "RecipeCataloger": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Calendar": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Messages": {
-                    "run_confirmation": false,
-                    "run_notification": true,
-                    "preview": true
-                },
-                "Timers": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "AppStore": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Web": {
-                    "run_confirmation": false,
-                    "search_engine_id": "",
-                    "run_notification": true,
-                    "api_key": ""
-                },
-                "Memory": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Device": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Notes": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Reminders": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "VoiceMode": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "MorseCode": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Terminal": {
-                    "run_confirmation": false,
-                    "run_notification": true
-                },
-                "Maps": {
-                    "run_confirmation": false,
-                    "run_notification": true,
-                    "map_apps": "Maps, Google Maps, Waze"
-                }
-            },
-            "enabled": {
-                "RunJavaScript": true,
-                "Summarize": true,
-                "Pythonista": true,
-                "Mail": true,
-                "DeepResearch": true,
-                "Weather": true,
-                "Alarms": true,
-                "Contacts": true,
-                "Clock": true,
-                "Calendar": true,
-                "RecipeCataloger": true,
-                "Messages": true,
-                "Timers": true,
-                "AppStore": true,
-                "Web": true,
-                "Memory": true,
-                "Device": true,
-                "Notes": true,
-                "Reminders": true,
-                "VoiceMode": true,
-                "MorseCode": true,
-                "Terminal": true,
-                "Maps": true
-            },
-            "choose_tools": false,
-            "choose_select_all": true,
-            "install_tools": false,
-            "approve_tools": true
-        },
-        "model": {
-            "provider": "Google",
-            "reasoning_model": true,
-            "token_usage_notification": false,
-            "provider_info": {},
-            "model": "models/gemini-1.5-pro",
-            "temperature": 0.7,
-            "reasoning_effort": "low",
-            "api_key": "",
-            "url": "https://generativelanguage.googleapis.com/v1beta/openai"
-        },
-        "debug_logging": false,
-        "update_check_freq": "7"
-    }
+    "current_path": "model.menu.model.menu"
 };
 
 // iconDict needs to have 'Submenu' and 'quit_button' keys for the global icons.
@@ -1454,7 +1875,7 @@ const generateVCard = (key, item, pathPrefix, menuDict) => {
             } else if (item.type === 'EnumOption') {
                 // If the parent Enum item's value is `key`, then set icon to `icon['true']` otherwise `icon['false']`
                 const parentEnumItem = getDescendantProp(menuDict, pathPrefix.replace(/\.menu$/, ''));
-                const bool_value = parentEnumItem.value === key;
+                const bool_value = parentEnumItem.value === key.replace(/__dot__/g, '.');
                 if (iconDict[item.icon]) {
                     const radiomark = bool_value ? '🔘' : '⚪';
                     vCardParts[2] = `N;CHARSET=UTF-8:${radiomark} ${title};`;
