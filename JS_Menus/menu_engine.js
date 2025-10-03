@@ -1640,7 +1640,7 @@ const menuDictIn = {
 };
 
 const stateDict = {
-    "current_path": "model.menu.model.menu"
+    "current_path": "model.menu.provider_info.menu"
 };
 
 // iconDict needs to have 'Submenu' and 'quit_button' keys for the global icons.
@@ -2113,7 +2113,12 @@ const processMenu = (menu, state) => {
     if (newPath) {
         const parentPath = newPath.substring(0, newPath.lastIndexOf('.'));
         const parentMenuItem = getDescendantProp(menuDict, parentPath);
-        finalState.parent_name = parentMenuItem && parentMenuItem.name ? parentMenuItem.name : "Main menu";
+        if (parentMenuItem && parentMenuItem.name) {
+            finalState.parent_name = parentMenuItem.name;
+            if (parentMenuItem.description) {
+                finalState.parent_name += " - " + parentMenuItem.description;
+            }
+        }
     }
     
     const returnObject = {
