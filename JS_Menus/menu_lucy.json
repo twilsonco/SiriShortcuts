@@ -742,6 +742,13 @@
                                         "description": "Offers a free tier",
                                         "url_get_api": "https://admin.mistral.ai/organization/api-keys",
                                         "url_api": "https://api.mistral.ai/v1"
+                                    },
+                                    "api_alter": {
+                                        "type": "Command",
+                                        "name": "Alter",
+                                        "description": "API access via the MacOS app, Alter. alterhq.com",
+                                        "url_get_api": "https://alterhq.com/docs#router",
+                                        "url_api": "https://alterhq.com/api/v1"
                                     }
                                 }
                             },
